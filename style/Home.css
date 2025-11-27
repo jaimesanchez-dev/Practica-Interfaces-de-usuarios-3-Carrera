@@ -191,7 +191,7 @@ h6 {
 
 .carrusel-track{
     display:flex;
-    gap: 20px;
+    gap: 2%;
     height: 100%;
     width: 100%;
     transition: transform 0.5s ease-in-out;
@@ -271,12 +271,7 @@ h6 {
     background-repeat: no-repeat;
     background-position: center; 
 }
-.f9{
-    background-image: url("https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QnVkYXBlc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; 
-}
+
 .carrusel-texto {
     position: absolute;
     bottom: 15px;
