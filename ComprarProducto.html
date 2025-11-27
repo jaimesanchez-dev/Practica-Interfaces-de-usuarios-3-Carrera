@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/Home.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <header class="header">
+
+        <img class="header-imagen" src="images/logo.png" alt="logo-web">
+        
+        <h2><a href="" target="_blank" data-i18n="inicio"> Inicio </a></h2>
+        <h2><a href="" target="_blank" data-i18n="destinos"> Destinos </a></h2>
+        <h2><a href="" target="_blank" data-i18n="consejos"> Consejos </a></h2>
+        <h2><a href="" target="_blank" data-i18n="perfil"> Perfil </a></h2>
+        <h2><a href="" target="_blank" data-i18n="contacto"> Contacto </a></h2>
+        
+        <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+
+        <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
+
+        <select class="header-moneda" name="moneda">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="YEN">YEN</option>
+        </select>
+        
+        <select class="header-idioma" name="idioma">
+            <option value="es" data-i18n="español">Español</option>
+            <option value="en" data-i18n="ingles">Inglés</option>
+        </select>
+
+    </header>
+
+
+    <main class="flex-main">
+        <div class="flex-producto">
+
+            <div class="producto-arriba">
+                <div class="producto-imagen-contenedor">
+                    <img class="producto-imagen" src="./images/producto1.jpg" alt="imagen-producto">
+                </div>
+
+                <div class="producto-detalles">
+
+                    <h2 class="producto-nombre" data-i18n="producto-nombre"></h2>
+                    <h4 class="producto-precio" data-i18n="producto-precio"></h4>
+                    <button class="producto-comprar-boton" type="button" data-i18n="comprar">Comprar</button>
+                    <p class="producto-descripcion" data-i18n="producto-descripcion">
+                        Esta mochila de viaje es perfecta para mochileros. Con capacidad de 50 litros, múltiples compartimentos y resistente al agua, es ideal para cualquier aventura.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="producto-abajo">
+                <label><input type="checkbox" id="barco">Barco</label>
+                <label><input type="checkbox" id="avion">Avión</label>
+                <label><input type="checkbox" id="autobus">Autobús</label>
+                <label><input type="checkbox" id="tren">Tren</label>
+            </div>
+
+        </div>
+        
+        <div class="flex-reseñas">
+
+
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-redes">
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
+        </div>
+  
+        <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
+        <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
+        <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
+
+    </footer>
+
+<script type="module" src="script/ComprarProducto.js"></script>
+</body>
+</html>
