@@ -239,14 +239,23 @@
 }
 
 .boton-corazon {
-    background: none;
     border: none;
+    background: none;
     cursor: pointer;
 }
-
 .boton-corazon img {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
+    height: auto;
+    transition: transform 0.2s;
+}
+.boton-corazon:hover img {
+    transform: scale(1.1);
+}
+
+.boton-corazon:active {
+    transform: scale(0.85);
+    transition: transform 0.1s ease;
 }
 
 .boton-compra {
