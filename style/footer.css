@@ -1,0 +1,36 @@
+.footer {
+    display: flex;
+    height: max-content;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    gap : 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 1%;
+    padding-top: 1% ;
+
+    box-sizing: border-box;
+    background-color: rgb(248, 201, 229);
+}
+
+
+.footer-redes {
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    width: 12%;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 10%;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-redes{
+    height: 45px;
+    width: 45px;
+}
