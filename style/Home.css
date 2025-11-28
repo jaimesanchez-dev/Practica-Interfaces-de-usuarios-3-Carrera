@@ -289,14 +289,14 @@ h6 {
 
 
 .experiencias {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 100%;
+    margin: 35px;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 40px;
     justify-items: center;
+    align-self: center;
 }
 
 .tarjeta-experiencia {
