@@ -1,0 +1,105 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    if (window.location.pathname.includes('Registro.html')) {
+        const registerForm = document.querySelector('.login-form');
+
+        function validarNombre(valor) {
+            const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+            return regex.test(valor) && valor.trim().length >= 3;
+        }
+
+        function validarApellidos(valor) {
+            const regex = /^([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})(\s+[A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})+$/;
+            return regex.test(valor.trim());
+        }
+
+        function validarPassword(valor) {
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=(?:.*\d){2,})(?=.*[^A-Za-z0-9]).{8,}$/;
+            return regex.test(valor);
+        }
+
+        if (registerForm) {
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nombreInput = document.getElementById('nombre');
+                const apellidosInput = document.getElementById('apellidos');
+                const usernameInput = document.getElementById('nombre_usuario');
+                const passwordInput = document.getElementById('contrasena');
+
+                const nombre = nombreInput.value.trim();
+                const apellidos = apellidosInput.value.trim();
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value;
+
+                if (!validarNombre(nombre)) {
+                    alert("El campo Nombre solo puede contener letras y debe tener al menos 3 caracteres.");
+                    nombreInput.focus();
+                    return;
+                }
+
+                if (!validarApellidos(apellidos)) {
+                    alert("Debes escribir al menos dos apellidos, cada uno con al menos 3 letras.");
+                    apellidosInput.focus();
+                    return;
+                }
+
+                if (!validarPassword(password)) {
+                    alert("La contraseña debe tener al menos 8 caracteres, 2 números, 1 carácter especial, 1 mayúscula y 1 minúscula.");
+                    passwordInput.focus();
+                    return;
+                }
+
+                if (username && password) {
+                    if (localStorage.getItem('user_' + username)) {
+                        alert('El usuario ya existe.');
+                        return;
+                    }
+
+                    const userData = {
+                        nombre: nombre,
+                        apellidos: apellidos,
+                        username: username,
+                        password: password
+                    };
+                    localStorage.setItem('user_' + username, JSON.stringify(userData));
+
+                    alert('Registro exitoso! Ahora puedes iniciar sesión.');
+                    window.location.href = 'InicioSesion.html';
+                } else {
+                    alert('Por favor, rellena todos los campos obligatorios.');
+                }
+            });
+        }
+    }
+
+    if (window.location.pathname.includes('InicioSesion.html')) {
+        const loginForm = document.querySelector('.login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const usernameInput = document.getElementById('nombre');
+                const passwordInput = document.getElementById('contrasena');
+
+                const username = usernameInput.value;
+                const password = passwordInput.value;
+
+                const storedData = localStorage.getItem('user_' + username);
+
+                if (storedData) {
+                    const userData = JSON.parse(storedData);
+                    if (userData.password === password) {
+                        alert('Inicio de sesión exitoso!');
+                        localStorage.setItem('currentUser', username);
+                        window.location.href = 'Home.html';
+                    } else {
+                        alert('Contraseña incorrecta.');
+                    }
+                } else {
+                    alert('Usuario no encontrado.');
+                }
+            });
+        }
+    }
+});

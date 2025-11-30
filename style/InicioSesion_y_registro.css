@@ -1,0 +1,75 @@
+.login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/San Francisco, United States.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.login-tarjeta {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: -10px;
+}
+
+.registro-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    outline: none;
+}
+
+.registro-input::placeholder {
+    color: #aaa;
+}
+
+.registro-input:focus {
+    border-color: #821eda;
+}
+
+.btn-signin {
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-signin:hover {
+    background-color: #555;
+}
+
+.forgot-password {
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    text-decoration: underline;
+    margin-top: 10px;
+}

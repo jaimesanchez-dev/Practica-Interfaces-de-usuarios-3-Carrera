@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/InicioSesion_y_registro.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/general.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <img class="header-imagen" src="images/logo.png" alt="logo-web">
+
+        <h2><a href="" target="_blank" data-i18n="inicio"> Inicio </a></h2>
+        <h2><a href="" target="_blank" data-i18n="destinos"> Destinos </a></h2>
+        <h2><a href="" target="_blank" data-i18n="consejos"> Consejos </a></h2>
+        <h2><a href="" target="_blank" data-i18n="perfil"> Perfil </a></h2>
+        <h2><a href="" target="_blank" data-i18n="contacto"> Contacto </a></h2>
+
+        <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+        <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
+
+        <select class="header-moneda" name="moneda">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="YEN">YEN</option>
+        </select>
+
+        <select class="header-idioma" name="idioma">
+            <option value="es" data-i18n="español">Español</option>
+            <option value="en" data-i18n="ingles">Inglés</option>
+        </select>
+    </header>
+
+    <main class="login">
+        <div class="login-tarjeta">
+            <form class="login-form">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="registro-input" name="nombre" id="nombre" placeholder="Usuario">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="registro-input" name="apellidos" id="apellidos" placeholder="Apellidos">
+                <label for="nombre_usuario">Nombre de usuario</label>
+                <input type="text" class="registro-input" name="nombre_usuario" id="nombre_usuario"
+                    placeholder="Nombre de usuario">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" class="registro-input" name="contrasena" id="contrasena"
+                    placeholder="Contraseña">
+
+                <button type="submit" class="btn-signin">Sign In</button>
+
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-redes">
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
+                    src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
+                    alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
+                    alt="logo youtube"></a>
+        </div>
+
+        <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
+        <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
+        <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
+    </footer>
+    <script src="./script/auth.js"></script>
+</body>
+
+</html>

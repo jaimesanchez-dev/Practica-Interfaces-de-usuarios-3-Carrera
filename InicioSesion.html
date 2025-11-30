@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mochileros Sin Fronteras</title>
-    <link rel="stylesheet" href="./style/InicioSesion.css">
+    <link rel="stylesheet" href="./style/InicioSesion_y_registro.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/general.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,19 +16,16 @@
 </head>
 
 <body>
-    
     <header class="header">
-
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
-        
+
         <h2><a href="" target="_blank" data-i18n="inicio"> Inicio </a></h2>
         <h2><a href="" target="_blank" data-i18n="destinos"> Destinos </a></h2>
         <h2><a href="" target="_blank" data-i18n="consejos"> Consejos </a></h2>
         <h2><a href="" target="_blank" data-i18n="perfil"> Perfil </a></h2>
         <h2><a href="" target="_blank" data-i18n="contacto"> Contacto </a></h2>
-        
-        <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
 
+        <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
         <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
 
         <select class="header-moneda" name="moneda">
@@ -32,45 +33,45 @@
             <option value="USD">USD</option>
             <option value="YEN">YEN</option>
         </select>
-        
+
         <select class="header-idioma" name="idioma">
             <option value="es" data-i18n="español">Español</option>
             <option value="en" data-i18n="ingles">Inglés</option>
         </select>
-
     </header>
-    
-    <main class="flex-main">
 
-        <div class="form-contenedor">
-            <form class="form-inicio-sesion">
+    <main class="login">
+        <div class="login-tarjeta">
+            <form class="login-form">
+                <label for="nombre">Nombre de usuario</label>
+                <input type="text" class="registro-input" name="nombre" id="nombre" placeholder="Usuario">
 
-                <h2 data-i18n="iniciosesion">Inicio de sesión</h2>
+                <label for="contrasena">Contraseña</label>
+                <input type="password" class="registro-input" name="contrasena" id="contrasena"
+                    placeholder="Contraseña">
 
-                <label for="email" data-i18n="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
+                <button type="submit" class="btn-signin">Sign In</button>
 
-                <label for="password" data-i18n="contraseña">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button class="boton-ini-sesion" type="submit" data-i18n="entrar">Entrar</button>
-
+                <a href="#" class="forgot-password">Forgot password?</a>
             </form>
         </div>
     </main>
 
-
     <footer class="footer">
         <div class="footer-redes">
-            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
-            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
-            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
+                    src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
+                    alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
+                    alt="logo youtube"></a>
         </div>
-  
+
         <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
         <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
         <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
-
     </footer>
+    <script src="./script/auth.js"></script>
 </body>
+
 </html>
