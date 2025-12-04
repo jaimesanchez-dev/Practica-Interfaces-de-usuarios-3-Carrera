@@ -17,7 +17,6 @@
 <body>
     
     <header class="header">
-
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
         
         <h2><a href="Home.html" target="_blank" data-i18n="inicio"> Inicio </a></h2>
@@ -26,21 +25,23 @@
         <h2><a href="" target="_blank" data-i18n="perfil"> Perfil </a></h2>
         <h2><a href="" target="_blank" data-i18n="contacto"> Contacto </a></h2>
         
-        <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+        <div class="grupo-botones">
+            <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+            <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
+        </div>
 
-        <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
-
-        <select class="header-moneda" name="moneda">
-            <option value="EUR">EUR</option>
-            <option value="USD">USD</option>
-            <option value="YEN">YEN</option>
-        </select>
-        
-        <select class="header-idioma" name="idioma">
-            <option value="es" data-i18n="español">Español</option>
-            <option value="en" data-i18n="ingles">Inglés</option>
-        </select>
-
+        <div class="grupo-selectores">
+            <select class="header-moneda" name="moneda">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="YEN">YEN</option>
+            </select>
+            
+            <select class="header-idioma" name="idioma">
+                <option value="es" data-i18n="español">Español</option>
+                <option value="en" data-i18n="ingles">Inglés</option>
+            </select>
+        </div>
     </header>
     
     <main class="flex-main">
