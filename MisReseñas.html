@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mochileros Sin Fronteras</title>
-    <link rel="stylesheet" href="./style/InicioSesion_y_registro.css">
-    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/MisReseñas.css">
     <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/general.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +15,7 @@
 </head>
 
 <body>
+    
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
         
@@ -43,39 +43,26 @@
             </select>
         </div>
     </header>
+    
+    <main class="flex-main">
 
-    <main class="login">
-        <div class="login-tarjeta">
-            <form class="login-form">
-                <label for="nombre">Nombre de usuario</label>
-                <input type="text" class="registro-input" name="nombre" id="nombre" placeholder="Usuario">
 
-                <label for="contrasena">Contraseña</label>
-                <input type="password" class="registro-input" name="contrasena" id="contrasena"
-                    placeholder="Contraseña">
 
-                <button type="submit" class="btn-signin">Sign In</button>
-
-                <a href="#" class="forgot-password">Forgot password?</a>
-            </form>
-        </div>
     </main>
-
+    
     <footer class="footer">
         <div class="footer-redes">
-            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
-                    src="./images/instagram-logo.png" alt="logo instagram"></a>
-            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
-                    alt="logo tiktok"></a>
-            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
-                    alt="logo youtube"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
         </div>
-
+  
         <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
         <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
         <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
-    </footer>
-    <script src="./script/auth.js"></script>
-</body>
 
+    </footer>
+
+<script type="module" src="script/MisReseñas.js"></script>
+</body>
 </html>

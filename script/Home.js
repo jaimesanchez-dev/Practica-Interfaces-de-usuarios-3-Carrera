@@ -1,8 +1,14 @@
 // Home.js
 import { iniciarCarrusel } from './carrusel.mjs';
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
+import { mostrarPerfilUsuario } from './usuario.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+        mostrarPerfilUsuario(user);
+    }
+
     iniciarCarrusel();
     const traducciones = {
     es: {
