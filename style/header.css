@@ -23,9 +23,9 @@
 }
 
 .header-idioma, .header-moneda {
-    border: 1px solid black;
+    border: 1px solid rgb(216, 172, 255);
     border-radius: 15px;
-    padding: 5px;
+    padding: 7px;
     background-color: rgb(216, 172, 255);
 }
 

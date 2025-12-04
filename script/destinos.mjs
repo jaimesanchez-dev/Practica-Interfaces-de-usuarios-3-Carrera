@@ -1,27 +1,37 @@
 // destinos.mjs
 export function rellenar_info_destino() {
-    JSON.parse(localStorage.getItem("destinoSeleccionado"));
+    const destino = JSON.parse(localStorage.getItem("destinoSeleccionado"));
     const datos = JSON.parse(localStorage.getItem("ciudadesJSON")); // tu JSON completo
-    const { ciudad, pais } = destino;
+    
+    if (!destino || !datos) return;
 
+    const { ciudad, pais, continente } = destino;
     let ciudadEncontrada;
 
-    for (const continente of datos.continents) {
-    for (const country of continente.countries) {
-        if (country.name === pais) {
-        ciudadEncontrada = country.cities.find(c => c.name === ciudad);
-        break;
+    for (const cont of datos.continents) {
+        if (cont.name === continente){
+            for (const country of cont.countries) {
+                if (country.name === pais) {
+                ciudadEncontrada = country.cities.find(c => c.name === ciudad);
+                break;
+                }
+            }
         }
-    }
     if (ciudadEncontrada) break;
     }
 
     if (ciudadEncontrada) {
-    document.querySelector(".producto-nombre").textContent = `${ciudad} - ${pais}`;
+    document.querySelector(".producto-nombre").textContent = `${ciudad} , ${pais}`;
+    document.querySelector(".producto-precio").textContent = `${ciudadEncontrada.precio} €`;
     document.querySelector(".producto-descripcion").textContent = ciudadEncontrada.description;
     document.querySelector(".producto-imagen").src = ciudadEncontrada.image.url;
     document.querySelector(".producto-imagen").alt = ciudadEncontrada.image.alt;
+    
+    const listaTransportes = ciudadEncontrada.transportes || [];
 
-    // Aquí podrías rellenar los transportes si añadiste ese campo al JSON
+    document.querySelectorAll(".caracteristica").forEach(checkbox => {
+            checkbox.checked = listaTransportes.includes(checkbox.value);
+        });
+
     }
 }

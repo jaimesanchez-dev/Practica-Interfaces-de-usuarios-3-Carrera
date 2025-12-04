@@ -1,44 +1,22 @@
 // ComprarProducto.js
 
 import { boton_estrellas, boton_lista_favoritos  } from './botones_interactivos.mjs';
-import { rellenar_info_destino } from './info_destino.mjs';
+import { rellenar_info_destino } from './destinos.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // Cargamos el JSON de ciudades
+    const res = await fetch("../ciudades-del-mundo.json");
+    const data = await res.json();
+
+    // Obtenemos el destino guardado en la pagina de GaleriaDestinos
+    const destino = JSON.parse(localStorage.getItem("destinoSeleccionado"));
+    if (!destino) return;
+
+    // Guardar JSON completo en el localStorage para usarlo en otras páginas y asi que no tenga que volver a cargarlo
+    localStorage.setItem("ciudadesJSON", JSON.stringify(data));
+
     rellenar_info_destino();
     boton_estrellas();
     boton_lista_favoritos();
-
-});
-
-document.addEventListener("DOMContentLoaded", async () => {
-    // Cargar el JSON
-    const res = await fetch("viajes.json");
-    const data = await res.json();
-
-    // Elegir el viaje que quieres mostrar
-    const destino = JSON.parse(localStorage.getItem("destinoSeleccionado"));
-    let viaje;
-    
-    outer: for (const continente of data.continents) {
-        for (const pais of continente.countries) {
-            for (const ciudad of pais.cities) {
-                if (ciudad.name === destino) {
-                    viaje = ciudad;
-                    break outer;
-                }
-            }
-        }
-    }
-
-    if (!viaje) return;
-
-    // Ahora rellenamos los checkboxes según transporte
-    // Suponiendo que luego agregues un array tipo viaje.transportes = ["avion", "tren"];
-    const listaTransportes = viaje.transportes || [];
-
-    document.querySelectorAll(".caracteristica").forEach(checkbox => {
-        if (listaTransportes.includes(checkbox.value)) {
-            checkbox.checked = true;
-        }
-    });
 });

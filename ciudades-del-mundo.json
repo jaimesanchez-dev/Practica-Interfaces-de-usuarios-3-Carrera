@@ -13,7 +13,8 @@
                 "url": "https://images.unsplash.com/photo-1731223832507-ebe5373129e6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dmllbmElMkMlMjBhdXRyaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Viena"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1504"
             }
           ]
         },
@@ -27,7 +28,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661963659103-9602b3811297?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
                 "alt": "Brujas"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "774"
             }
           ]
         },
@@ -41,7 +43,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1691414363231-836e2e1bf0ed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29wZW5oYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Copenhague"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "3270"
             }
           ]
         },
@@ -55,7 +58,8 @@
                 "url": "https://images.unsplash.com/photo-1611576191056-3e6696029388?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGl1YmxpYW5hfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Liubliana"
               },
-              "transportes": ["tren", "autobus"]
+              "transportes": ["tren", "autobus"],
+              "precio": "2660"
             }
           ]
         },
@@ -69,7 +73,8 @@
                 "url": "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmFyY2Vsb25hfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Barcelona"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1470"
             },
             {
               "name": "Sevilla",
@@ -78,7 +83,8 @@
                 "url": "https://images.unsplash.com/photo-1559564477-6e8582270002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2V2aWxsYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Sevilla"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1780"
             }
           ]
         },
@@ -92,7 +98,8 @@
                 "url": "https://images.unsplash.com/photo-1709862366377-54b16f3e51f9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFsbGlufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Tallin"
               },
-              "transportes": ["tren", "autobus"]
+              "transportes": ["tren", "autobus"],
+              "precio": "1030"
             }
           ]
         },
@@ -106,7 +113,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "París"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "860"
             }
           ]
         },
@@ -120,7 +128,8 @@
                 "url": "https://images.unsplash.com/photo-1565426873118-a17ed65d74b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QnVkYXBlc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Budapest"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "3080"
             }
           ]
         },
@@ -134,7 +143,8 @@
                 "url": "https://images.unsplash.com/photo-1476362174823-3a23f4aa6d76?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxvcmVuY2lhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Florencia"
               },
-              "transportes": ["avion", "tren", "autobus", "barco"]
+              "transportes": ["avion", "tren", "autobus", "barco"],
+              "precio": "1720"
             },
             {
               "name": "Roma",
@@ -143,7 +153,8 @@
                 "url": "https://images.unsplash.com/photo-1529154036614-a60975f5c760?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Roma"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "2130"
             },
             {
               "name": "Venecia",
@@ -152,7 +163,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661963047742-dabc5a735357?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dmVuZWNpYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Venecia"
               },
-              "transportes": ["autobus", "barco"]
+              "transportes": ["autobus", "barco"],
+              "precio": "3300"
             }
           ]
         },
@@ -166,7 +178,8 @@
                 "url": "https://images.unsplash.com/photo-1560365337-6f42f70dd874?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGElMjB2YWxldGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "La Valeta"
               },
-              "transportes": ["avion", "barco"]
+              "transportes": ["avion", "barco"],
+              "precio": "2180"
             }
           ]
         },
@@ -180,7 +193,8 @@
                 "url": "https://images.unsplash.com/photo-1643193388440-50fae300e1da?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QmVyZ2VuJTIwbm9ydWVnYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Bergen"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "690"
             }
           ]
         },
@@ -194,7 +208,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661878122586-2d75a86f3400?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUMzJTgxbXN0ZXJkYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Ámsterdam"
               },
-              "transportes": ["avion", "tren", "autobus", "barco"]
+              "transportes": ["avion", "tren", "autobus", "barco"],
+              "precio": "3320"
             }
           ]
         },
@@ -208,7 +223,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1677344087971-91eee10dfeb1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3BvcnRvJTIwcG9ydHVnYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Oporto"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "3130"
             }
           ]
         },
@@ -222,7 +238,8 @@
                 "url": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9uZHJlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Londres"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1230"
             },
             {
               "name": "Edimburgo",
@@ -231,7 +248,8 @@
                 "url": "https://images.unsplash.com/photo-1569668444050-b7bc2bfec0c7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWRpbmJ1cmdvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Edimburgo"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "2190"
             }
           ]
         },
@@ -245,7 +263,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661963067279-2f7bf970c49c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJhZ2F8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Praga"
               },
-              "transportes": ["avion", "tren", "autobus", "barco"]
+              "transportes": ["avion", "tren", "autobus", "barco"],
+              "precio": "600"
             }
           ]
         },
@@ -259,7 +278,8 @@
                 "url": "https://images.unsplash.com/photo-1635855296516-837d8b00cae7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8THVjZXJuYSUyMHN1aXphfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Lucerna"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1060"
             },
             {
               "name": "Zúrich",
@@ -268,7 +288,8 @@
                 "url": "https://images.unsplash.com/photo-1620563092215-0fbc6b55cfc5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
                 "alt": "Zúrich"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "2800"
             }
           ]
         },
@@ -282,7 +303,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661962984700-16b03ecda58a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmVpa2lhdmlrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Reikiavik"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "1920"
             }
           ]
         }
@@ -301,7 +323,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1723433351351-0f6cd5d21537?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmVpamluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Beijing"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "960"
             },
             {
               "name": "Hong Kong",
@@ -310,7 +333,8 @@
                 "url": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9uZyUyMGtvbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Hong Kong"
               },
-              "transportes": ["avion", "tren", "autobus"]
+              "transportes": ["avion", "tren", "autobus"],
+              "precio": "1240"
             }
           ]
         },
@@ -324,7 +348,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661936414165-3039a8d906f9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2V1bHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Seúl"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "2280"
             }
           ]
         },
@@ -338,7 +363,8 @@
                 "url": "https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SmFpcHVyJTIwaW5kaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Jaipur"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "2440"
             }
           ]
         },
@@ -352,7 +378,8 @@
                 "url": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2lvdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Kioto"
               },
-              "transportes": ["avion", "tren", "autobus", "barco"]
+              "transportes": ["avion", "tren", "autobus", "barco"],
+              "precio": "1780"
             }
           ]
         },
@@ -366,7 +393,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661882477461-20d16af70819?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8THVhbmclMjBQcmFiYW5nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Luang Prabang"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "1450"
             }
           ]
         },
@@ -380,7 +408,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661963342411-11bc8489a1fe?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmVpcnV0JTIwbGliYW5vfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Beirut"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "2410"
             }
           ]
         },
@@ -394,7 +423,8 @@
                 "url": "https://images.unsplash.com/photo-1725600462847-0317804cc466?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TWFzY2F0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Mascate"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "2800"
             }
           ]
         },
@@ -408,7 +438,8 @@
                 "url": "https://images.unsplash.com/photo-1539475314840-751cecc1dacd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RG9oYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Doha"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "880"
             }
           ]
         },
@@ -422,7 +453,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1661929242720-140374d97c94?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hpYW5nJTIwTWFpfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Chiang Mai"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "960"
             }
           ]
         },
@@ -436,7 +468,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1691960159290-6f4ace6e6c4c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SGFub2l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Hanoi"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "1220"
             }
           ]
         },
@@ -450,7 +483,8 @@
                 "url": "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2luZ2Fwb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Singapur"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "1870"
             }
           ]
         }
@@ -469,7 +503,8 @@
                 "url": "https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
                 "alt": "Chefchaouen"
               },
-              "transportes": ["avion", "barco"]
+              "transportes": ["avion", "barco"],
+              "precio": "3310"
             }
           ]
         },
@@ -483,7 +518,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1697730061063-ad499e343f26?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2l1ZGFkJTIwZGVsJTIwQ2Fib3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Ciudad del Cabo"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "1790"
             }
           ]
         }
@@ -502,7 +538,8 @@
                 "url": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UyVDMyVBRGRuZXl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Sídney"
               },
-              "transportes": ["avion", "barco"]
+              "transportes": ["avion", "barco"],
+              "precio": "2160"
             }
           ]
         },
@@ -516,7 +553,8 @@
                 "url": "https://images.unsplash.com/photo-1600466403153-50193d187dde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UXVlZW5zdG93bnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Queenstown"
               },
-              "transportes": ["avion", "autobus", "tren"]
+              "transportes": ["avion", "autobus", "tren"],
+              "precio": "820"
             }
           ]
         }
@@ -535,7 +573,8 @@
                 "url": "https://images.unsplash.com/photo-1576771304215-6d4d30f7bb63?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fENpdWRhZCUyMGRlJTIwUXVlYmVjfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Ciudad de Quebec"
               },
-              "transportes": ["avion", "autobus", "tren"]
+              "transportes": ["avion", "autobus", "tren"],
+              "precio": "2750"
             }
           ]
         },
@@ -549,7 +588,8 @@
                 "url": "https://images.unsplash.com/photo-1570299437488-d430e1e677c7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGElMjBIYWJhbmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "La Habana"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "710"
             }
           ]
         },
@@ -563,7 +603,8 @@
                 "url": "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TnVldmElMjBZb3JrfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "Nueva York"
               },
-              "transportes": ["avion", "autobus", "tren"]
+              "transportes": ["avion", "autobus", "tren"],
+              "precio": "2090"
             },
             {
               "name": "San Francisco",
@@ -572,7 +613,8 @@
                 "url": "https://images.unsplash.com/photo-1719858403364-83f7442a197e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U2FuJTIwRnJhbmNpc2NvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "San Francisco"
               },
-              "transportes": ["avion", "autobus", "tren"]
+              "transportes": ["avion", "autobus", "tren"],
+              "precio": "2330"
             }
           ]
         },
@@ -586,7 +628,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1697729800872-866107ce82c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U2FuJTIwTWlndWVsJTIwZGUlMjBBbGxlbmRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
                 "alt": "San Miguel de Allende"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "2470"
             }
           ]
         }
@@ -605,7 +648,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1697729901052-fe8900e24993?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVlbm9zJTIwQWlyZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Buenos Aires"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "2840"
             }
           ]
         },
@@ -619,7 +663,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1671211307997-f4f552b0601c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UiVDMyVBRG8lMjBkZSUyMEphbmVpcm98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Río de Janeiro"
               },
-              "transportes": ["avion", "autobus", "barco"]
+              "transportes": ["avion", "autobus", "barco"],
+              "precio": "2280"
             }
           ]
         },
@@ -633,7 +678,8 @@
                 "url": "https://images.unsplash.com/photo-1583531352515-8884af319dc1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2FydGFnZW5hJTIwY29sb21iaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Cartagena"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "2780"
             }
           ]
         },
@@ -647,7 +693,8 @@
                 "url": "https://plus.unsplash.com/premium_photo-1697729921570-a7e324d7baac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UXVpdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Quito"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "2450"
             }
           ]
         },
@@ -661,7 +708,8 @@
                 "url": "https://images.unsplash.com/photo-1609944433409-81bda5323abc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3V6Y298ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 "alt": "Cuzco"
               },
-              "transportes": ["avion", "autobus"]
+              "transportes": ["avion", "autobus"],
+              "precio": "550"
             }
           ]
         }

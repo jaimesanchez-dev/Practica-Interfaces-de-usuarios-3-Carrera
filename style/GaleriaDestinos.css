@@ -1,0 +1,87 @@
+.filtros_y_buscador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.filtros_transportes {
+    display: flex;
+    gap: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.filtros_transportes label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buscador_destinos input {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 250px;
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.filtro_continentes select {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #EADDFF;
+    background-color: #EADDFF;
+}
+
+
+
+.galeria-destinos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.tarjeta-destino {
+    background: #f3e5ff;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.tarjeta-destino:hover {
+    transform: scale(1.03);
+}
+
+.imagen-destino {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.nombre-destino {
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+.precio-destino {
+    margin-top: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+/* Ajuste Responsive: Si la pantalla es pequeña, pon los filtros en columna */
+@media (max-width: 900px) {
+    .filtros_y_buscador {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
