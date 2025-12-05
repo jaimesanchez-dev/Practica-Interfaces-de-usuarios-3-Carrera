@@ -1,0 +1,77 @@
+/* Favoritos.css */
+
+body {
+    background-color: #FAEEFC;
+}
+
+.favoritos-container {
+    padding: 40px 80px;
+    min-height: 60vh;
+}
+
+.titulo-favoritos {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.grid-favoritos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 60px;
+}
+
+.favorito-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.boton-corazon-fav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    min-width: 50px;
+}
+
+.boton-corazon-fav img {
+    width: 45px;
+    height: auto;
+    transition: transform 0.2s;
+}
+
+.boton-corazon-fav:hover img {
+    transform: scale(1.1);
+}
+
+.favorito-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.favorito-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.favorito-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .grid-favoritos {
+        grid-template-columns: 1fr;
+    }
+
+    .favoritos-container {
+        padding: 20px;
+    }
+}

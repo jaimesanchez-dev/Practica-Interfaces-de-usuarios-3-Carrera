@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de favoritos - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/Home.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/general.css">
+    <link rel="stylesheet" href="./style/Favoritos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <img class="header-imagen" src="images/logo.png" alt="logo-web">
+
+        <h2><a href="Home.html" data-i18n="inicio"> Inicio </a></h2>
+        <h2><a href="#" data-i18n="destinos"> Destinos </a></h2>
+        <h2><a href="#" data-i18n="consejos"> Consejos </a></h2>
+        <h2><a href="#" data-i18n="perfil"> Perfil </a></h2>
+        <h2><a href="#" data-i18n="contacto"> Contacto </a></h2>
+
+        <div class="grupo-botones">
+            <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+            <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
+        </div>
+
+        <div class="grupo-selectores">
+            <select class="header-moneda" name="moneda">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="YEN">YEN</option>
+            </select>
+
+            <select class="header-idioma" name="idioma">
+                <option value="es" data-i18n="español">Español</option>
+                <option value="en" data-i18n="ingles">Inglés</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="flex-main">
+
+        <div class="favoritos-container">
+            <h1 class="titulo-favoritos" data-i18n="lista_deseados">Lista de deseados:</h1>
+
+            <div id="lista-favoritos" class="grid-favoritos">
+                <!-- Se llena con JS -->
+                <p id="mensaje-vacio" style="display:none;" data-i18n="sin_favoritos">No tienes favoritos aún.</p>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-redes">
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
+                    src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
+                    alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
+                    alt="logo youtube"></a>
+        </div>
+
+        <h3><a href="" data-i18n="politica"> Política de Privacidad </a></h3>
+        <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
+        <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
+
+    </footer>
+
+    <script type="module" src="script/Favoritos.js"></script>
+</body>
+
+</html>
