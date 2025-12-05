@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             const res = await fetch("ciudades-del-mundo.json");
             countriesData = await res.json();
-            // Cache it for future use logic
             localStorage.setItem("ciudadesJSON", JSON.stringify(countriesData));
         }
     } catch (e) {
