@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const user = localStorage.getItem('currentUser');
     if (user) {
         mostrarPerfilUsuario(user);
+    } else{
+        const boton_inicio = document.querySelector(".boton-ini");
+        boton_inicio.addEventListener("click", () => { window.location.href = "InicioSesion.html"; });
+
+        const boton_registro = document.querySelector(".boton-reg");
+        boton_registro.addEventListener("click", () => { window.location.href = "Registro.html"; });
     }
 
     iniciarCarrusel();
@@ -78,12 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     cargar_idioma(traducciones);
 
-    const boton_inicio = document.querySelector(".boton-ini");
-    boton_inicio.addEventListener("click", () => { window.location.href = "InicioSesion.html"; });
-
-    const boton_registro = document.querySelector(".boton-reg");
-    boton_registro.addEventListener("click", () => { window.location.href = "Registro.html"; });
-
 
     const selector = document.querySelector(".header-idioma");
     if (selector) {
@@ -95,80 +95,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const carrusel1 = document.getElementById("b1");
-    const carrusel2 = document.getElementById("b2");
-    const carrusel3 = document.getElementById("b3");
-    const carrusel4 = document.getElementById("b4");
-    const carrusel5 = document.getElementById("b5");
-    const carrusel6 = document.getElementById("b6");
-    const carrusel7 = document.getElementById("b7");
-    const carrusel8 = document.getElementById("b8");
+    for (let i = 1; i <= 8; i++) {
+        const boton = document.getElementById(`b${i}`);
+        // Si por algun motivo no existe el boton, saltamos a la siguiente iteracion
+        if (!boton) continue;
 
-    carrusel1.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "1");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel2.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "2");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel3.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "3");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel4.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "4");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel5.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "5");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel6.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "6");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel7.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "7");
-        window.location.href = "ComprarProducto.html";
-    });
-    carrusel8.addEventListener("click", () => {
-        localStorage.setItem("carrusel", "8");
-        window.location.href = "ComprarProducto.html";
-    });
+        boton.addEventListener("click", () => {
+            // Cogemos el nombre de la ciudad del h3 dentro del botón, que es el primer texto antes de la coma
+            // y eliminamos posibles espacios en blanco alrededor con trim()
+            const nombre_ciudad = boton.querySelector("h3").textContent.split(",")[0].trim();
 
+            localStorage.setItem("destinoSeleccionado", nombre_ciudad);
+            window.location.href = "ComprarProducto.html";
+        });
+    }
 
-    const compra1 = document.getElementById("c1");
-    const compra2 = document.getElementById("c2");
-    const compra3 = document.getElementById("c3");
-    const compra4 = document.getElementById("c4");
-    const compra5 = document.getElementById("c5");
-    const compra6 = document.getElementById("c6");
+    for (let i = 1; i <= 6; i++) {
+        const boton = document.querySelector(`.c${i}`);
+        // Si por algun motivo no existe el boton, saltamos a la siguiente iteracion
+        if (!boton) continue;
 
-    compra1.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "1");
-        window.location.href = "ComprarProducto.html";
-    });
-    compra2.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "2");
-        window.location.href = "ComprarProducto.html";
-    });
-    compra3.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "3");
-        window.location.href = "ComprarProducto.html";
-    });
-    compra4.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "4");
-        window.location.href = "ComprarProducto.html";
-    });
-    compra5.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "5");
-        window.location.href = "ComprarProducto.html";
-    });
-    compra6.addEventListener("click", () => {
-        localStorage.setItem("experiencia", "6");
-        window.location.href = "ComprarProducto.html";
-    });
+        boton.addEventListener("click", () => {
+            // Accedemos al padre del botón (tarjeta-experiencia) y luego al h5 que contiene el nombre de la ciudad
+            const tarjeta = boton.closest(".tarjeta-experiencia");
+            const nombre_ciudad = tarjeta.querySelector(".tarjeta-experiencia-abajo")
+                                .textContent.split(",")[0].trim();
+
+            localStorage.setItem("destinoSeleccionado", nombre_ciudad);
+            window.location.href = "ComprarProducto.html";
+        });
+    }
 
 
 });

@@ -35,3 +35,28 @@ export function rellenar_info_destino() {
 
     }
 }
+
+export async function encontrarCiudad(nombre_ciudad) {
+    const response = await fetch('./ciudades-del-mundo.json');
+    const datospaises = await response.json();
+
+    // Buscar la ciudad en el JSON
+    for (const continente of datospaises.continents) {
+        for (const pais of continente.paises) {
+            for (const ciudad of pais.ciudades) {
+                if (ciudad.name.toLowerCase() === nombre_ciudad.toLowerCase()) {
+                    return { 
+                        // Devolvemos todos los datos de la ciudad
+                        nombre:ciudad.name,
+                        descripcion:ciudad.description,
+                        imagen:ciudad.image,
+                        transportes:ciudad.transportes,
+                        precio:ciudad.precio,
+                    };
+                }
+            }
+        }
+    }
+    //Si no se encuentra la ciudad, devolver null
+    return null;
+}

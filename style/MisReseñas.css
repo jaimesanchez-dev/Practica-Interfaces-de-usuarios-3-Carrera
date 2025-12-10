@@ -1,0 +1,8 @@
+.flex-main{
+    display: flex;
+    margin: 50px;
+}
+
+.flex-main h2{
+    font-weight: bold;
+}
