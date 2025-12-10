@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // Cargamos los favoritos
-    cargarFavoritos();
-    // Si se pulsa el boton del corazon, se elimina de los favoritos
-    eliminarFavorito();
+    await cargarFavoritos();
+    // eliminarFavorito() se llama dentro de cargarFavoritos() para reasignar eventos
 });
