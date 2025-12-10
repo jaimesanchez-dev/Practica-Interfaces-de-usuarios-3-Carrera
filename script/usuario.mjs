@@ -1,6 +1,6 @@
 // usuario.mjs
 
-export function mostrarPerfil(usuario) {
+export function mostrarPerfilUsuario(usuario) {
     const contenido = document.querySelector('.grupo-botones');
     const datos_usuario = localStorage.getItem('user_' + usuario);
     const foto = JSON.parse(datos_usuario).foto;
