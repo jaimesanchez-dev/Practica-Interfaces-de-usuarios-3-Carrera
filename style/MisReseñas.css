@@ -5,4 +5,6 @@
 
 .flex-main h2{
     font-weight: bold;
+    color: var(--color-texto-principal);
+    transition: color var(--transition-speed) ease;
 }

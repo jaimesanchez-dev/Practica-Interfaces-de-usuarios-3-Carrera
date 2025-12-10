@@ -1,7 +1,8 @@
 body {
-  background-color: white;
+  background-color: var(--color-fondo-blanco);
   margin: 0;
   padding: 0;
+  transition: background-color var(--transition-speed) ease;
 }
 
 .header {
@@ -14,17 +15,20 @@ body {
 .flex-main {
   padding: 20px 60px;
   margin: 0;
-  background-color: #e6d4f5;
+  background-color: var(--color-fondo-consejos);
+  transition: background-color var(--transition-speed) ease;
 }
 
 .flex-main h1 {
   margin: 30px 0 20px 0;
   font-weight: 700;
+  color: var(--color-texto-principal);
+  transition: color var(--transition-speed) ease;
 }
 
 .accordion {
-  background-color: #f0f0f0;
-  color: #666;
+  background-color: var(--color-fondo-input);
+  color: var(--color-texto-secundario);
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -32,19 +36,19 @@ body {
   text-align: left;
   outline: none;
   font-size: 15px;
-  transition: 0.4s;
+  transition: all 0.4s ease;
   margin-bottom: 5px;
   border-radius: 5px;
   font-weight: 500;
 }
 
 .active, .accordion:hover {
-  background-color: #d9bde9;
+  background-color: var(--color-morado-hover);
 }
 
 .accordion:after {
   content: '\002B';
-  color: #714e86;
+  color: var(--color-morado-principal);
   font-weight: bold;
   float: right;
   margin-left: 5px;
@@ -57,21 +61,25 @@ body {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: var(--color-fondo-blanco);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out,
+              background-color var(--transition-speed) ease;
   margin-bottom: 5px;
 }
 
 .panel p {
   padding: 15px 0;
-  color: #666;
+  color: var(--color-texto-secundario);
   font-weight: 400;
+  transition: color var(--transition-speed) ease;
 }
 
 .titulo-formulario {
   margin-top: 40px;
+  color: var(--color-texto-principal);
+  transition: color var(--transition-speed) ease;
 }
 
 .formulario-container {
@@ -84,34 +92,42 @@ body {
 .input-titulo {
   flex: 0 0 35%;
   padding: 12px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-borde);
   border-radius: 5px;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease,
+              background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
   font-family: "Quicksand", sans-serif;
+  background-color: var(--color-fondo-blanco);
+  color: var(--color-texto-principal);
 }
 
 .input-titulo:focus {
-  border-color: #999;
+  border-color: var(--color-texto-claro);
 }
 
 .input-descripcion {
   flex: 1;
   padding: 12px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-borde);
   border-radius: 5px;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease,
+              background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
   font-family: "Quicksand", sans-serif;
+  background-color: var(--color-fondo-blanco);
+  color: var(--color-texto-principal);
 }
 
 .input-descripcion:focus {
-  border-color: #999;
+  border-color: var(--color-texto-claro);
 }
 
 ::placeholder {
-  color: #999;
+  color: var(--color-texto-claro);
   opacity: 1;
 }
