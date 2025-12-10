@@ -34,11 +34,12 @@ export function boton_lista_favoritos() {
 
     boton.addEventListener("click", () => {
 
-        // Obtenemos el nombre del destino mostrado actualmente
-        const nombre = document.querySelector(".producto-nombre").innerText;
+        // Obtenemos el nombre del destino mostrado actualmente (solo la primera parte antes de la coma si la hay)
+        const nombreCompleto = document.querySelector(".producto-nombre").innerText;
+        const nombre = nombreCompleto.split(",")[0].trim();
 
-        // Obtenemos la descripción del destino
-        const descripcion = document.querySelector(".producto-descripcion").innerText;
+        // Ya no necesitamos la descripción aquí
+        // const descripcion = document.querySelector(".producto-descripcion").innerText;
 
         // Cargamos la lista de favoritos del localStorage y si no existe aún, devolvemos un array vacío
         let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
@@ -55,9 +56,9 @@ export function boton_lista_favoritos() {
         }
         else {
             // Añadimos un objeto con los datos del destino
+            // SOLO guardamos el nombre, la descripción se carga dinámicamente
             favoritos.push({
-                nombre,
-                descripcion
+                nombre
             });
             img.src = "images/corazon-negro-rojo.png";
         }
@@ -70,12 +71,13 @@ export function boton_lista_favoritos() {
 export function boton_favoritos_home() {
     const botones = document.querySelectorAll(".boton-corazon");
 
-    // Start with correct state
+    // Empieza con el estado correcto
     let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
     botones.forEach(boton => {
         const tarjeta = boton.closest(".tarjeta-experiencia");
         if (tarjeta) {
-            const nombre = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
+            const texto = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
+            const nombre = texto.split(",")[0].trim();
             if (favoritos.some(f => f.nombre === nombre)) {
                 const img = boton.querySelector("img");
                 img.src = "images/corazon-negro-rojo.png"; // Active state
@@ -86,26 +88,24 @@ export function boton_favoritos_home() {
 
     botones.forEach(boton => {
         boton.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevent triggering card click if any
+            e.stopPropagation(); // Previene que se active el evento de la tarjeta
             const img = boton.querySelector("img");
             const tarjeta = boton.closest(".tarjeta-experiencia");
-            const nombre = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
+            const texto = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
+            const nombre = texto.split(",")[0].trim();
 
-            // We can't easily get the description here without parsing more HTML or fetching JSON. 
-            // For now, let's just store the name. The Favorites page will fetch details from JSON based on name/ID.
-            // Wait, existing logic stores {nombre, descripcion}. 
-            // Let's try to find a description or just store name and let Favoritos.js handle the lookup.
-            // Looking at Home.html logic, there isn't a description visible in the card, only name.
+            // Solo guardamos el nombre. La página de Favoritos se encargará de buscar la info en el JSON.
+
 
             let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
             const yaEsFavorito = favoritos.some(f => f.nombre === nombre);
 
             if (yaEsFavorito) {
                 favoritos = favoritos.filter(f => f.nombre !== nombre);
-                img.src = "images/corazon.png"; // Back to original empty heart
+                img.src = "images/corazon.png"; // Desactivado
             } else {
-                favoritos.push({ nombre }); // Only name available here
-                img.src = "images/corazon-negro-rojo.png";
+                favoritos.push({ nombre }); // Solo el nombre
+                img.src = "images/corazon-negro-rojo.png"; // Activado
             }
             localStorage.setItem("favoritos", JSON.stringify(favoritos));
         });

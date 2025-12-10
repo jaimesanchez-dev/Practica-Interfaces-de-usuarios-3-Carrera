@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/VariablesColores.css">
     <link rel="stylesheet" href="./style/InicioSesion_y_registro.css">
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/footer.css">
@@ -18,14 +19,15 @@
 <body>
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
-        
+        <img class="header-imagen-daltonico" src="images/logo_daltonismo.png" alt="logo-web-daltonico">
+
         <h2><a href="Home.html" data-i18n="inicio"> Inicio </a></h2>
         <h2><a href="GaleriaDestinos.html" data-i18n="destinos"> Destinos </a></h2>
         <h2><a href="consejos.html" data-i18n="consejos"> Consejos </a></h2>
         <h2><a href="PerfilUsuario.html" data-i18n="perfil"> Perfil </a></h2>
         <h2><a href="" data-i18n="contacto"> Contacto </a></h2>
-        
-        <div class="grupo-botones">
+
+        <div id="header-auth" class="grupo-botones">
             <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
             <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
         </div>
@@ -36,7 +38,7 @@
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
-            
+
             <select class="header-idioma" name="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
@@ -76,6 +78,7 @@
         <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
     </footer>
     <script src="./script/auth.js"></script>
+    <script src="./script/temaGlobal.js"></script>
 </body>
 
 </html>

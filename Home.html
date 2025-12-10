@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/VariablesColores.css">
     <link rel="stylesheet" href="./style/Home.css">
     <link rel="stylesheet" href="./style/footer.css">
     <link rel="stylesheet" href="./style/header.css">
@@ -15,17 +17,18 @@
 </head>
 
 <body>
-    
+
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
-        
+        <img class="header-imagen-daltonico" src="images/logo_daltonismo.png" alt="logo-web-daltonico">
+
         <h2><a href="Home.html" data-i18n="inicio"> Inicio </a></h2>
         <h2><a href="GaleriaDestinos.html" data-i18n="destinos"> Destinos </a></h2>
         <h2><a href="consejos.html" data-i18n="consejos"> Consejos </a></h2>
         <h2><a href="PerfilUsuario.html" data-i18n="perfil"> Perfil </a></h2>
         <h2><a href="" data-i18n="contacto"> Contacto </a></h2>
-        
-        <div class="grupo-botones">
+
+        <div id="header-auth" class="grupo-botones">
             <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
             <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
         </div>
@@ -36,14 +39,14 @@
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
-            
+
             <select class="header-idioma" name="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
             </select>
         </div>
     </header>
-    
+
     <main class="flex-main">
 
         <div class="banner">
@@ -53,32 +56,48 @@
 
         <div class="carrusel-contenedor">
             <button class="flecha-izquierda" type="button">&lt;</button>
-            
+
             <div class="carrusel">
                 <div class="carrusel-track">
                     <div class="carrusel-item f1">
-                        <div><button id="b1" class="carrusel-texto" type="button"><h3 data-i18n="viena">Viena, Austria</h3></button></div>
+                        <div><button id="b1" class="carrusel-texto" type="button">
+                                <h3 data-i18n="viena">Viena, Austria</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f2">
-                        <div><button id="b2" class="carrusel-texto" type="button"><h3 data-i18n="brujas">Brujas, Bélgica</h3></button></div>
+                        <div><button id="b2" class="carrusel-texto" type="button">
+                                <h3 data-i18n="brujas">Brujas, Bélgica</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f3">
-                        <div><button id="b3" class="carrusel-texto" type="button"><h3 data-i18n="copenhague">Copenhague, Dinamarca</h3></button></div>
+                        <div><button id="b3" class="carrusel-texto" type="button">
+                                <h3 data-i18n="copenhague">Copenhague, Dinamarca</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f4">
-                        <div><button id="b4" class="carrusel-texto" type="button"><h3 data-i18n="liubliana">Liubliana, Eslovenia</h3></button></div>
+                        <div><button id="b4" class="carrusel-texto" type="button">
+                                <h3 data-i18n="liubliana">Liubliana, Eslovenia</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f5">
-                        <div><button id="b5" class="carrusel-texto" type="button"><h3 data-i18n="barcelona">Barcelona, España</h3></button></div>
+                        <div><button id="b5" class="carrusel-texto" type="button">
+                                <h3 data-i18n="barcelona">Barcelona, España</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f6">
-                        <div><button id="b6" class="carrusel-texto" type="button"><h3 data-i18n="sevilla">Sevilla, España</h3></button></div>
+                        <div><button id="b6" class="carrusel-texto" type="button">
+                                <h3 data-i18n="sevilla">Sevilla, España</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f7">
-                        <div><button id="b7" class="carrusel-texto" type="button"><h3 data-i18n="tallin">Tallin, Estonia</h3></button></div>
+                        <div><button id="b7" class="carrusel-texto" type="button">
+                                <h3 data-i18n="tallin">Tallin, Estonia</h3>
+                            </button></div>
                     </div>
                     <div class="carrusel-item f8">
-                        <div><button id="b8" class="carrusel-texto" type="button"><h3 data-i18n="paris">París, Francia</h3></button></div>
+                        <div><button id="b8" class="carrusel-texto" type="button">
+                                <h3 data-i18n="paris">París, Francia</h3>
+                            </button></div>
                     </div>
                 </div>
             </div>
@@ -92,79 +111,96 @@
                     <div class="foto-experiencia" id="foto1"></div>
                     <div class="derecha-tarjeta">
                         <button class="boton-corazon">
-							<img src="images/corazon.png" alt="Corazón">
-						</button>
-                        <button class="boton-compra c1" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                            <img src="images/corazon.png" alt="Corazón">
+                        </button>
+                        <button class="boton-compra c1" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="praga">Praga, República Checa</h5>
 
             </div>
-            
+
             <div class="tarjeta-experiencia">
                 <div class="tarjeta-experiencia-arriba">
                     <div class="foto-experiencia" id="foto2"></div>
                     <div class="derecha-tarjeta">
-                        <button class="boton-corazon" type="button"><img src="images/corazon.png" alt="Corazón"></button>
-                        <button class="boton-compra c2" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                        <button class="boton-corazon" type="button"><img src="images/corazon.png"
+                                alt="Corazón"></button>
+                        <button class="boton-compra c2" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="lucerna">Lucerna, Suiza</h5>
-                
+
             </div>
 
             <div class="tarjeta-experiencia">
                 <div class="tarjeta-experiencia-arriba">
                     <div class="foto-experiencia" id="foto3"></div>
                     <div class="derecha-tarjeta">
-                        <button class="boton-corazon" type="button"><img src="images/corazon.png" alt="Corazón"></button>
-                        <button class="boton-compra c3" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                        <button class="boton-corazon" type="button"><img src="images/corazon.png"
+                                alt="Corazón"></button>
+                        <button class="boton-compra c3" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="reikiavik">Reikiavik, Islandia</h5>
-                
+
             </div>
 
             <div class="tarjeta-experiencia">
                 <div class="tarjeta-experiencia-arriba">
                     <div class="foto-experiencia" id="foto4"></div>
                     <div class="derecha-tarjeta">
-                        <button class="boton-corazon" type="button"><img src="images/corazon.png" alt="Corazón"></button>
-                        <button class="boton-compra c4" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                        <button class="boton-corazon" type="button"><img src="images/corazon.png"
+                                alt="Corazón"></button>
+                        <button class="boton-compra c4" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="china">China, Asia</h5>
-                
+
             </div>
 
             <div class="tarjeta-experiencia">
                 <div class="tarjeta-experiencia-arriba">
                     <div class="foto-experiencia" id="foto5"></div>
                     <div class="derecha-tarjeta">
-                        <button class="boton-corazon" type="button"><img src="images/corazon.png" alt="Corazón"></button>
-                        <button class="boton-compra c5" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                        <button class="boton-corazon" type="button"><img src="images/corazon.png"
+                                alt="Corazón"></button>
+                        <button class="boton-compra c5" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="seul">Seúl, Corea del Sur</h5>
-                
+
             </div>
 
             <div class="tarjeta-experiencia">
                 <div class="tarjeta-experiencia-arriba">
                     <div class="foto-experiencia" id="foto6"></div>
                     <div class="derecha-tarjeta">
-                        <button class="boton-corazon" type="button"><img src="images/corazon.png" alt="Corazón"></button>
-                        <button class="boton-compra c6" type="button"><h5 data-i18n="comprar">Comprar</h5></button>
+                        <button class="boton-corazon" type="button"><img src="images/corazon.png"
+                                alt="Corazón"></button>
+                        <button class="boton-compra c6" type="button">
+                            <h5 data-i18n="comprar">Comprar</h5>
+                        </button>
                     </div>
                 </div>
-                
+
                 <h5 class="tarjeta-experiencia-abajo" data-i18n="jaipur">Jaipur, India</h5>
-                
+
             </div>
 
         </div>
@@ -173,17 +209,23 @@
 
     <footer class="footer">
         <div class="footer-redes">
-            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
-            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
-            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
+                    src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
+                    alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
+                    alt="logo youtube"></a>
         </div>
-  
+
         <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
         <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
         <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
 
     </footer>
 
-<script type="module" src="script/Home.js"></script>
+    <script type="module" src="script/Home.js"></script>
+    <script src="./script/auth.js"></script>
+    <script src="./script/temaGlobal.js"></script>
 </body>
+
 </html>
