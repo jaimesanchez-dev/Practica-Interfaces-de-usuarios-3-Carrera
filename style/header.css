@@ -168,43 +168,38 @@ body.modo-daltonico .boton-ini:hover {
 
 /* --- Nuevos Estilos para Header Dinámico --- */
 
-/* Header Background Update */
-.header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* User Menu (Logueado) */
 .user-menu {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
     padding: 5px 16px;
     border-radius: 50px;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .user-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid var(--color-morado-claro);
     object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .user-name {
     font-weight: 600;
-    color: white;
+    color: var(--color-morado-oscuro);
     font-size: 16px;
     margin-right: 10px;
 }
 
 .btn-logout {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid white;
+    background-color: transparent;
+    color: var(--color-morado-boton);
+    border: 1px solid var(--color-morado-boton);
     padding: 6px 16px;
     border-radius: 20px;
     cursor: pointer;
@@ -214,16 +209,17 @@ body.modo-daltonico .boton-ini:hover {
 }
 
 .btn-logout:hover {
-    background-color: white;
-    color: #667eea;
+    background-color: var(--color-morado-boton);
+    color: white;
     transform: scale(1.05);
 }
 
-/* Botones Auth (No Logueado) - Sobreescribiendo o complementando existentes */
+
 .grupo-botones .btn-login-new {
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    /* Estilo similar a .boton-reg original */
+    background-color: var(--color-fondo-home-tarjeta);
+    border: 1px solid var(--color-morado-muy-oscuro);
+    color: var(--color-texto-principal);
     padding: 8px 20px;
     border-radius: 8px;
     font-weight: 600;
@@ -232,13 +228,13 @@ body.modo-daltonico .boton-ini:hover {
 }
 
 .grupo-botones .btn-login-new:hover {
-    background-color: white;
-    color: #667eea;
+    background-color: rgb(226, 198, 252);
 }
 
 .grupo-botones .btn-registro-new {
-    background-color: white;
-    color: #667eea;
+
+    background-color: var(--color-morado-boton);
+    color: white;
     border: none;
     padding: 8px 20px;
     border-radius: 8px;
@@ -249,6 +245,7 @@ body.modo-daltonico .boton-ini:hover {
 }
 
 .grupo-botones .btn-registro-new:hover {
+    background-color: var(--color-morado-boton-oscuro);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
