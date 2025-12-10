@@ -12,14 +12,9 @@ function inicializarToggles() {
         toggleDaltonismo.addEventListener('click', function() {
             this.classList.toggle('active');
             const activado = this.classList.contains('active');
-            localStorage.setItem('modo-daltonico', activado);
             
-            // Aplicar o quitar la clase del body
-            if (activado) {
-                document.body.classList.add('modo-daltonico');
-            } else {
-                document.body.classList.remove('modo-daltonico');
-            }
+            // Usar la función global para actualizar el tema
+            window.actualizarTema('daltonico', activado);
         });
     }
     
@@ -29,16 +24,9 @@ function inicializarToggles() {
         toggleModoOscuro.addEventListener('click', function() {
             this.classList.toggle('active');
             const activado = this.classList.contains('active');
-            localStorage.setItem('modo-oscuro', activado);
             
-            // Aplicar o quitar la clase del body
-            if (activado) {
-                document.body.classList.add('modo-oscuro');
-                console.log('Modo oscuro activado');
-            } else {
-                document.body.classList.remove('modo-oscuro');
-                console.log('Modo oscuro desactivado');
-            }
+            // Usar la función global para actualizar el tema
+            window.actualizarTema('oscuro', activado);
         });
     }
 }
@@ -51,7 +39,6 @@ function cargarEstadoToggles() {
     
     if (modoDaltonico === 'true' && toggleDaltonismo) {
         toggleDaltonismo.classList.add('active');
-        document.body.classList.add('modo-daltonico');
     }
     
     // Cargar estado de modo oscuro
@@ -60,11 +47,10 @@ function cargarEstadoToggles() {
     
     if (modoOscuro === 'true' && toggleModoOscuro) {
         toggleModoOscuro.classList.add('active');
-        document.body.classList.add('modo-oscuro');
     }
 }
 
-// Función para cerrar sesión (opcional)
+// Función para cerrar sesión
 document.addEventListener('DOMContentLoaded', function() {
     const btnCerrarSesion = document.querySelector('.btn-cerrar-sesion');
     

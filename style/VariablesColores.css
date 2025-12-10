@@ -1,0 +1,197 @@
+:root {
+    /* Rosas y morados principales */
+    --color-rosa-header: rgb(248, 201, 229);
+    --color-morado-principal: #6d4286;
+    --color-morado-secundario: #984caf;
+    --color-morado-claro: #c2b0f0;
+    --color-morado-hover: rgb(170, 150, 220);
+    --color-morado-oscuro: #502b66;
+    --color-morado-muy-oscuro: rgb(33, 9, 56);
+    --color-morado-boton: rgb(74, 36, 107);
+    --color-morado-boton-oscuro: rgb(54, 23, 80);
+    
+    /* Fondos pastel */
+    --color-fondo-perfil: #f0e6f6;
+    --color-fondo-perfil-tarjeta: #e8d9f0;
+    --color-fondo-home-tarjeta: #f8e2f5;
+    --color-fondo-consejos: #e6d4f5;
+    --color-fondo-destinos: #f3e5ff;
+    --color-fondo-destinos-select: #EADDFF;
+    --color-fondo-favoritos: #FAEEFC;
+    --color-fondo-comprar: #E9E0FF;
+    --color-fondo-resenas: #FEF6FE;
+    
+    /* Colores de acento */
+    --color-banner-azul: rgb(181, 195, 221);
+    --color-carrusel-info: rgba(219, 250, 255, 0.9);
+    
+    /* Neutrales */
+    --color-texto-principal: #333333;
+    --color-texto-secundario: #666666;
+    --color-texto-claro: #999999;
+    --color-boton-oscuro: #333;
+    --color-boton-oscuro-hover: #555;
+    --color-borde: #ddd;
+    --color-borde-tarjeta: #d8c3d6;
+    --color-fondo-blanco: white;
+    --color-fondo-input: #f0f0f0;
+    
+    /* Efectos */
+    --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+}
+
+body.modo-daltonico {
+    /* Azules principales (reemplazo de morados/rosas) */
+    --color-rosa-header: #a8d5ff;
+    --color-morado-principal: #0066cc;
+    --color-morado-secundario: #0052a3;
+    --color-morado-claro: #b3d9ff;
+    --color-morado-hover: #99ccff;
+    --color-morado-oscuro: #004080;
+    --color-morado-muy-oscuro: #002952;
+    --color-morado-boton: #0066cc;
+    --color-morado-boton-oscuro: #004d99;
+    
+    /* Fondos azulados */
+    --color-fondo-perfil: #eef4ff;
+    --color-fondo-perfil-tarjeta: #e2ecff;
+    --color-fondo-home-tarjeta: #e6f2ff;
+    --color-fondo-consejos: #dce8ff;
+    --color-fondo-destinos: #e0edff;
+    --color-fondo-destinos-select: #cce0ff;
+    --color-fondo-favoritos: #f0f7ff;
+    --color-fondo-comprar: #d9e8ff;
+    --color-fondo-resenas: #f5faff;
+    
+    /* Acentos en amarillo/naranja */
+    --color-banner-azul: #ffcc80;
+    --color-carrusel-info: rgba(255, 243, 224, 0.95);
+    
+    /* Textos con más contraste */
+    --color-texto-principal: #001a33;
+    --color-texto-secundario: #003366;
+    --color-boton-oscuro: #ffaa00;
+    --color-boton-oscuro-hover: #ff9500;
+    --color-borde: #99ccff;
+    --color-borde-tarjeta: #80b3ff;
+}
+
+body.modo-oscuro {
+    /* Morados/rosas más brillantes para destacar */
+    --color-rosa-header: #4a3350;
+    --color-morado-principal: #a77cd4;
+    --color-morado-secundario: #b899d9;
+    --color-morado-claro: #9380b0;
+    --color-morado-hover: #8b70a8;
+    --color-morado-oscuro: #6a5080;
+    --color-morado-muy-oscuro: #2d1a40;
+    --color-morado-boton: #9575b8;
+    --color-morado-boton-oscuro: #7a5fa0;
+    
+    /* Fondos oscuros */
+    --color-fondo-perfil: #1a1a1a;
+    --color-fondo-perfil-tarjeta: #2d2d2d;
+    --color-fondo-home-tarjeta: #2a2030;
+    --color-fondo-consejos: #261d2e;
+    --color-fondo-destinos: #2b1f35;
+    --color-fondo-destinos-select: #3a2d47;
+    --color-fondo-favoritos: #221a28;
+    --color-fondo-comprar: #2e2538;
+    --color-fondo-resenas: #251d2b;
+    
+    /* Acentos ajustados */
+    --color-banner-azul: #4a5570;
+    --color-carrusel-info: rgba(60, 50, 70, 0.95);
+    
+    /* Textos claros */
+    --color-texto-principal: #e0e0e0;
+    --color-texto-secundario: #b0b0b0;
+    --color-texto-claro: #888888;
+    --color-boton-oscuro: #e0e0e0;
+    --color-boton-oscuro-hover: #f5f5f5;
+    --color-borde: #454545;
+    --color-borde-tarjeta: #555555;
+    --color-fondo-blanco: #2d2d2d;
+    --color-fondo-input: #3a3a3a;
+}
+
+body.modo-oscuro.modo-daltonico {
+    /* Azules brillantes */
+    --color-rosa-header: #2a4d6e;
+    --color-morado-principal: #3399ff;
+    --color-morado-secundario: #5cadff;
+    --color-morado-claro: #6bb8ff;
+    --color-morado-hover: #4da3ff;
+    --color-morado-oscuro: #2980cc;
+    --color-morado-muy-oscuro: #1a5999;
+    --color-morado-boton: #3399ff;
+    --color-morado-boton-oscuro: #2680e6;
+    
+    /* Fondos oscuros azulados más oscuros */
+    --color-fondo-perfil: #0d1117;
+    --color-fondo-perfil-tarjeta: #161b22;
+    --color-fondo-home-tarjeta: #1c2128;
+    --color-fondo-consejos: #0d1117;
+    --color-fondo-destinos: #161b22;
+    --color-fondo-destinos-select: #1c2128;
+    --color-fondo-favoritos: #0d1117;
+    --color-fondo-comprar: #161b22;
+    --color-fondo-resenas: #1c2128;
+    
+    /* Acentos en amarillo brillante */
+    --color-banner-azul: #ffbb33;
+    --color-carrusel-info: rgba(22, 27, 34, 0.95);
+    
+    /* Textos claros azulados */
+    --color-texto-principal: #e6f2ff;
+    --color-texto-secundario: #b3d9ff;
+    --color-texto-claro: #80b3ff;
+    --color-boton-oscuro: #ffbb33;
+    --color-boton-oscuro-hover: #ffa500;
+    --color-borde: #30363d;
+    --color-borde-tarjeta: #444c56;
+    --color-fondo-blanco: #0d1117;
+    --color-fondo-input: #161b22;
+}
+
+body {
+    background-color: var(--color-fondo-blanco);
+    color: var(--color-texto-principal);
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+}
+
+/* Cambio automático del logo */
+.header-imagen,
+.header-imagen-daltonico {
+    height: 70px;
+    width: 100px;
+    margin-right: 10px;
+    transition: filter var(--transition-speed) ease;
+    object-fit: contain;
+}
+
+/* Ocultar logo normal en modo daltónico */
+body.modo-daltonico .header-imagen[src*="logo.png"] {
+    display: none;
+}
+
+/* Mostrar logo daltónico */
+body.modo-daltonico .header-imagen-daltonico {
+    display: block !important;
+}
+
+/* Por defecto ocultar logo daltónico */
+.header-imagen-daltonico {
+    display: none;
+}
+
+body.modo-oscuro .header-imagen {
+    filter: brightness(0.9);
+}
+
+body.modo-oscuro.modo-daltonico .header-imagen-daltonico {
+    filter: brightness(0.9);
+}

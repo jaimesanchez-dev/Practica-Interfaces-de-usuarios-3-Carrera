@@ -1,21 +1,20 @@
-
 .perfil-container {
     padding: 40px 40px;
-    background-color: #f0e6f6;
+    background-color: var(--color-fondo-perfil);
     padding-bottom: 60px;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .perfil-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e8d9f0;
+    background-color: var(--color-fondo-perfil-tarjeta);
     padding: 30px;
     border-radius: 12px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    box-shadow: var(--sombra-suave);
+    transition: background-color var(--transition-speed) ease;
 }
 
 .usuario-info {
@@ -29,33 +28,33 @@
     height: 80px;
     border-radius: 12px;
     object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--color-fondo-blanco);
+    box-shadow: var(--sombra-suave);
 }
 
 .usuario-detalles h2 {
     margin: 0 0 10px 0;
     font-size: 1.5em;
-    color: #333333;
+    color: var(--color-texto-principal);
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .btn-cerrar-sesion {
-    background-color: #6d4286;
-    color: white;
+    background-color: var(--color-morado-principal);
+    color: var(--color-fondo-blanco);
     border: none;
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .btn-cerrar-sesion:hover {
-    background-color: #502b66;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-morado-oscuro);
+    box-shadow: var(--sombra-suave);
 }
 
 .opciones-accesibilidad {
@@ -69,18 +68,18 @@
     align-items: center;
     gap: 12px;
     font-size: 14px;
-    color: #333;
-    transition: color 0.3s ease;
+    color: var(--color-texto-principal);
+    transition: color var(--transition-speed) ease;
 }
 
 .toggle-switch {
     position: relative;
     width: 50px;
     height: 26px;
-    background-color: #ccc;
+    background-color: var(--color-borde);
     border-radius: 13px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .toggle-switch::after {
@@ -89,14 +88,14 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--color-fondo-blanco);
     top: 2px;
     left: 2px;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-speed) ease;
 }
 
 .toggle-switch.active {
-    background-color: #984caf;
+    background-color: var(--color-morado-secundario);
 }
 
 .toggle-switch.active::after {
@@ -112,24 +111,24 @@
 
 /* Tarjetas de sección */
 .tarjeta-seccion {
-    background-color: white;
+    background-color: var(--color-fondo-blanco);
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    box-shadow: var(--sombra-suave);
+    transition: all var(--transition-speed) ease;
 }
 
 .tarjeta-seccion:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--sombra-media);
 }
 
 .tarjeta-seccion h3 {
     margin: 0 0 20px 0;
     font-size: 1.1em;
-    color: #333;
+    color: var(--color-texto-principal);
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .lista-opciones {
@@ -143,16 +142,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px;
-    background-color: #ffffff;
+    background-color: var(--color-fondo-input);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: #333;
+    color: var(--color-texto-principal);
 }
 
 .opcion-item:hover {
-    background-color: #dddddd;
+    background-color: var(--color-morado-hover);
     transform: translateX(3px);
 }
 
@@ -174,111 +173,34 @@
 .opcion-texto {
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .opcion-flecha {
-    color: #999;
+    color: var(--color-texto-claro);
     font-size: 18px;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 .tarjeta-alojamiento {
     grid-column: 1 / 4;
-    background-color: white;
+    background-color: var(--color-fondo-blanco);
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    box-shadow: var(--sombra-suave);
+    transition: all var(--transition-speed) ease;
     margin-top: 0;
 }
 
 .tarjeta-alojamiento:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--sombra-media);
 }
 
 .tarjeta-alojamiento h3 {
     margin: 0 0 20px 0;
     font-size: 1.1em;
-    color: #333;
+    color: var(--color-texto-principal);
     font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-body.modo-oscuro .perfil-container {
-    background-color: #1a1a1a;
-}
-
-body.modo-oscuro .perfil-header {
-    background-color: #2d2d2d;
-}
-
-body.modo-oscuro .usuario-detalles h2 {
-    color: #e0e0e0;
-}
-
-body.modo-oscuro .opcion-toggle {
-    color: #e0e0e0;
-}
-
-body.modo-oscuro .tarjeta-seccion,
-body.modo-oscuro .tarjeta-alojamiento {
-    background-color: #2d2d2d;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
-}
-
-body.modo-oscuro .tarjeta-seccion h3,
-body.modo-oscuro .tarjeta-alojamiento h3 {
-    color: #e0e0e0;
-}
-
-body.modo-oscuro .opcion-item {
-    background-color: #3a3a3a;
-    color: #e0e0e0;
-}
-
-body.modo-oscuro .opcion-item:hover {
-    background-color: #454545;
-}
-
-body.modo-oscuro .opcion-texto {
-    color: #e0e0e0;
-}
-
-body.modo-oscuro .opcion-flecha {
-    color: #888;
-}
-
-body.modo-oscuro .btn-cerrar-sesion {
-    background-color: #e0e0e0;
-    color: #1a1a1a;
-}
-
-body.modo-oscuro .btn-cerrar-sesion:hover {
-    background-color: #f5f5f5;
-}
-
-body.modo-oscuro #toggle-modo-oscuro.active {
-    background-color: #6a5acd;
-}
-
-body.modo-daltonico .perfil-container {
-    background-color: var(--color-fondo-secundario, #eef4ff);
-}
-
-body.modo-daltonico .perfil-header {
-    background-color: var(--color-fondo, #e2ecff);
-}
-
-body.modo-daltonico .toggle-switch.active {
-    background-color: #ffaa00;
-}
-
-body.modo-daltonico .btn-cerrar-sesion {
-    background-color: #ffaa00;
-}
-
-body.modo-daltonico .btn-cerrar-sesion:hover {
-    background-color: #dd9300;
+    transition: color var(--transition-speed) ease;
 }
