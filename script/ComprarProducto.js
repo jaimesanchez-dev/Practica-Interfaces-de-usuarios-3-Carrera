@@ -13,4 +13,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     rellenar_info_destino(datos_ciudad);
     boton_estrellas();
     boton_lista_favoritos();
+
+    // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra
+    const botonComprar = document.querySelector(".producto-comprar-boton");
+    if (botonComprar) {
+        botonComprar.addEventListener("click", () => {
+            window.location.href = "FormularioCompra.html";
+        });
+    }
 });
