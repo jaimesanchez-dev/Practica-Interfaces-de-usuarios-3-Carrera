@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/PerfilUsuario.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/general.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <img class="header-imagen" src="images/logo.png" alt="logo-web">
+        
+        <h2><a href="Home.html" data-i18n="inicio"> Inicio </a></h2>
+        <h2><a href="GaleriaDestinos.html" data-i18n="destinos"> Destinos </a></h2>
+        <h2><a href="consejos.html" data-i18n="consejos"> Consejos </a></h2>
+        <h2><a href="PerfilUsuario.html" data-i18n="perfil"> Perfil </a></h2>
+        <h2><a href="" data-i18n="contacto"> Contacto </a></h2>
+        
+        <div class="grupo-botones">
+            <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
+            <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
+        </div>
+
+        <div class="grupo-selectores">
+            <select class="header-moneda" name="moneda">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="YEN">YEN</option>
+            </select>
+            
+            <select class="header-idioma" name="idioma">
+                <option value="es" data-i18n="español">Español</option>
+                <option value="en" data-i18n="ingles">Inglés</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="perfil-container">
+        <div class="perfil-header">
+            <div class="usuario-info">
+                <img src="images/avatar-usuario.jpg" alt="Nombre de usuario" class="usuario-avatar">
+                <div class="usuario-detalles">
+                    <h2>Nombre de usuario</h2>
+                    <button class="btn-cerrar-sesion">Cerrar sesión</button>
+                </div>
+            </div>
+            
+            <div class="opciones-accesibilidad">
+                <div class="opcion-toggle">
+                    <div class="toggle-switch" id="toggle-daltonismo"></div>
+                    <span>Opción de daltonismo</span>
+                </div>
+                <div class="opcion-toggle">
+                    <div class="toggle-switch" id="toggle-modo-oscuro"></div>
+                    <span>Modo oscuro</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="perfil-grid">
+            <div class="tarjeta-seccion">
+                <h3>Información de pago</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🎁</span>
+                            <span class="opcion-texto">Premios y Monedero</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">💳</span>
+                            <span class="opcion-texto">Métodos de pago</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🔄</span>
+                            <span class="opcion-texto">Transacciones</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-seccion">
+                <h3>Gestión de la cuenta</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">👤</span>
+                            <span class="opcion-texto">Datos personales</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🔒</span>
+                            <span class="opcion-texto">Ajustes de seguridad</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">💬</span>
+                            <span class="opcion-texto">Mis consejos</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-seccion">
+                <h3>Preferencias</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">⚙️</span>
+                            <span class="opcion-texto">Opciones de personalización</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">📧</span>
+                            <span class="opcion-texto">Preferencias de email</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">📱</span>
+                            <span class="opcion-texto">Preferencias de teléfono</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-seccion">
+                <h3>Viajes</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🧳</span>
+                            <span class="opcion-texto">Mis reservas</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">❤️</span>
+                            <span class="opcion-texto">Lista de favoritos</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">💬</span>
+                            <span class="opcion-texto">Mis viajes y reseñas</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-seccion">
+                <h3>Ayuda</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">❓</span>
+                            <span class="opcion-texto">Atención al Cliente</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🛡️</span>
+                            <span class="opcion-texto">Centro de seguridad</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">⚖️</span>
+                            <span class="opcion-texto">Resolución de litigios</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-seccion">
+                <h3>Información legal y privacidad</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🔐</span>
+                            <span class="opcion-texto">Gestión de datos y privacidad</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">📋</span>
+                            <span class="opcion-texto">Pautas sobre contenido</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tarjeta-alojamiento">
+                <h3>Gestión de alojamientos</h3>
+                <div class="lista-opciones">
+                    <a href="#" class="opcion-item">
+                        <div class="opcion-contenido">
+                            <span class="opcion-icono">🏠</span>
+                            <span class="opcion-texto">Da de alta tu alojamiento</span>
+                        </div>
+                        <span class="opcion-flecha">›</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-redes">
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
+        </div>
+  
+        <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
+        <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
+        <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
+    </footer>
+    
+    <script type="module" src="script/PerfilUsuario.js"></script>
+</body>
+</html>
