@@ -73,7 +73,8 @@ body.modo-daltonico .header h2 a:hover {
     transition: filter var(--transition-speed) ease;
 }
 
-.header-idioma, .header-moneda {
+.header-idioma,
+.header-moneda {
     border: 4px solid var(--color-morado-claro);
     border-radius: 20px;
     padding: 5px 10px;
@@ -86,17 +87,20 @@ body.modo-daltonico .header h2 a:hover {
     transition: all 0.2s ease;
 }
 
-.header-idioma:hover, .header-moneda:hover {
+.header-idioma:hover,
+.header-moneda:hover {
     background-color: var(--color-morado-hover);
     border-color: var(--color-morado-hover);
 }
 
-.header-idioma option, .header-moneda option {
+.header-idioma option,
+.header-moneda option {
     background-color: var(--color-fondo-blanco);
     color: var(--color-texto-principal);
 }
 
-.boton-reg, .boton-ini {
+.boton-reg,
+.boton-ini {
     display: flex;
     flex-direction: row;
     height: max-content;
@@ -133,7 +137,8 @@ body.modo-daltonico .header h2 a:hover {
     background-color: var(--color-morado-boton-oscuro);
 }
 
-.boton-reg:active, .boton-ini:active {
+.boton-reg:active,
+.boton-ini:active {
     transform: scale(0.98);
 }
 
@@ -159,4 +164,88 @@ body.modo-daltonico .boton-ini {
 
 body.modo-daltonico .boton-ini:hover {
     background-color: var(--color-boton-oscuro-hover);
+}
+
+/* --- Nuevos Estilos para Header Dinámico --- */
+
+/* User Menu (Logueado) */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 5px 16px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-morado-claro);
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--color-morado-oscuro);
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: var(--color-morado-boton);
+    border: 1px solid var(--color-morado-boton);
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-morado-boton);
+    color: white;
+    transform: scale(1.05);
+}
+
+
+.grupo-botones .btn-login-new {
+    /* Estilo similar a .boton-reg original */
+    background-color: var(--color-fondo-home-tarjeta);
+    border: 1px solid var(--color-morado-muy-oscuro);
+    color: var(--color-texto-principal);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.grupo-botones .btn-login-new:hover {
+    background-color: rgb(226, 198, 252);
+}
+
+.grupo-botones .btn-registro-new {
+
+    background-color: var(--color-morado-boton);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grupo-botones .btn-registro-new:hover {
+    background-color: var(--color-morado-boton-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }

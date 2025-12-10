@@ -102,4 +102,52 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    //HEADER DINÁMICO
+
+    function actualizarHeader() {
+        const headerAuth = document.getElementById('header-auth');
+
+        if (!headerAuth) return;
+
+        const currentUser = localStorage.getItem('currentUser');
+
+        if (currentUser) {
+            const userDataStr = localStorage.getItem('user_' + currentUser);
+            const userData = userDataStr ? JSON.parse(userDataStr) : { nombre: currentUser };
+            const userImage = `https://ui-avatars.com/api/?name=${userData.nombre}&background=random`;
+
+            headerAuth.innerHTML = `
+                <div class="user-menu">
+                    <img src="${userImage}" alt="${userData.nombre}" class="user-avatar">
+                    <span class="user-name">${userData.nombre}</span>
+                    <button id="btn-logout" class="btn-logout">Cerrar sesión</button>
+                </div>
+            `;
+
+            // Evento logout
+            document.getElementById('btn-logout').addEventListener('click', () => {
+                if (confirm(`¿Seguro que quieres cerrar sesión, ${userData.nombre}?`)) {
+                    localStorage.removeItem('currentUser');
+                    actualizarHeader();
+                    if (window.location.pathname.includes('PerfilUsuario.html')) {
+                        window.location.href = 'Home.html';
+                    } else {
+                        window.location.reload();
+                    }
+                }
+            });
+
+        } else {
+            headerAuth.innerHTML = `
+                <div class="grupo-botones">
+                    <button class="btn-login-new" onclick="window.location.href='InicioSesion.html'">Inicio sesion</button>
+                    <button class="btn-registro-new" onclick="window.location.href='Registro.html'">Registro</button>
+                </div>
+            `;
+        }
+    }
+
+    // Ejecutar al cargar
+    actualizarHeader();
 });

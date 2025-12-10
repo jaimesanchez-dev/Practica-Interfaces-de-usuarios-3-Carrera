@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Mochileros Sin Fronteras</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="Compra.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="scripts/Compra.js"></script>
+	</head>
+    	<body>
+		<header>
+			<!--Título de la página en el header-->
+			<h1>Mochileros Sin Fronteras</h1>
+			<!--Enlaces de Contacto, Foro, etc-->
+            <div class="enlaces">
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Inicio </p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Experiencias</p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Consejos</p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Foro</p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Contacto</p>
+				</a>
+				<p>...</p>
+			</div>
+			<div class = "esquina">
+				<!--Logo-->
+				<img src="Images/logo.png" width="100" alt="Logo">
+				<!--Pestaña para seleccionar idiomas-->
+				<select id="idioma" name="idioma">
+  					<option value="Español">ES</option>
+					<option value="Inglés">EN</option>
+					<option value="Italiano">IT</option>
+					<option value="Francés">FR</option>
+					<option value="Alemán">DE</option>
+				</select>
+			</div>
+		</header>
+        <main>
+            <div class="panel_izq">
+                <div class="izq_arriba">
+                    <div class="ajustar-texto">
+						<!--Imagen del pack que se quiere comprar con los textos correspondientes-->
+                        <img src="Images/Paisaje.jpeg" width="100" height="100" id="Imagen_Asia" alt="Imagen_Paisaje">
+                        <p class="texto-arriba-izq">Pack Sudeste Asiático</p>
+                        <p class="texto-abajo-del-de-arriba">Vietnam & Camboya: buses, hostales y guía de visados</p>
+                        <p class="texto-arriba-der">€600</p>
+                    </div>
+                </div>
+                <div class="izq_abajo">
+					<!--Descripción del pack-->
+                    <p>Descripción del pack:</p>
+                    <p>Embárcate en una aventura única por el corazón del sudeste asiático con Mochileros sin fronteras. 
+                        Este viaje te llevará a recorrer los paisajes infinitos de Vietnam y los templos milenarios de Camboya. 
+                        Desde navegar en barcas por la bahía de Halong, perderte entre los mercados callejeros de Hanoi y descubrir 
+                        la vibrante Ho Chi Minh, hasta dejarte sorprender por la grandeza de Angkor Wat al amanecer, cada paso será 
+                        una inmersión cultural y una experiencia inolvidable.
+                        El itinerario está pensado para mochileros auténticos: hostales con encanto, transporte local, actividades 
+                        compartidas con otros viajeros y la flexibilidad necesaria para que vivas cada destino a tu ritmo.
+                        Viajarás ligero, conociendo a personas increíbles, probando la comida callejera más auténtica y explorando 
+                        rincones fuera de las rutas turísticas. Prepárate para coleccionar historias, fotos y recuerdos que quedarán 
+                        contigo para siempre.</p>
+                </div>
+            </div>
+            <div class="panel_der">
+				<!--Formulario para realizar la compra-->
+                <h1>Formulario de compra</h1>
+                <form action="/action_page.php">
+					<!--Nombre y apellidos-->
+                    <div class="datos">
+                        <input type="text" class="registro" name="nombre" placeholder="Nombre" id ="nombre">
+                        <input type="text" class="registro" name="apellidos" placeholder="Apellidos" id="apellidos">
+                    </div>
+					<!--Pestaña para seleccionar el tipo de tarjeta-->
+                    <p>Tipo de tarjeta</p>
+                    <select id="tarjeta" name="tarjeta">
+						<option value="Blanca"></option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+						<option value="American Esxpress">American Express</option>
+                    </select>
+					<!--Datos de la tarjeta-->
+                    <div class="datos">
+                        <input type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="numero_tarjeta">
+                        <input type="text" class="registro" name="titular" placeholder="Nombre del titular de la tarjeta" id="titular">
+                    </div>
+                    <p>Fecha de caducidad</p>
+                    <input type="date" id="fecha" name="fecha">
+                    <input type="number" id="cvv" name="cvv" placeholder="CVV">
+					<!--Botones de "Comprar" y "Borrar"-->
+                    <div class="botones_finales">
+                        <input type="button" value="Comprar" class="comprar-borrar" id="boton_comprar">
+                        <input type="reset" value="Borrar" class="comprar-borrar">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+			<!--Información del footer-->
+			<p id="footer_izq">@ 2025 Mochileros sin Fronteras</p>
+			<div class="enlaces_footer">
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Sobre nosotros.</p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Política de privacidad.</p>
+				</a>
+				<a href="https://aulaglobal.uc3m.es/">
+					<p>Ayuda</p>
+				</a> 
+			</div>
+			<div>
+				<!--Imágenes de las redes sociales con sus links-->
+				<a href="https://aulaglobal.uc3m.es/course/view.php?id=191384">
+					<img src="Images/instagram.png" width="50" alt="Instagram">
+				</a>
+				<a href="https://aulaglobal.uc3m.es/course/view.php?id=191384">
+					<img src="Images/tiktok.png" width="60" alt="TikTok">
+				</a>
+				<a href="https://aulaglobal.uc3m.es/course/view.php?id=191384">
+					<img src="Images/youtube.png" width="60" alt="YouTube">
+				</a>
+			</div>
+			<!--Suscripción newsletter-->
+			<div class="newsletter">
+				<p>¡Suscríbete para no perderte las últimas novedades!</p>
+				<input type="email" name="email" id="email_newsletter" placeholder="Correo electrónico">
+                <input type="button" id="boton_newsletter" value="Suscribirse">
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,21 +1,9 @@
-// Home.js
 import { iniciarCarrusel } from './carrusel.mjs';
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
-import { mostrarPerfilUsuario } from './usuario.mjs';
 import { boton_favoritos_home } from './botones_interactivos.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
     boton_favoritos_home();
-    const user = localStorage.getItem('currentUser');
-    if (user) {
-        mostrarPerfilUsuario(user);
-    } else{
-        const boton_inicio = document.querySelector(".boton-ini");
-        boton_inicio.addEventListener("click", () => { window.location.href = "InicioSesion.html"; });
-
-        const boton_registro = document.querySelector(".boton-reg");
-        boton_registro.addEventListener("click", () => { window.location.href = "Registro.html"; });
-    }
 
     iniciarCarrusel();
     const traducciones = {
@@ -119,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Accedemos al padre del botón (tarjeta-experiencia) y luego al h5 que contiene el nombre de la ciudad
             const tarjeta = boton.closest(".tarjeta-experiencia");
             const nombre_ciudad = tarjeta.querySelector(".tarjeta-experiencia-abajo")
-                                .textContent.split(",")[0].trim();
+                .textContent.split(",")[0].trim();
 
             localStorage.setItem("destinoSeleccionado", nombre_ciudad);
             window.location.href = "ComprarProducto.html";

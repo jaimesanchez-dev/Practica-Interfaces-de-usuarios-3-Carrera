@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +17,18 @@
 </head>
 
 <body>
-    
+
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
         <img class="header-imagen-daltonico" src="images/logo_daltonismo.png" alt="logo-web-daltonico">
-        
+
         <h2><a href="Home.html" data-i18n="inicio"> Inicio </a></h2>
         <h2><a href="GaleriaDestinos.html" data-i18n="destinos"> Destinos </a></h2>
         <h2><a href="consejos.html" data-i18n="consejos"> Consejos </a></h2>
         <h2><a href="PerfilUsuario.html" data-i18n="perfil"> Perfil </a></h2>
         <h2><a href="" data-i18n="contacto"> Contacto </a></h2>
-        
-        <div class="grupo-botones">
+
+        <div id="header-auth" class="grupo-botones">
             <button class="boton-reg" type="button" data-i18n="iniciosesion">Inicio sesion</button>
             <button class="boton-ini" type="button" data-i18n="registro">Registro</button>
         </div>
@@ -38,61 +39,157 @@
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
-            
+
             <select class="header-idioma" name="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
             </select>
         </div>
     </header>
-    
+
     <main class="fc_main">
         <div class="recuadro">
-            <form class="formulario">
-                <input class="w nombre">
-                <input class="w apellidos">
-                <div class="flex-tipo?????">
-                    <input class="tip_tarjeta">
+            
+            <!--Formulario para realizar la compra-->
+            <h1>Formulario de compra</h1>
+            <form action="/action_page.php">
+                <!--Nombre y apellidos-->
+                <div class="datos">
+                    <input type="text" class="registro" name="nombre" placeholder="Nombre" id ="nombre">
+                    <input type="text" class="registro" name="apellidos" placeholder="Apellidos" id="apellidos">
                 </div>
-                <input class="num_tarjeta">
-                <input class="tit_tarjeta">
-                <div class="flex_horizontal">
-                    <input class="dmy_tarjeta">
-                    <input class="cvv_tarjeta">
+                
+                <!--Pestaña para seleccionar el tipo de tarjeta-->
+                <p>Tipo de tarjeta</p>
+                <select id="tarjeta" name="tarjeta">
+                    <option value="Blanca"></option>
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="American Esxpress">American Express</option>
+                </select>
+                
+                <!--Datos de la tarjeta-->
+                <div class="datos">
+                    <input type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="numero_tarjeta">
+                    <input type="text" class="registro" name="titular" placeholder="Nombre del titular de la tarjeta" id="titular">
                 </div>
-                <div class="flex_cbs">
-                    <div class="fex_cb">
-                        <input class="cb_comp">
+                <p>Fecha de caducidad</p>
+                <div class="flex-h">
+                    <input type="date" id="fecha" name="fecha">
+                    <input type="number" id="cvv" name="cvv" placeholder="CVV">
+                </div>
+                
+                <!-- Checkboxes -->
+                 <div class="contenedor_opciones">
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <div><b>¿Más acompañantes?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
-                    <div class="fex_cb">
-                        <input class="cb-masc">
-                    </div class="fex_cb">
-                    <div>
-                        <input class="cb-intolerancias">
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <div><b>¿Mascotas?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
+                    </div>
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <div><b>¿Intolerancias o alergias?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
                 </div>
-                <input class="transporte">
-                <button class="but_comprar"></button>
-                <button class="but_borrar"></button>
-
+                
+                <!-- Selector de transporte -->
+                <p>Tipo de transporte</p>
+                <select id="transporte" name="transporte">
+                    <option value="Barco">Barco</option>
+                    <option value="Autobus">Autobús</option>
+                    <option value="Avion">Avión</option>
+                    <option value="Tren">Tren</option>
+                </select>
+                
+                <!--Botones de "Comprar" y "Borrar"-->
+                <div class="botones_finales">
+                    <input type="button" value="Comprar" class="comprar-borrar" id="boton_comprar">
+                    <input type="reset" value="Borrar" class="comprar-borrar">
+                </div>
             </form>
+            
+            
+            <!-- <form class="formulario">
+                
+                
+                <h1>Formulario de Compra</h1>
+                
+                
+                <input class="w nombre" placeholder="Nombre">
+                
+                
+                <input class="w apellidos" placeholder="Apellidos">
+                
+
+                <h3>Tipo de Tarjeta</h3>
+                <input class="tipo_tarjeta" placeholder="Tipo de Tarjeta">
+                
+                <input class="w num_tarjeta" placeholder="Número de Tarjeta">
+                
+                
+                <input class="w tit_tarjeta" placeholder="Titular de la Tarjeta">
+                
+                
+                <div class="titulo">
+                    <h3 class>Fecha de caducidad</h3>
+                    <div class="date_cvv">
+                        <input class="dmy_tarjeta" type="date" placeholder="Fecha de Caducidad">
+                        <input class="cvv_tarjeta" placeholder="CVV">
+                    </div>
+                </div>
+                
+                
+                <div class="contenedor_opciones">
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <h5>Bla1<br>Bla2</h5>
+                    </div>
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <div class="checkbox_text">
+                            <h5>Bla 1</h5>
+                            <h5>Bla 2</h5>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <input class="cb_comp" type="checkbox">
+                        <div class="checkbox_text">
+                            <h5>Bla 1</h5>
+                            <h5>Bla 2</h5>
+                        </div>
+                    </div>
+                </div>
+                <option class="transporte">
+                <div class="botones">
+                    <button class="but_comprar"></button>
+                    <button class="but_borrar"></button>
+                </div>
+            </form> -->
         </div>
     </main>
-    
+
     <footer class="footer">
         <div class="footer-redes">
-            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
-            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
-            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
+                    src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
+                    alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
+                    alt="logo youtube"></a>
         </div>
-  
+
         <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>
         <h3><a href="" data-i18n="nosotros"> Sobre nosotros </a></h3>
         <h3><a href="" data-i18n="ayuda"> Ayuda </a></h3>
 
     </footer>
 
-<script type="module" src="script/FormularioCompra.js"></script>
-<script src="./script/temaGlobal.js"></script>
+    <script type="module" src="script/FormularioCompra.js"></script>
+    <script src="./script/auth.js"></script>
+    <script src="./script/temaGlobal.js"></script>
 </body>
+
 </html>
