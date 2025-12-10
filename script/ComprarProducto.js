@@ -1,7 +1,7 @@
 // ComprarProducto.js
 
-import { boton_estrellas, boton_lista_favoritos  } from './botones_interactivos.mjs';
-import { rellenar_info_destino, encontrarCiudad } from './destinos.mjs';
+import { boton_lista_favoritos  } from './botones_interactivos.mjs';
+import { rellenar_info_destino, encontrarCiudad, cargarReseñasCiudad} from './destinos.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -11,8 +11,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const datos_ciudad = await encontrarCiudad(nombre_ciudad);
     rellenar_info_destino(datos_ciudad);
-    boton_estrellas();
     boton_lista_favoritos();
+    
+    // Cargamos las reseñas del destino
+    cargarReseñasCiudad(nombre_ciudad);
 
     // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra
     const botonComprar = document.querySelector(".producto-comprar-boton");

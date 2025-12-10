@@ -26,6 +26,22 @@ export function boton_estrellas() {
     });
 }
 
+
+export function actualizarEstrellas(contenedor, valor) {
+    const botones = contenedor.querySelectorAll(".btn-estrella");
+    
+    // Rellenar las estrellas que tengan una posicion menor o igual a la clicada
+    botones.forEach(b => {
+        const img = b.querySelector("img");
+        if (b.dataset.pos <= valor) {
+            img.src = "images/estrella-rellena.png";
+        } else {
+            img.src = "images/estrella-vacia.png";
+        }
+    });
+}
+
+
 export function boton_lista_favoritos() {
 
     const boton = document.querySelector(".btn-corazon");

@@ -121,3 +121,40 @@ export function eliminarFavorito() {
         });
     });
 }
+
+export function cargarReseñasCiudad(ciudad) {
+    const bloques_reseñas = document.querySelectorAll(".reseña-item");
+
+    const ultimas_reseñas = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
+    const reseñas_ciudad = ultimas_reseñas[ciudad] || [];
+
+    // Solo mostramos como máximo 3, que son los div creados en el html (y hay 3)
+    for (let i = 0; i < bloques_reseñas.length; i++) {
+
+        const bloque = bloques_reseñas[i];
+        const datos = reseñas_ciudad[i];
+
+        // Si no hay datos para este bloque, lo ocultamos
+        if (!datos) {
+            bloque.style.display = "none";
+            continue;
+        }
+
+        // Metemos los datos en el HTML
+        bloque.querySelector(".reseña-titulo").textContent = datos.titulo;
+        bloque.querySelector(".reseña-texto").textContent = datos.descripcion;
+        //bloque.querySelector(".usuario-imagen").textContent = datos.imagen;
+        bloque.querySelector(".usuario-nombre").textContent = datos.usuario;
+
+        // Cogemos las estrellas del bloque de reseña en el que estamos
+        const estrellas = bloque.querySelectorAll(".estrella");
+        // Recorremos las estrellas para ponerlas rellenas o vacías
+        for (let j = 0; j < estrellas.length; j++) {
+            if (j < datos.estrellas) {
+                estrellas[j].src = "images/estrella-rellena.png";
+            } else {
+                estrellas[j].src = "images/estrella-vacia.png";
+            }
+        }
+    }
+}
