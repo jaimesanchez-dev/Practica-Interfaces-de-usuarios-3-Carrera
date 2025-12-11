@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra (solo en el caso de que el usuario haya iniciado sesion)
     const botonComprar = document.querySelector(".producto-comprar-boton");
     if (botonComprar) {
-        botonComprar.addEventListener("click", () => {
+        botonComprar.addEventListener("click", (e) => {
             if (!user) {
                 e.preventDefault();
                 alert("Debes iniciar sesión para comprar este destino.");
@@ -40,5 +40,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
             
         });
+    });
+    
+    // Controlamos a que páginas puede acceder el usuario si no ha iniciado sesión
+    const consejosLink = document.getElementById("link-consejos");
+    const perfilLink = document.getElementById("link-perfil");
+    const contactoLink = document.getElementById("link-contacto");
+    consejosLink.addEventListener("click", (e) => {
+        if (!user) {
+            e.preventDefault();
+            alert("Debes iniciar sesión para acceder a la página de consejos.");
+        }
+    });
+    perfilLink.addEventListener("click", (e) => {
+        if (!user) {
+            e.preventDefault();
+            alert("Debes iniciar sesión para acceder a la página del perfil.");
+        }
+    });
+    contactoLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Esta opción no está implementada");
     });
 });
