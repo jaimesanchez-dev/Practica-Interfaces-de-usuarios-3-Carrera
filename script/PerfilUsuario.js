@@ -14,6 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Esta opción no está implementada");
         });
     });
+
+    const usuario_actual = localStorage.getItem("currentUser");
+    if (usuario_actual) {
+        const perfilNombre = document.getElementById("perfil-nombre-usuario");
+        const fotoPerfil = document.querySelector(".usuario-avatar");
+
+        // Cargamos el nombre de usuario
+        perfilNombre.textContent = usuario_actual;
+        // Cargamos la foto de perfil si existe
+        const datosUsuario = JSON.parse(localStorage.getItem("user_" + usuario_actual));
+        if (datosUsuario && datosUsuario.foto) {
+            fotoPerfil.src = datosUsuario.foto;
+        }
+    }   
 });
 
 

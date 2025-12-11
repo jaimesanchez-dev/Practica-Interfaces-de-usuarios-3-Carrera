@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const apellidosInput = document.getElementById('apellidos');
                 const usernameInput = document.getElementById('nombre_usuario');
                 const passwordInput = document.getElementById('contrasena');
+                const fotoInput = document.getElementById('foto');  // <- FOTO
 
                 const nombre = nombreInput.value.trim();
                 const apellidos = apellidosInput.value.trim();
@@ -50,29 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                if (username && password) {
-                    if (localStorage.getItem('user_' + username)) {
-                        alert('El usuario ya existe.');
-                        return;
-                    }
+                if (localStorage.getItem('user_' + username)) {
+                    alert('El usuario ya existe.');
+                    return;
+                }
 
-                    const userData = {
-                        nombre: nombre,
-                        apellidos: apellidos,
-                        username: username,
-                        password: password
+                // Si el usuario sube una foto → convertirla a Base64
+                if (fotoInput.files && fotoInput.files[0]) {
+                    const archivo = fotoInput.files[0];
+                    const lector = new FileReader();
+
+                    lector.onload = function (e) {
+                        guardarUsuario(e.target.result); // Base64 listo
                     };
-                    localStorage.setItem('user_' + username, JSON.stringify(userData));
 
-                    alert('Registro exitoso! Ahora puedes iniciar sesión.');
-                    window.location.href = 'InicioSesion.html';
+                    lector.readAsDataURL(archivo);
                 } else {
-                    alert('Por favor, rellena todos los campos obligatorios.');
+                    guardarUsuario(null); // No subió foto
                 }
             });
         }
     }
 
+    // ---- INICIO SESIÓN ----
     if (window.location.pathname.includes('InicioSesion.html')) {
         const loginForm = document.querySelector('.login-form');
         if (loginForm) {
@@ -103,8 +104,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //HEADER DINÁMICO
+    // Convertir foto a Base64
+    function guardarUsuario(fotoBase64) {
+        const userData = {
+            nombre: nombre,
+            apellidos: apellidos,
+            username: username,
+            password: password,
+            foto: fotoBase64 || "./images/avatar-usuario.jpg" // si no sube, avatar por defecto
+        };
 
+        localStorage.setItem('user_' + username, JSON.stringify(userData));
+
+        alert('Registro exitoso! Ahora puedes iniciar sesión.');
+        window.location.href = 'InicioSesion.html';
+    }
+
+    // ---- HEADER DINÁMICO ----
     function actualizarHeader() {
         const headerAuth = document.getElementById('header-auth');
 
@@ -115,7 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentUser) {
             const userDataStr = localStorage.getItem('user_' + currentUser);
             const userData = userDataStr ? JSON.parse(userDataStr) : { nombre: currentUser };
-            const userImage = `https://ui-avatars.com/api/?name=${userData.nombre}&background=random`;
+
+            // SI HAY FOTO DE PERFIL LA USAMOS
+            const userImage = userData.foto
+                ? userData.foto
+                : `https://ui-avatars.com/api/?name=${userData.nombre}&background=random`;
 
             headerAuth.innerHTML = `
                 <div class="user-menu">
@@ -125,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Evento logout
             document.getElementById('btn-logout').addEventListener('click', () => {
                 if (confirm(`¿Seguro que quieres cerrar sesión, ${userData.nombre}?`)) {
                     localStorage.removeItem('currentUser');
@@ -148,6 +167,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Ejecutar al cargar
     actualizarHeader();
 });
