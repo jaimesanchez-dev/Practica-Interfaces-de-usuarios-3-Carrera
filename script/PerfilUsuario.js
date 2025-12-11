@@ -4,6 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarEstadoToggles();
 });
 
+// Mandamos una aletra si pinchan en un enlace que no estan implementados
+document.addEventListener("DOMContentLoaded", () => {
+    const enlacesNoImplementados = document.querySelectorAll('a[href="#"]');
+
+    enlacesNoImplementados.forEach(enlace => {
+        enlace.addEventListener("click", (e) => {
+            e.preventDefault();
+            alert("Esta opción no está implementada");
+        });
+    });
+});
+
+
 // Función para inicializar los toggles
 function inicializarToggles() {
     // Toggle de daltonismo
