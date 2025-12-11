@@ -62,14 +62,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Evento click para guardar en LocalStorage
             clone.querySelector(".tarjeta-destino").addEventListener("click", () => {
-                localStorage.setItem(
-                    "destinoSeleccionado",
-                    JSON.stringify({
-                        ciudad: ciudad.name,
-                        pais: ciudad.pais,
-                        continente: ciudad.continente,
-                    })
-                );
+                const nombre_ciudad = ciudad.name.split(",")[0].trim();
+                localStorage.setItem("destinoSeleccionado", nombre_ciudad);
                 window.location.href = "ComprarProducto.html";
             });
 

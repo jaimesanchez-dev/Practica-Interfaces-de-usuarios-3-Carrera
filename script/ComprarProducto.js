@@ -16,11 +16,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Cargamos las reseñas del destino
     cargarReseñasCiudad(nombre_ciudad);
 
-    // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra
+
+    const user = localStorage.getItem("currentUser");
+    // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra (solo en el caso de que el usuario haya iniciado sesion)
     const botonComprar = document.querySelector(".producto-comprar-boton");
     if (botonComprar) {
         botonComprar.addEventListener("click", () => {
-            window.location.href = "FormularioCompra.html";
+            if (!user) {
+                e.preventDefault();
+                alert("Debes iniciar sesión para comprar este destino.");
+            } else {
+                window.location.href = "FormularioCompra.html";
+            }
         });
     }
+    // Si el usuario no ha iniciado sesion, no puede añadir a favoritos el destino
+    const botonesFavoritos = document.querySelectorAll(".btn-corazon");
+    botonesFavoritos.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            if (!user) {
+                e.preventDefault();
+                alert("Debes iniciar sesión para añadir a favoritos.");
+            }
+            
+        });
+    });
 });
