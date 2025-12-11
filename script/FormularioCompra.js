@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const botonComprar = document.querySelector(".but_comprar");
+    const botonComprar = document.getElementById("boton_comprar");
     if (botonComprar) {
         botonComprar.addEventListener("click", () => {
 
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Guardamos la lista actualizada en localStorage
             localStorage.setItem("compras_" + currentUser, JSON.stringify(destinosComprados));
 
+            alert("¡Compra realizada con éxito!");
             // Redirigimos a la página Home
             window.location.href = "Home.html";
         });

@@ -55,7 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('El usuario ya existe.');
                     return;
                 }
+                // Convertir foto a Base64
+                function guardarUsuario(fotoBase64) {
+                    const userData = {
+                        nombre: nombre,
+                        apellidos: apellidos,
+                        username: username,
+                        password: password,
+                        foto: fotoBase64 || "./images/avatar-usuario.jpg" // si no sube, avatar por defecto
+                    };
 
+                    localStorage.setItem('user_' + username, JSON.stringify(userData));
+
+                    alert('Registro exitoso! Ahora puedes iniciar sesión.');
+                    window.location.href = 'InicioSesion.html';
+                }
+                
                 // Si el usuario sube una foto → convertirla a Base64
                 if (fotoInput.files && fotoInput.files[0]) {
                     const archivo = fotoInput.files[0];
@@ -104,21 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Convertir foto a Base64
-    function guardarUsuario(fotoBase64) {
-        const userData = {
-            nombre: nombre,
-            apellidos: apellidos,
-            username: username,
-            password: password,
-            foto: fotoBase64 || "./images/avatar-usuario.jpg" // si no sube, avatar por defecto
-        };
-
-        localStorage.setItem('user_' + username, JSON.stringify(userData));
-
-        alert('Registro exitoso! Ahora puedes iniciar sesión.');
-        window.location.href = 'InicioSesion.html';
-    }
 
     // ---- HEADER DINÁMICO ----
     function actualizarHeader() {
