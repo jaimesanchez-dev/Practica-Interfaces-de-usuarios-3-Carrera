@@ -1,14 +1,16 @@
+// MisReseñas.js
+
 import { encontrarCiudad } from './destinos.mjs';
 import { actualizarEstrellas } from './botones_interactivos.mjs';
 import { mostrarReseña } from './usuario.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const contenedor =  document.getElementById("reseñaContenedor");
+    const contenedor = document.getElementById("reseñaContenedor");
     const plantilla = document.getElementById("plantillaReseña");
     const currentUser = localStorage.getItem("currentUser");
 
-    // Obtenemos los destinos comprados del usuario
+    // Obtenemos los destinos comprados por el usuario
     const destinosComprados = JSON.parse(localStorage.getItem("compras_" + currentUser)) || [];
 
     if (destinosComprados.length === 0) {
@@ -16,15 +18,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // Cargamos las reseñas del usuario (si las hay)
+    // Obtenemos las reseñas del usuario
     let reseñasUsuario = JSON.parse(localStorage.getItem("reseñas_" + currentUser)) || [];
 
+    // Recorreremos los destinos comprados
     for (const destino of destinosComprados) {
-        // Obtenemos los datos de la ciudad
+
         const datosCiudad = await encontrarCiudad(destino);
         if (!datosCiudad) continue;
 
+        // Clonamos la plantilla del destino
         const clone = plantilla.content.cloneNode(true);
+
+        // Rellenamos los datos del destino
         clone.querySelector(".imagen-destino").src = datosCiudad.imagen.url;
         clone.querySelector(".imagen-destino").alt = datosCiudad.imagen.alt;
         clone.querySelector(".nombre-destino").textContent = `${datosCiudad.nombre} , ${datosCiudad.pais}`;
@@ -32,59 +38,80 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const form = clone.querySelector(".inputs-reseñas");
         const estrellasContenedor = clone.querySelector(".estrellas");
+
         let estrellasValor = 0;
 
-        // Comprobamos si el usuario ya a hecho una reseña para este destino
-        const reseñaExistente = reseñasUsuario.find(r => r.destino === destino);
+        form.dataset.destino = destino;
+
+        // Miramos si el usuario ya tiene una reseña para este destino y la mostramos
+        let reseñaExistente = reseñasUsuario.find(r => r.destino === destino);
         if (reseñaExistente) {
-            estrellasValor = reseñaExistente.estrellas || 0;
+            estrellasValor = reseñaExistente.estrellas;
             actualizarEstrellas(estrellasContenedor, estrellasValor);
-            mostrarReseña(form, reseñaExistente.titulo, reseñaExistente.descripcion, estrellasValor);
+            // Mostramos la reseña 
+            mostrarReseña(
+                form,
+                reseñaExistente.titulo,
+                reseñaExistente.descripcion,
+                estrellasValor
+            );
+
+            // Ocultamos el formulario
+            form.style.display = "none";
+            estrellasContenedor.style.display = "none";
         }
 
-        // Eventos para estrellas
+
+        // Si se hace click en alguna estrella, actualizamos el valor
         const botones = estrellasContenedor.querySelectorAll(".btn-estrella");
         botones.forEach(boton => {
             boton.addEventListener("click", () => {
-                estrellasValor = parseInt(boton.dataset.pos); // parseInt convierte el string a número
+                estrellasValor = parseInt(boton.dataset.pos);
                 actualizarEstrellas(estrellasContenedor, estrellasValor);
             });
         });
 
-        // Evento para enviar reseña
-        form.addEventListener("submit", (evento) => {
-            evento.preventDefault(); // Evitamos que se recarge la página al enviar el formulario
+
+        // Si se envía el formulario, guardamos la reseña
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Evitamos el envío del formulario para que no se recarge la página
 
             const titulo = form.querySelector("input[name='titulo_resena']").value.trim();
             const descripcion = form.querySelector("input[name='descr_resena']").value.trim();
 
-            // Validamos que ambos campos estén rellenos
-            if (!titulo || !descripcion || estrellasValor === 0){
-                return alert("Rellena ambos campos.");
-            } 
+            if (!titulo || !descripcion || estrellasValor === 0) {
+                return alert("Rellena todos los campos.");
+            }
 
-            // Guardamos la reseña del usuario
+            // Guardamos las reseñas del usuario
             reseñasUsuario = reseñasUsuario.filter(r => r.destino !== destino);
             reseñasUsuario.push({ destino, titulo, descripcion, estrellas: estrellasValor });
             localStorage.setItem("reseñas_" + currentUser, JSON.stringify(reseñasUsuario));
 
-            // Obtenemos las reseñas guardadas o iniciamos un objeto vacío
-            let ultimasReseñasPorDestino = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
-            // Si no existe todavía un array para este destino, creamos uno
-            if (!ultimasReseñasPorDestino[destino]) {
-                ultimasReseñasPorDestino[destino] = [];
-            }
-            // Añadimos la nueva reseña
-            ultimasReseñasPorDestino[destino].push({ usuario: currentUser, titulo, descripcion, estrellas: estrellasValor });
+            // Actualizamos las últimas reseñas
+            let ultimas = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
+            if (!ultimas[destino]) ultimas[destino] = [];
 
-            // Nos aseguramos de guardar solo las últimas 3 reseñas de este destino
-            if (ultimasReseñasPorDestino[destino].length > 3) {
-                ultimasReseñasPorDestino[destino] = ultimasReseñasPorDestino[destino].slice(-3);
-            }
-            // Guardamos de nuevo en localStorage
-            localStorage.setItem("ultimas_reseñas", JSON.stringify(ultimasReseñasPorDestino));
-            
+            ultimas[destino] = ultimas[destino].filter(r => r.usuario !== currentUser);
+
+            ultimas[destino].push({
+                usuario: currentUser,
+                titulo,
+                descripcion,
+                estrellas: estrellasValor
+            });
+
+            // Máximo, mostramos 3 reseñas de cada destino, las 3 más recientes
+            ultimas[destino] = ultimas[destino].slice(-3);
+
+            localStorage.setItem("ultimas_reseñas", JSON.stringify(ultimas));
+
+            // Mostramos la reseña publicada
             mostrarReseña(form, titulo, descripcion, estrellasValor);
+
+            // Y ocultamos el formulario
+            form.style.display = "none";
+            estrellasContenedor.style.display = "none";
         });
 
         contenedor.appendChild(clone);
