@@ -1,5 +1,5 @@
 // Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     inicializarToggles();
     cargarEstadoToggles();
 });
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (datosUsuario && datosUsuario.foto) {
             fotoPerfil.src = datosUsuario.foto;
         }
-    }   
+    }
 });
 
 
@@ -36,22 +36,22 @@ function inicializarToggles() {
     // Toggle de daltonismo
     const toggleDaltonismo = document.getElementById('toggle-daltonismo');
     if (toggleDaltonismo) {
-        toggleDaltonismo.addEventListener('click', function() {
+        toggleDaltonismo.addEventListener('click', function () {
             this.classList.toggle('active');
             const activado = this.classList.contains('active');
-            
+
             // Usar la función global para actualizar el tema
             window.actualizarTema('daltonico', activado);
         });
     }
-    
+
     // Toggle de modo oscuro
     const toggleModoOscuro = document.getElementById('toggle-modo-oscuro');
     if (toggleModoOscuro) {
-        toggleModoOscuro.addEventListener('click', function() {
+        toggleModoOscuro.addEventListener('click', function () {
             this.classList.toggle('active');
             const activado = this.classList.contains('active');
-            
+
             // Usar la función global para actualizar el tema
             window.actualizarTema('oscuro', activado);
         });
@@ -63,27 +63,41 @@ function cargarEstadoToggles() {
     // Cargar estado de daltonismo
     const modoDaltonico = localStorage.getItem('modo-daltonico');
     const toggleDaltonismo = document.getElementById('toggle-daltonismo');
-    
+
     if (modoDaltonico === 'true' && toggleDaltonismo) {
         toggleDaltonismo.classList.add('active');
     }
-    
+
     // Cargar estado de modo oscuro
     const modoOscuro = localStorage.getItem('modo-oscuro');
     const toggleModoOscuro = document.getElementById('toggle-modo-oscuro');
-    
+
     if (modoOscuro === 'true' && toggleModoOscuro) {
         toggleModoOscuro.classList.add('active');
     }
 }
 
 // Función para cerrar sesión
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const btnCerrarSesion = document.querySelector('.btn-cerrar-sesion');
-    
+
     if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener('click', function() {
-            if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+        btnCerrarSesion.addEventListener('click', function () {
+            const currentUser = localStorage.getItem('currentUser');
+            let confirmMessage = '¿Estás seguro de que quieres cerrar sesión?';
+
+            if (currentUser) {
+                const userDataStr = localStorage.getItem('user_' + currentUser);
+                if (userDataStr) {
+                    const userData = JSON.parse(userDataStr);
+                    if (userData.nombre) {
+                        confirmMessage = `¿Seguro que quieres cerrar sesión, ${userData.nombre}?`;
+                    }
+                }
+            }
+
+            if (confirm(confirmMessage)) {
+                localStorage.removeItem('currentUser');
                 window.location.href = 'Home.html';
             }
         });
