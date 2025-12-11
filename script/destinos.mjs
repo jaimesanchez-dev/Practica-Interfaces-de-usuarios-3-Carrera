@@ -143,7 +143,7 @@ export function cargarReseñasCiudad(ciudad) {
         // Metemos los datos en el HTML
         bloque.querySelector(".reseña-titulo").textContent = datos.titulo;
         bloque.querySelector(".reseña-texto").textContent = datos.descripcion;
-        //bloque.querySelector(".usuario-imagen").textContent = datos.imagen;
+        bloque.querySelector(".usuario-imagen").src = datos.imagen;
         bloque.querySelector(".usuario-nombre").textContent = datos.usuario;
 
         // Cogemos las estrellas del bloque de reseña en el que estamos

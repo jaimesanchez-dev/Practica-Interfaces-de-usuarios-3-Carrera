@@ -98,7 +98,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 usuario: currentUser,
                 titulo,
                 descripcion,
-                estrellas: estrellasValor
+                estrellas: estrellasValor,
+                imagen: JSON.parse(localStorage.getItem('user_' + currentUser)).foto
             });
 
             // Máximo, mostramos 3 reseñas de cada destino, las 3 más recientes
