@@ -9,7 +9,7 @@
     --color-morado-muy-oscuro: rgb(33, 9, 56);
     --color-morado-boton: rgb(74, 36, 107);
     --color-morado-boton-oscuro: rgb(54, 23, 80);
-    
+
     /* Fondos pastel */
     --color-fondo-perfil: #f0e6f6;
     --color-fondo-perfil-tarjeta: #e8d9f0;
@@ -20,11 +20,11 @@
     --color-fondo-favoritos: #FAEEFC;
     --color-fondo-comprar: #E9E0FF;
     --color-fondo-resenas: #FEF6FE;
-    
+
     /* Colores de acento */
-    --color-banner-azul: rgb(181, 195, 221);
+    --color-banner-azul: #E9E0FF;
     --color-carrusel-info: rgba(219, 250, 255, 0.9);
-    
+
     /* Neutrales */
     --color-texto-principal: #333333;
     --color-texto-secundario: #666666;
@@ -35,7 +35,10 @@
     --color-borde-tarjeta: #d8c3d6;
     --color-fondo-blanco: white;
     --color-fondo-input: #f0f0f0;
-    
+
+    /* Corazones */
+    --color-corazon: #FF6B6B;
+
     /* Efectos */
     --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.1);
     --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -53,7 +56,7 @@ body.modo-daltonico {
     --color-morado-muy-oscuro: #002952;
     --color-morado-boton: #0066cc;
     --color-morado-boton-oscuro: #004d99;
-    
+
     /* Fondos azulados */
     --color-fondo-perfil: #eef4ff;
     --color-fondo-perfil-tarjeta: #e2ecff;
@@ -64,11 +67,14 @@ body.modo-daltonico {
     --color-fondo-favoritos: #f0f7ff;
     --color-fondo-comprar: #d9e8ff;
     --color-fondo-resenas: #f5faff;
-    
+
     /* Acentos en amarillo/naranja */
     --color-banner-azul: #ffcc80;
     --color-carrusel-info: rgba(255, 243, 224, 0.95);
-    
+
+    /* Corazones */
+    --color-corazon: #6284eb;
+
     /* Textos con más contraste */
     --color-texto-principal: #001a33;
     --color-texto-secundario: #003366;
@@ -89,7 +95,7 @@ body.modo-oscuro {
     --color-morado-muy-oscuro: #2d1a40;
     --color-morado-boton: #9575b8;
     --color-morado-boton-oscuro: #7a5fa0;
-    
+
     /* Fondos oscuros */
     --color-fondo-perfil: #1a1a1a;
     --color-fondo-perfil-tarjeta: #2d2d2d;
@@ -100,11 +106,11 @@ body.modo-oscuro {
     --color-fondo-favoritos: #221a28;
     --color-fondo-comprar: #2e2538;
     --color-fondo-resenas: #251d2b;
-    
+
     /* Acentos ajustados */
-    --color-banner-azul: #4a5570;
+    --color-banner-azul: #594a70;
     --color-carrusel-info: rgba(60, 50, 70, 0.95);
-    
+
     /* Textos claros */
     --color-texto-principal: #e0e0e0;
     --color-texto-secundario: #b0b0b0;
@@ -128,7 +134,7 @@ body.modo-oscuro.modo-daltonico {
     --color-morado-muy-oscuro: #1a5999;
     --color-morado-boton: #3399ff;
     --color-morado-boton-oscuro: #2680e6;
-    
+
     /* Fondos oscuros azulados más oscuros */
     --color-fondo-perfil: #0d1117;
     --color-fondo-perfil-tarjeta: #161b22;
@@ -139,11 +145,11 @@ body.modo-oscuro.modo-daltonico {
     --color-fondo-favoritos: #0d1117;
     --color-fondo-comprar: #161b22;
     --color-fondo-resenas: #1c2128;
-    
+
     /* Acentos en amarillo brillante */
     --color-banner-azul: #ffbb33;
     --color-carrusel-info: rgba(22, 27, 34, 0.95);
-    
+
     /* Textos claros azulados */
     --color-texto-principal: #e6f2ff;
     --color-texto-secundario: #b3d9ff;
@@ -160,7 +166,7 @@ body {
     background-color: var(--color-fondo-blanco);
     color: var(--color-texto-principal);
     transition: background-color var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+        color var(--transition-speed) ease;
 }
 
 /* Cambio automático del logo */
