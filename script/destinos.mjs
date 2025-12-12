@@ -32,14 +32,17 @@ export async function encontrarCiudad(nombre_ciudad) {
         for (const pais of continente.countries) {
             for (const ciudad of pais.cities) {
                 if (ciudad.name.toLowerCase() === nombre_ciudad.toLowerCase()) {
+                    const idioma = localStorage.getItem("idioma") || "es";
+                    const isEn = idioma === "en";
                     return {
                         // Devolvemos todos los datos de la ciudad
-                        pais: pais.name,
-                        nombre: ciudad.name,
-                        descripcion: ciudad.description,
+                        pais: pais.name, // Podríamos traducir el país también si se añade al JSON
+                        nombre: isEn && ciudad.name_en ? ciudad.name_en : ciudad.name,
+                        descripcion: isEn && ciudad.description_en ? ciudad.description_en : ciudad.description,
                         imagen: ciudad.image,
                         transportes: ciudad.transportes,
                         precio: ciudad.precio,
+                        idioma: idioma // Useful for debugging
                     };
                 }
             }

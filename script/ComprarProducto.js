@@ -1,18 +1,34 @@
 // ComprarProducto.js
 
-import { boton_lista_favoritos  } from './botones_interactivos.mjs';
-import { rellenar_info_destino, encontrarCiudad, cargarReseñasCiudad} from './destinos.mjs';
+import { boton_lista_favoritos } from './botones_interactivos.mjs';
+import { rellenar_info_destino, encontrarCiudad, cargarReseñasCiudad } from './destinos.mjs';
+import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+    cargar_idioma();
+    const selector = document.querySelector(".header-idioma");
+    if (selector) {
+        selector.addEventListener("change", async () => {
+            const idioma = selector.value;
+            localStorage.setItem("idioma", idioma);
+            aplicarIdioma(idioma);
+            await cargarDatosProducto();
+        });
+    }
 
     // Obtenemos el destino guardado en la pagina de GaleriaDestinos
     const nombre_ciudad = localStorage.getItem("destinoSeleccionado");
     if (!nombre_ciudad) return;
 
-    const datos_ciudad = await encontrarCiudad(nombre_ciudad);
-    rellenar_info_destino(datos_ciudad);
+    async function cargarDatosProducto() {
+        const datos_ciudad = await encontrarCiudad(nombre_ciudad);
+        rellenar_info_destino(datos_ciudad);
+    }
+    await cargarDatosProducto();
+
     boton_lista_favoritos();
-    
+
     // Cargamos las reseñas del destino
     cargarReseñasCiudad(nombre_ciudad);
 
@@ -38,10 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 e.preventDefault();
                 alert("Debes iniciar sesión para añadir a favoritos.");
             }
-            
+
         });
     });
-    
+
     // Controlamos a que páginas puede acceder el usuario si no ha iniciado sesión
     const consejosLink = document.getElementById("link-consejos");
     const perfilLink = document.getElementById("link-perfil");

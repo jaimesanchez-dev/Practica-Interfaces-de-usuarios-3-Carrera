@@ -1,6 +1,21 @@
 // GaleriaDestinos.js
+import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // Cargar idioma inicial
+    cargar_idioma();
+
+    const selector = document.querySelector(".header-idioma");
+    if (selector) {
+        selector.addEventListener("change", () => {
+            const idioma = selector.value;
+            localStorage.setItem("idioma", idioma);
+            aplicarIdioma(idioma);
+            // Re-renderizamos los destinos para actualizar nombres y descripciones dinámicos
+            renderizarDestinos(todasLasCiudades); // 'todasLasCiudades' es observable aquí? Si, está definido en línea 28
+        });
+    }
+
     // Controlamos a que páginas puede acceder el usuario si no ha iniciado sesión
     const user = localStorage.getItem("currentUser");
     const consejosLink = document.getElementById("link-consejos");
@@ -23,10 +38,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         alert("Esta opción no está implementada");
     });
 
-    
+
     // Variables globales para guardar los datos
     let todasLasCiudades = [];
-    
+
     // Elementos del DOM
     const contenedor = document.getElementById("galeriaDestinos");
     const plantilla = document.getElementById("plantillaDestino");
@@ -46,7 +61,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 pais.cities.forEach(ciudad => {
                     todasLasCiudades.push({
                         name: ciudad.name,
+                        name_en: ciudad.name_en,
                         description: ciudad.description,
+                        description_en: ciudad.description_en,
                         image: ciudad.image,
                         transportes: ciudad.transportes,
                         precio: ciudad.precio,
@@ -64,13 +81,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error cargando el JSON:", error);
     }
 
+
     // 2. FUNCIÓN DE RENDERIZADO (PINTAR)
     function renderizarDestinos(listaCiudades) {
         // Limpiamos el contenedor antes de pintar los nuevos resultados
         contenedor.innerHTML = "";
+        const idioma = localStorage.getItem("idioma") || "es";
+        const isEn = idioma === "en";
 
         if (listaCiudades.length === 0) {
-            contenedor.innerHTML = "<p>No se encontraron destinos con esos filtros.</p>";
+            contenedor.innerHTML = isEn ? "<p>No destinations found with these filters.</p>" : "<p>No se encontraron destinos con esos filtros.</p>";
             return;
         }
 
@@ -79,10 +99,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             clone.querySelector(".imagen-destino").src = ciudad.image.url;
             clone.querySelector(".imagen-destino").alt = ciudad.image.alt;
-            clone.querySelector(".nombre-destino").textContent = ciudad.name;
+
+            const nombreMostrar = isEn && ciudad.name_en ? ciudad.name_en : ciudad.name;
+            clone.querySelector(".nombre-destino").textContent = nombreMostrar;
             clone.querySelector(".precio-destino").textContent = ciudad.precio + "€";
 
-            // Evento click para guardar en LocalStorage
+            // Evento click para guardar en LocalStorage (guardamos siempre el ID/Nombre original para mantener la referencia)
             clone.querySelector(".tarjeta-destino").addEventListener("click", () => {
                 const nombre_ciudad = ciudad.name.split(",")[0].trim();
                 localStorage.setItem("destinoSeleccionado", nombre_ciudad);
@@ -104,19 +126,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         // C. Obtener transportes marcados
         // Creamos un array con los values de los checkbox que esten checked (ej: ['tren', 'avion'])
         const transportesMarcados = Array.from(checkboxes)
-                                         .filter(chk => chk.checked)
-                                         .map(chk => chk.value);
+            .filter(chk => chk.checked)
+            .map(chk => chk.value);
 
         // D. Filtrar el array maestro 'todasLasCiudades'
         const ciudadesFiltradas = todasLasCiudades.filter(ciudad => {
-            
+
             // 1. Filtro Texto (Nombre ciudad o País)
-            const coincideTexto = ciudad.name.toLowerCase().includes(textoBusqueda) || 
-                                  ciudad.pais.toLowerCase().includes(textoBusqueda);
+            const coincideTexto = ciudad.name.toLowerCase().includes(textoBusqueda) ||
+                ciudad.pais.toLowerCase().includes(textoBusqueda);
 
             // 2. Filtro Continente
-            const coincideContinente = continenteSeleccionado === "todos" || 
-                                       ciudad.continente === continenteSeleccionado;
+            const coincideContinente = continenteSeleccionado === "todos" ||
+                ciudad.continente === continenteSeleccionado;
 
             // 3. Filtro Transporte
             // La ciudad debe tener AL MENOS UNO de los transportes marcados.
@@ -134,10 +156,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // 4. EVENT LISTENERS (Escuchar cambios)
-    
+
     // Al escribir en el buscador
     buscadorInput.addEventListener("input", aplicarFiltros);
-    
+
     // Al cambiar el select de continente
     selectContinente.addEventListener("change", aplicarFiltros);
 
