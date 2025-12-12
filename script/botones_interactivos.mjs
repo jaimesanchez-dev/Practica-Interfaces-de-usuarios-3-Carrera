@@ -1,18 +1,15 @@
 // botones_interactivos.mjs
 
 export function boton_estrellas() {
-    const grupos = document.querySelectorAll(".estrellas"); // Selecciona todos los contenedores de estrellas
+    const grupos = document.querySelectorAll(".estrellas");
 
-    // Itera sobre cada grupo de estrellas
     grupos.forEach(grupo => {
         const botones = grupo.querySelectorAll(".btn-estrella");
 
-        // Vemos la posicion de la estrella al hacer clic
         botones.forEach(boton => {
             boton.addEventListener("click", () => {
                 const pos = boton.dataset.pos;
 
-                // Rellenar las estrellas que tengan una posicion menor o igual a la clicada
                 botones.forEach(b => {
                     const img = b.querySelector("img");
                     if (b.dataset.pos <= pos) {
@@ -30,7 +27,6 @@ export function boton_estrellas() {
 export function actualizarEstrellas(contenedor, valor) {
     const botones = contenedor.querySelectorAll(".btn-estrella");
     
-    // Rellenar las estrellas que tengan una posicion menor o igual a la clicada
     botones.forEach(b => {
         const img = b.querySelector("img");
         if (b.dataset.pos <= valor) {
@@ -41,89 +37,115 @@ export function actualizarEstrellas(contenedor, valor) {
     });
 }
 
+// Función auxiliar para obtener favoritos del usuario actual
+function obtenerFavoritosUsuario() {
+    const usuario = localStorage.getItem("currentUser");
+    if (!usuario) return [];
+    
+    const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
+    return todosFavoritos[usuario] || [];
+}
+
+// Función auxiliar para guardar favoritos del usuario actual
+function guardarFavoritosUsuario(favoritos) {
+    const usuario = localStorage.getItem("currentUser");
+    if (!usuario) return;
+    
+    const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
+    todosFavoritos[usuario] = favoritos;
+    localStorage.setItem("favoritos_por_usuario", JSON.stringify(todosFavoritos));
+}
+
 
 export function boton_lista_favoritos() {
-
     const boton = document.querySelector(".btn-corazon");
-    // Seleccionamos la imagen que hay dentro del botón
+    if (!boton) return;
+    
     const img = boton.querySelector("img");
 
-    boton.addEventListener("click", () => {
+    // Cargar estado inicial del favorito para este usuario
+    const nombreCompleto = document.querySelector(".producto-nombre").innerText;
+    const nombre = nombreCompleto.split(",")[0].trim();
+    const favoritosUsuario = obtenerFavoritosUsuario();
+    const esFavorito = favoritosUsuario.some(f => f.nombre === nombre);
+    
+    if (esFavorito) {
+        img.src = "images/corazon-negro-rojo.png";
+    } else {
+        img.src = "images/corazon-negro.png";
+    }
 
-        // Obtenemos el nombre del destino mostrado actualmente (solo la primera parte antes de la coma si la hay)
+    boton.addEventListener("click", () => {
         const nombreCompleto = document.querySelector(".producto-nombre").innerText;
         const nombre = nombreCompleto.split(",")[0].trim();
 
-        // Ya no necesitamos la descripción aquí
-        // const descripcion = document.querySelector(".producto-descripcion").innerText;
+        // Obtener favoritos del usuario actual
+        let favoritosUsuario = obtenerFavoritosUsuario();
 
-        // Cargamos la lista de favoritos del localStorage y si no existe aún, devolvemos un array vacío
-        let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-        // Comprobamos si el destino ya está en favoritos
-        // .some() devuelve true si encuentra un elemento con el mismo nombre
-        const yaEsFavorito = favoritos.some(f => f.nombre === nombre);
+        const yaEsFavorito = favoritosUsuario.some(f => f.nombre === nombre);
 
         if (yaEsFavorito) {
-
-            // filter() crea un array nuevo con todos los elementos de antes menos el que queremos eliminar
-            favoritos = favoritos.filter(f => f.nombre !== nombre);
+            favoritosUsuario = favoritosUsuario.filter(f => f.nombre !== nombre);
             img.src = "images/corazon-negro.png";
-        }
-        else {
-            // Añadimos un objeto con los datos del destino
-            // SOLO guardamos el nombre, la descripción se carga dinámicamente
-            favoritos.push({
-                nombre
-            });
+        } else {
+            favoritosUsuario.push({ nombre });
             img.src = "images/corazon-negro-rojo.png";
         }
 
-        // Guardamos el array actualizado en localStorage
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        // Guardar favoritos actualizados del usuario
+        guardarFavoritosUsuario(favoritosUsuario);
     });
 }
 
 export function boton_favoritos_home() {
-    const botones = document.querySelectorAll(".boton-corazon");
+    const heartContainers = document.querySelectorAll(".heart-container");
+    if (heartContainers.length === 0) return;
 
-    // Empieza con el estado correcto
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-    botones.forEach(boton => {
-        const tarjeta = boton.closest(".tarjeta-experiencia");
+    // Función para actualizar el estado visual de un corazón
+    function actualizarEstadoCorazon(container, esFavorito) {
+        const checkbox = container.querySelector(".checkbox");
+        if (checkbox) {
+            checkbox.checked = esFavorito;
+        }
+    }
+
+    // Cargar estado inicial para el usuario actual
+    const favoritosUsuario = obtenerFavoritosUsuario();
+    
+    heartContainers.forEach(container => {
+        const tarjeta = container.closest(".tarjeta-experiencia");
         if (tarjeta) {
             const texto = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
             const nombre = texto.split(",")[0].trim();
-            if (favoritos.some(f => f.nombre === nombre)) {
-                const img = boton.querySelector("img");
-                img.src = "images/corazon-negro-rojo.png"; // Active state
-            }
+            const esFavorito = favoritosUsuario.some(f => f.nombre === nombre);
+            actualizarEstadoCorazon(container, esFavorito);
         }
     });
 
+    // Añadir eventos de click en los checkboxes
+    heartContainers.forEach(container => {
+        const checkbox = container.querySelector(".checkbox");
+        if (!checkbox) return;
 
-    botones.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            e.stopPropagation(); // Previene que se active el evento de la tarjeta
-            const img = boton.querySelector("img");
-            const tarjeta = boton.closest(".tarjeta-experiencia");
+        checkbox.addEventListener("change", (e) => {
+            const tarjeta = container.closest(".tarjeta-experiencia");
+            if (!tarjeta) return;
+            
             const texto = tarjeta.querySelector(".tarjeta-experiencia-abajo").innerText;
             const nombre = texto.split(",")[0].trim();
 
-            // Solo guardamos el nombre. La página de Favoritos se encargará de buscar la info en el JSON.
+            let favoritosUsuario = obtenerFavoritosUsuario();
+            const yaEsFavorito = favoritosUsuario.some(f => f.nombre === nombre);
 
-
-            let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-            const yaEsFavorito = favoritos.some(f => f.nombre === nombre);
-
-            if (yaEsFavorito) {
-                favoritos = favoritos.filter(f => f.nombre !== nombre);
-                img.src = "images/corazon.png"; // Desactivado
-            } else {
-                favoritos.push({ nombre }); // Solo el nombre
-                img.src = "images/corazon-negro-rojo.png"; // Activado
+            if (checkbox.checked && !yaEsFavorito) {
+                // Añadir a favoritos
+                favoritosUsuario.push({ nombre });
+                guardarFavoritosUsuario(favoritosUsuario);
+            } else if (!checkbox.checked && yaEsFavorito) {
+                // Quitar de favoritos
+                favoritosUsuario = favoritosUsuario.filter(f => f.nombre !== nombre);
+                guardarFavoritosUsuario(favoritosUsuario);
             }
-            localStorage.setItem("favoritos", JSON.stringify(favoritos));
         });
     });
 }

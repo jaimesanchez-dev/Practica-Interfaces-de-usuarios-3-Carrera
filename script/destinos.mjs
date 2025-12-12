@@ -1,6 +1,25 @@
 // destinos.mjs
-export function rellenar_info_destino(datos_ciudad) {
 
+// Función auxiliar para obtener favoritos del usuario actual
+function obtenerFavoritosUsuario() {
+    const usuario = localStorage.getItem("currentUser");
+    if (!usuario) return [];
+    
+    const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
+    return todosFavoritos[usuario] || [];
+}
+
+// Función auxiliar para guardar favoritos del usuario actual
+function guardarFavoritosUsuario(favoritos) {
+    const usuario = localStorage.getItem("currentUser");
+    if (!usuario) return;
+    
+    const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
+    todosFavoritos[usuario] = favoritos;
+    localStorage.setItem("favoritos_por_usuario", JSON.stringify(todosFavoritos));
+}
+
+export function rellenar_info_destino(datos_ciudad) {
     if (datos_ciudad) {
         document.querySelector(".producto-nombre").textContent = `${datos_ciudad.nombre} , ${datos_ciudad.pais}`;
         document.querySelector(".producto-precio").textContent = `${datos_ciudad.precio} €`;
@@ -13,13 +32,11 @@ export function rellenar_info_destino(datos_ciudad) {
         document.querySelectorAll(".caracteristica").forEach(checkbox => {
             checkbox.checked = listaTransportes.includes(checkbox.value);
         });
-
     }
 }
 
 export async function encontrarCiudad(nombre_ciudad) {
     let datospaises;
-    // Cargar el JSON de ciudades y controlamos errores
     try {
         const response = await fetch('./ciudades-del-mundo.json');
         datospaises = await response.json();
@@ -27,7 +44,7 @@ export async function encontrarCiudad(nombre_ciudad) {
         console.error("Error al cargar el JSON de ciudades:", error);
         return null;
     }
-    // Buscar la ciudad en el JSON
+    
     for (const continente of datospaises.continents) {
         for (const pais of continente.countries) {
             for (const ciudad of pais.cities) {
@@ -35,26 +52,25 @@ export async function encontrarCiudad(nombre_ciudad) {
                     const idioma = localStorage.getItem("idioma") || "es";
                     const isEn = idioma === "en";
                     return {
-                        // Devolvemos todos los datos de la ciudad
-                        pais: pais.name, // Podríamos traducir el país también si se añade al JSON
+                        pais: pais.name,
                         nombre: isEn && ciudad.name_en ? ciudad.name_en : ciudad.name,
                         descripcion: isEn && ciudad.description_en ? ciudad.description_en : ciudad.description,
                         imagen: ciudad.image,
                         transportes: ciudad.transportes,
                         precio: ciudad.precio,
-                        idioma: idioma // Useful for debugging
+                        idioma: idioma
                     };
                 }
             }
         }
     }
-    //Si no se encuentra la ciudad, devolver null
     return null;
 }
 
 
 export async function cargarFavoritos() {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    // Obtener favoritos del usuario actual
+    let favoritos = obtenerFavoritosUsuario();
     const listaContainer = document.getElementById("lista-favoritos");
     const mensajeVacio = document.getElementById("mensaje-vacio");
 
@@ -70,7 +86,6 @@ export async function cargarFavoritos() {
     if (mensajeVacio) mensajeVacio.style.display = "none";
 
     for (const favItem of favoritos) {
-        // Buscamos los detalles completos en el JSON usando el nombre
         const datosCiudad = await encontrarCiudad(favItem.nombre);
 
         if (datosCiudad) {
@@ -89,7 +104,6 @@ export async function cargarFavoritos() {
             listaContainer.appendChild(itemDiv);
         } else {
             console.warn(`No se encontraron detalles para el favorito: ${favItem.nombre}`);
-            // Opcional: Mostrar tarjeta simple si falla la carga
             const itemDiv = document.createElement("div");
             itemDiv.classList.add("favorito-item");
             itemDiv.innerHTML = `
@@ -105,21 +119,17 @@ export async function cargarFavoritos() {
         }
     }
 
-    // Importante: Re-asociar los eventos de eliminación a los nuevos botones
     eliminarFavorito();
 }
 
 export function eliminarFavorito() {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    let favoritos = obtenerFavoritosUsuario();
     const buttons = document.querySelectorAll(".boton-corazon-fav");
     buttons.forEach(btn => {
         btn.addEventListener("click", async () => {
             const nombreToRemove = btn.dataset.nombre;
-            // Lo eliminamos de la lista de favoritos
             favoritos = favoritos.filter(f => f.nombre !== nombreToRemove);
-            // Actualizamos en el localStorage
-            localStorage.setItem("favoritos", JSON.stringify(favoritos));
-            // Volvemos a cargar la lista
+            guardarFavoritosUsuario(favoritos);
             await cargarFavoritos();
         });
     });
@@ -131,27 +141,21 @@ export function cargarReseñasCiudad(ciudad) {
     const ultimas_reseñas = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
     const reseñas_ciudad = ultimas_reseñas[ciudad] || [];
 
-    // Solo mostramos como máximo 3, que son los div creados en el html (y hay 3)
     for (let i = 0; i < bloques_reseñas.length; i++) {
-
         const bloque = bloques_reseñas[i];
         const datos = reseñas_ciudad[i];
 
-        // Si no hay datos para este bloque, lo ocultamos
         if (!datos) {
             bloque.style.display = "none";
             continue;
         }
 
-        // Metemos los datos en el HTML
         bloque.querySelector(".reseña-titulo").textContent = datos.titulo;
         bloque.querySelector(".reseña-texto").textContent = datos.descripcion;
         bloque.querySelector(".usuario-imagen").src = datos.imagen;
         bloque.querySelector(".usuario-nombre").textContent = datos.usuario;
 
-        // Cogemos las estrellas del bloque de reseña en el que estamos
         const estrellas = bloque.querySelectorAll(".estrella");
-        // Recorremos las estrellas para ponerlas rellenas o vacías
         for (let j = 0; j < estrellas.length; j++) {
             if (j < datos.estrellas) {
                 estrellas[j].src = "images/estrella-rellena.png";
