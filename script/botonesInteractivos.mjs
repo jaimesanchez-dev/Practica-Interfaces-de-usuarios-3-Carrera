@@ -1,29 +1,6 @@
 // botones_interactivos.mjs
 
-export function boton_estrellas() {
-    const grupos = document.querySelectorAll(".estrellas");
-
-    grupos.forEach(grupo => {
-        const botones = grupo.querySelectorAll(".btn-estrella");
-
-        botones.forEach(boton => {
-            boton.addEventListener("click", () => {
-                const pos = boton.dataset.pos;
-
-                botones.forEach(b => {
-                    const img = b.querySelector("img");
-                    if (b.dataset.pos <= pos) {
-                        img.src = "images/estrella-rellena.png";
-                    } else {
-                        img.src = "images/estrella-vacia.png";
-                    }
-                });
-            });
-        });
-    });
-}
-
-
+// Función para actualizar la visualización de estrellas en un contenedor dado:
 export function actualizarEstrellas(contenedor, valor) {
     const botones = contenedor.querySelectorAll(".btn-estrella");
     
@@ -37,6 +14,7 @@ export function actualizarEstrellas(contenedor, valor) {
     });
 }
 
+
 // Función auxiliar para obtener favoritos del usuario actual
 function obtenerFavoritosUsuario() {
     const usuario = localStorage.getItem("currentUser");
@@ -45,7 +23,6 @@ function obtenerFavoritosUsuario() {
     const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
     return todosFavoritos[usuario] || [];
 }
-
 // Función auxiliar para guardar favoritos del usuario actual
 function guardarFavoritosUsuario(favoritos) {
     const usuario = localStorage.getItem("currentUser");
@@ -55,8 +32,7 @@ function guardarFavoritosUsuario(favoritos) {
     todosFavoritos[usuario] = favoritos;
     localStorage.setItem("favoritos_por_usuario", JSON.stringify(todosFavoritos));
 }
-
-
+// Función para el botón de lista de favoritos en la página de producto
 export function boton_lista_favoritos() {
     const boton = document.querySelector(".btn-corazon");
     if (!boton) return;
@@ -97,6 +73,7 @@ export function boton_lista_favoritos() {
     });
 }
 
+// Función para el botón de lista de favoritos en la página de home
 export function boton_favoritos_home() {
     const heartContainers = document.querySelectorAll(".heart-container");
     if (heartContainers.length === 0) return;

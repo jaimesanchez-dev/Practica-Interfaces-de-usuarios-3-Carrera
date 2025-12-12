@@ -1,6 +1,6 @@
 // ComprarProducto.js
 
-import { boton_lista_favoritos } from './botones_interactivos.mjs';
+import { boton_lista_favoritos } from './botonesInteractivos.mjs';
 import { rellenar_info_destino, encontrarCiudad, cargarReseñasCiudad } from './destinos.mjs';
 import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 

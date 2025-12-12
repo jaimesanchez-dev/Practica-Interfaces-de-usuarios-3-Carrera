@@ -1,6 +1,6 @@
 import { iniciarCarrusel } from './carrusel.mjs';
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
-import { boton_favoritos_home } from './botones_interactivos.mjs';
+import { boton_favoritos_home } from './botonesInteractivos.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
     
