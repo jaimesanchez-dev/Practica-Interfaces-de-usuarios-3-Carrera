@@ -6,14 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Mandamos una aletra si pinchan en un enlace que no estan implementados
 document.addEventListener("DOMContentLoaded", () => {
-    const enlacesNoImplementados = document.querySelectorAll('a[href="#"]');
-
-    enlacesNoImplementados.forEach(enlace => {
-        enlace.addEventListener("click", (e) => {
-            e.preventDefault();
-            alert("Esta opción no está implementada");
-        });
-    });
 
     const usuario_actual = localStorage.getItem("currentUser");
     if (usuario_actual) {

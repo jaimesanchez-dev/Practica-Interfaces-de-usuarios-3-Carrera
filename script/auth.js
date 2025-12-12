@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Controlamos el acceso a los enlaces no implementados
+    const enlacesNoImplementados = document.querySelectorAll('a[href="#"]');
+    enlacesNoImplementados.forEach(enlace => {
+        enlace.addEventListener("click", (e) => {
+            e.preventDefault();
+            alert("Esta opción no está implementada");
+        });
+    });
+
     if (window.location.pathname.includes('Registro.html')) {
         const registerForm = document.querySelector('.login-form');
 

@@ -6,7 +6,7 @@ import { mostrarReseña } from './usuario.mjs';
 import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
-
+    
     cargar_idioma();
     const selector = document.querySelector(".header-idioma");
     if (selector) {

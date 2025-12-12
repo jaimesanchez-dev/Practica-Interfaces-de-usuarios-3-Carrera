@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const user = localStorage.getItem("currentUser");
     const consejosLink = document.getElementById("link-consejos");
     const perfilLink = document.getElementById("link-perfil");
-    const contactoLink = document.getElementById("link-contacto");
     
     consejosLink.addEventListener("click", (e) => {
         if (!user) {
@@ -27,11 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             alert("Debes iniciar sesión para acceder a la página del perfil.");
         }
-    });
-    
-    contactoLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert("Esta opción no está implementada");
     });
     
     // Verificar si el usuario debe poder agregar a favoritos
