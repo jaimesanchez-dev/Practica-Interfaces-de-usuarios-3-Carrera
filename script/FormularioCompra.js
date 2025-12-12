@@ -1,4 +1,4 @@
-import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra } from "./formulario.mjs";
+import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra, cargarTransportes } from "./formulario.mjs";
 document.addEventListener("DOMContentLoaded", () => {
 
     // Referenciamos todos los elementos necesarios
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mostrarSeccionesFormulario();
     inicializarAcompañantes();
-
+    cargarTransportes();
 });
 
 

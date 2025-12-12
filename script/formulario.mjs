@@ -1,30 +1,51 @@
 // formulario.mjs
 import { validarFormulario } from "./validaciones.mjs";
+import { encontrarCiudad } from "./destinos.mjs";
+
 
 export function mostrarSeccionesFormulario() {
     // Checkbox
     const cbAcompanantes = document.getElementById("cbAcompanantes");
     const cbMascotas = document.getElementById("cbMascotas");
     const cbAlergias = document.getElementById("cbAlergias");
+
     // Contenedores
     const contAcompanantes = document.getElementById("contenedorAcompanantes");
     const contMascotas = document.getElementById("contenedorMascotas");
     const contAlergias = document.getElementById("contenedorAlergias");
 
-    // Mostrar u ocultar acompañantes
+    // Mostar u ocultar acompañantes
     cbAcompanantes.addEventListener("change", () => {
-        contAcompanantes.classList.toggle("oculto", !cbAcompanantes.checked);
-        generarAcompanantes();
+        if (cbAcompanantes.checked) {
+            contAcompanantes.classList.remove("oculto");
+            setTimeout(() => contAcompanantes.classList.add("mostrar"), 10);
+            generarAcompanantes();
+        } else {
+            contAcompanantes.classList.remove("mostrar");
+            setTimeout(() => contAcompanantes.classList.add("oculto"), 400);
+        }
     });
 
-    // Mostrar u ocultar mascotas
+    // Mostar u ocultar mascotas
     cbMascotas.addEventListener("change", () => {
-        contMascotas.classList.toggle("oculto", !cbMascotas.checked);
+        if (cbMascotas.checked) {
+            contMascotas.classList.remove("oculto");
+            setTimeout(() => contMascotas.classList.add("mostrar"), 10);
+        } else {
+            contMascotas.classList.remove("mostrar");
+            setTimeout(() => contMascotas.classList.add("oculto"), 400);
+        }
     });
 
-    // Mostrar u ocultar alergias
+    // Mostar u ocultar alergias
     cbAlergias.addEventListener("change", () => {
-        contAlergias.classList.toggle("oculto", !cbAlergias.checked);
+        if (cbAlergias.checked) {
+            contAlergias.classList.remove("oculto");
+            setTimeout(() => contAlergias.classList.add("mostrar"), 10);
+        } else {
+            contAlergias.classList.remove("mostrar");
+            setTimeout(() => contAlergias.classList.add("oculto"), 400);
+        }
     });
 }
 
@@ -83,7 +104,6 @@ export function realizarCompra() {
 
     // Verificamos la validación antes de comprar
     if (!validarFormulario()) {
-        alert("Hay errores en el formulario. Revísalo.");
         return;
     }
 
@@ -109,4 +129,43 @@ export function realizarCompra() {
 
     // Redirigimos a la página Home
     window.location.href = "Home.html";
+}
+
+
+export async function cargarTransportes() {
+    // Selector de transporte del formulario
+    const selectTransporte = document.getElementById("transporte");
+
+    // Obtenemos el destino seleccionado
+    const destino = localStorage.getItem("destinoSeleccionado");
+    if (!destino) {
+        console.error("No se encontró destinoSeleccionado en localStorage");
+        return;
+    }
+
+    // Buscamos la ciuadad en el JSON
+    const ciudad = await encontrarCiudad(destino);
+
+    if (!ciudad) {
+        console.error("Ciudad no encontrada en el JSON");
+        return;
+    }
+
+    // Limpiamos el select
+    selectTransporte.innerHTML = "";
+
+    // Añadimos los transportes disponibles
+    ciudad.transportes.forEach(t => {
+        const option = document.createElement("option");
+        option.value = t;
+        option.textContent = t;
+        selectTransporte.appendChild(option);
+    });
+
+    // Si solo hay 1 transporte, bloqueamos selector
+    if (ciudad.transportes.length === 1) {
+        selectTransporte.disabled = true;
+    } else {
+        selectTransporte.disabled = false;
+    }
 }
