@@ -39,10 +39,13 @@ export function mostrarReseña(form, titulo, descripcion, estrellas) {
 
     // Creamos la estructura de la reseña
     div.innerHTML = `
-        <div class="estrellas">${estrellasHTML}</div>
-        <h3>${titulo}</h3>
-        <p>${descripcion}</p>
-        <button class="btn-borrar">Eliminar</button>
+        <img class="foto-usuario-reseña" src="${JSON.parse(localStorage.getItem("user_" + currentUser)).foto}" alt="${currentUser}">
+        <div>
+            <div class="estrellas">${estrellasHTML}</div>
+            <h3>${titulo}</h3>
+            <p>${descripcion}</p>
+            <button class="btn-borrar">Eliminar</button>
+        </div>
     `;
 
     // Evento para borrar la reseña si pulsas el boton de Borrar

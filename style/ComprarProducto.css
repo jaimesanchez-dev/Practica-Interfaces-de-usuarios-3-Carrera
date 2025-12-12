@@ -130,6 +130,8 @@
 
 .reseña-item{
     display: flex;
+    flex: 1;
+    height: min-content;
     flex-direction: column;
     background-color: var(--color-fondo-blanco);
     border: 1px solid var(--color-borde);
