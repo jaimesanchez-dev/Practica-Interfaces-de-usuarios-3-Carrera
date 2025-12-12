@@ -1,26 +1,7 @@
 input {
     box-sizing: border-box;
     border-radius: 10%;
-    border-color: 1px solid;
-}
-
-
-.referencia {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 2px solid var(--color-texto-principal);
-    background-image: url("../Imagenes/San\ Francisco\,\ United\ States.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: border-color var(--transition-speed) ease;
+    border: 1px solid;
 }
 
 .fc_main{
@@ -38,9 +19,7 @@ input {
     display: flex;
     flex-direction: column;
     height: max-content;
-    max-height: auto;
     width: auto;
-    max-width: auto;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
@@ -50,51 +29,6 @@ input {
     border: 2px solid var(--color-texto-principal);
     transition: background-color var(--transition-speed) ease,
                 border-color var(--transition-speed) ease;
-}
-
-.formulario{
-    display: flex;
-    flex-direction: column;
-    height: max-content;
-    max-height: auto;
-    width: 100%;
-    max-width: auto;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-
-    gap: 15px;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0px;
-    border: 0px solid black;
-    background-color: lightcoral;
-}
-
-.titulo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: max-content;
-
-    align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
-    border: 0px solid black; 
-    background-color: lightblue;
-    box-sizing: border-box;
-}
-
-.date_cvv {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    height: max-content;
-
-    align-items: center;
-    justify-content: space-between;
-    border: 0px solid black; 
-    background-color: lightgreen;
 }
 
 
@@ -110,8 +44,7 @@ input {
     justify-content: center;
     gap: 10px;
     border: 0px solid var(--color-texto-principal);
- 
-   transition: border-color var(--transition-speed) ease; background-color: inherit;
+    transition: border-color var(--transition-speed) ease; background-color: inherit;
 }
 
 .checkbox {
@@ -172,7 +105,7 @@ input {
     font-size: 16px;
 }
 
-#cvv {
+#inputCVV {
     padding: 10px 2px;
     border: 2px solid #54396d;
     background-color: #fdfaff;
@@ -195,4 +128,25 @@ input {
 .comprar-borrar:hover {
     background-color: rgb(199, 164, 218);
     color: rgb(50, 29, 65);
+}
+
+.oculto {
+    display: none;
+}
+
+#contenedorAcompanantes,
+#contenedorMascotas,
+#contenedorAlergias {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.acompanante-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.acompanante-group input {
+    margin-top: 5px;
 }

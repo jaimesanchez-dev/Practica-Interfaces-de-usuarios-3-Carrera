@@ -1,32 +1,26 @@
-
-
+import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra } from "./formulario.mjs";
 document.addEventListener("DOMContentLoaded", () => {
 
-    const botonComprar = document.getElementById("boton_comprar");
-    if (botonComprar) {
-        botonComprar.addEventListener("click", () => {
+    // Referenciamos todos los elementos necesarios
+    const form = document.getElementById("formCompra");
+    const botonComprar = document.getElementById("btnComprar");
 
-            // Obtenemos el destino seleccionado
-            const destino = localStorage.getItem("destinoSeleccionado");
-            if (!destino) return;
 
-             // Obtenemos el usuario actual
-            const currentUser = localStorage.getItem("currentUser"); // username del usuario
-
-            // Obtenemos la lista de destinos comprados o si no existe, iniciamos un array vacío
-            let destinosComprados = JSON.parse(localStorage.getItem("compras_" + currentUser)) || [];
-
-            // Si no se ha comprado antes el destino (es decir, no está en la lista), lo añadimos
-            if (!destinosComprados.includes(destino)) {
-                destinosComprados.push(destino);
-            }
-
-            // Guardamos la lista actualizada en localStorage
-            localStorage.setItem("compras_" + currentUser, JSON.stringify(destinosComprados));
-
-            alert("¡Compra realizada con éxito!");
-            // Redirigimos a la página Home
-            window.location.href = "Home.html";
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
         });
     }
+
+    if (botonComprar) {
+        botonComprar.addEventListener("click", realizarCompra);
+    }
+
+    mostrarSeccionesFormulario();
+    inicializarAcompañantes();
+
 });
+
+
+
+

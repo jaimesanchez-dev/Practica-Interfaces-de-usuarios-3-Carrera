@@ -49,53 +49,90 @@
 
     <main class="fc_main">
         <div class="recuadro">
-            
-            <!--Formulario para realizar la compra-->
             <h1>Formulario de compra</h1>
-            <form action="/action_page.php">
-                <!--Nombre y apellidos-->
+
+            <form id="formCompra">
+
+                <!-- Nombre y Apellidos -->
                 <div class="datos">
-                    <input type="text" class="registro" name="nombre" placeholder="Nombre" id ="nombre">
-                    <input type="text" class="registro" name="apellidos" placeholder="Apellidos" id="apellidos">
+                    <input type="text" class="registro" name="nombre" placeholder="Nombre" id="inputNombre">
+                    <input type="text" class="registro" name="apellidos" placeholder="Apellidos" id="inputApellidos">
+                    <input type="email" class="registro" placeholder="Correo Electrónico" name="correo">
                 </div>
-                
-                <!--Pestaña para seleccionar el tipo de tarjeta-->
+
+                <!-- Tipo de tarjeta -->
                 <p>Tipo de tarjeta</p>
-                <select id="tarjeta" name="tarjeta">
-                    <option value="Blanca"></option>
+                <select id="inputTipoTarjeta" name="tarjeta">
+                    <option value="">Seleccione...</option>
                     <option value="Visa">Visa</option>
                     <option value="Mastercard">Mastercard</option>
-                    <option value="American Esxpress">American Express</option>
+                    <option value="American Express">American Express</option>
                 </select>
-                
-                <!--Datos de la tarjeta-->
+
+                <!-- Número y titular -->
                 <div class="datos">
-                    <input type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="numero_tarjeta">
-                    <input type="text" class="registro" name="titular" placeholder="Nombre del titular de la tarjeta" id="titular">
+                    <input type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="inputNumeroTarjeta">
+                    <input type="text" class="registro" name="titular_tarjeta" placeholder="Nombre del titular" id="inputTitularTarjeta">
                 </div>
+
+                <!-- Fecha y cvv -->
                 <p>Fecha de caducidad</p>
                 <div class="flex-h">
-                    <input type="date" id="fecha" name="fecha">
-                    <input type="number" id="cvv" name="cvv" placeholder="CVV">
+                    <input type="date" id="inputFechaCaducidadTarjeta" name="fecha_caducidad">
+                    <input type="number" id="inputCVV" name="cvv" placeholder="CVV">
                 </div>
-                
+
                 <!-- Checkboxes -->
-                 <div class="contenedor_opciones">
+                <div class="contenedor_opciones">
                     <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
+                        <input id="cbAcompanantes" type="checkbox">
                         <div><b>¿Más acompañantes?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
+
                     <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
+                        <input id="cbMascotas" type="checkbox">
                         <div><b>¿Mascotas?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
+
                     <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
+                        <input id="cbAlergias" type="checkbox">
                         <div><b>¿Intolerancias o alergias?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
                 </div>
-                
-                <!-- Selector de transporte -->
+
+                <!-- Contenedor dinámico acompañantes -->
+                <div id="contenedorAcompanantes" class="oculto">
+                    <label for="numAcompanantes"><b>Número de acompañantes:</b></label>
+                    <select id="numAcompanantes">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                    <div id="listaAcompanantes"></div>
+                </div>
+
+                <!-- Mascotas -->
+                <div id="contenedorMascotas" class="oculto">
+                    <p><b>Datos de la mascota</b></p>
+                    <input type="text" class="registro" id="tipoMascota" placeholder="Tipo de mascota">
+                    <input type="text" class="registro" id="tamanoMascota" placeholder="Tamaño de mascota">
+                </div>
+
+                <!-- Alergias -->
+                <div id="contenedorAlergias" class="oculto">
+                    <p><b>Indique alergias o intolerancias</b></p>
+                    <textarea id="txtAlergias" rows="3" placeholder="Escriba aquí..."></textarea>
+                </div>
+
+                <!-- TRANSPORTE -->
                 <p>Tipo de transporte</p>
                 <select id="transporte" name="transporte">
                     <option value="Barco">Barco</option>
@@ -103,73 +140,16 @@
                     <option value="Avion">Avión</option>
                     <option value="Tren">Tren</option>
                 </select>
-                
-                <!--Botones de "Comprar" y "Borrar"-->
+
+                <!-- BOTONES -->
                 <div class="botones_finales">
-                    <input type="button" value="Comprar" class="comprar-borrar" id="boton_comprar">
+                    <input type="submit" value="Comprar" class="comprar-borrar" id="btnComprar">
                     <input type="reset" value="Borrar" class="comprar-borrar">
                 </div>
             </form>
-            
-            
-            <!-- <form class="formulario">
-                
-                
-                <h1>Formulario de Compra</h1>
-                
-                
-                <input class="w nombre" placeholder="Nombre">
-                
-                
-                <input class="w apellidos" placeholder="Apellidos">
-                
-
-                <h3>Tipo de Tarjeta</h3>
-                <input class="tipo_tarjeta" placeholder="Tipo de Tarjeta">
-                
-                <input class="w num_tarjeta" placeholder="Número de Tarjeta">
-                
-                
-                <input class="w tit_tarjeta" placeholder="Titular de la Tarjeta">
-                
-                
-                <div class="titulo">
-                    <h3 class>Fecha de caducidad</h3>
-                    <div class="date_cvv">
-                        <input class="dmy_tarjeta" type="date" placeholder="Fecha de Caducidad">
-                        <input class="cvv_tarjeta" placeholder="CVV">
-                    </div>
-                </div>
-                
-                
-                <div class="contenedor_opciones">
-                    <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
-                        <h5>Bla1<br>Bla2</h5>
-                    </div>
-                    <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
-                        <div class="checkbox_text">
-                            <h5>Bla 1</h5>
-                            <h5>Bla 2</h5>
-                        </div>
-                    </div>
-                    <div class="checkbox">
-                        <input class="cb_comp" type="checkbox">
-                        <div class="checkbox_text">
-                            <h5>Bla 1</h5>
-                            <h5>Bla 2</h5>
-                        </div>
-                    </div>
-                </div>
-                <option class="transporte">
-                <div class="botones">
-                    <button class="but_comprar"></button>
-                    <button class="but_borrar"></button>
-                </div>
-            </form> -->
         </div>
     </main>
+
 
     <footer class="footer">
         <div class="footer-redes">
