@@ -1,5 +1,11 @@
 // usuario.mjs
 
+
+
+
+
+
+
 export function mostrarPerfilUsuario(usuario) {
     const contenido = document.querySelector('.grupo-botones');
     const datos_usuario = localStorage.getItem('user_' + usuario);
@@ -12,7 +18,6 @@ export function mostrarPerfilUsuario(usuario) {
         </div>
     `;
 }
-
 
 export function mostrarReseña(form, titulo, descripcion, estrellas) {
 

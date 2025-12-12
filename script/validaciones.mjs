@@ -1,5 +1,22 @@
 // validaciones.mjs
 
+
+export function validarNombre(valor) {
+    const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+    return regex.test(valor) && valor.trim().length >= 3;
+}
+
+export function validarApellidos(valor) {
+    const regex = /^([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})(\s+[A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})+$/;
+    return regex.test(valor.trim());
+}
+
+export function validarPassword(valor) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=(?:.*\d){2,})(?=.*[^A-Za-z0-9]).{8,}$/;
+    return regex.test(valor);
+}
+
+
 export function validarCampos(campos_formulario) {
     const regexNombre = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]{3,}$/;
     const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
