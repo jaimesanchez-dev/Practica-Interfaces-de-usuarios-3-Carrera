@@ -21,7 +21,11 @@ function guardarFavoritosUsuario(favoritos) {
 
 export function rellenar_info_destino(datos_ciudad) {
     if (datos_ciudad) {
-        document.querySelector(".producto-nombre").textContent = `${datos_ciudad.nombre} , ${datos_ciudad.pais}`;
+        const nombreElement = document.querySelector(".producto-nombre");
+        nombreElement.textContent = `${datos_ciudad.nombre} , ${datos_ciudad.pais}`;
+        // Guardamos el nombre original (español) para referencias internas como favoritos
+        nombreElement.setAttribute("data-nombre-original", datos_ciudad.nombre_es);
+
         document.querySelector(".producto-precio").textContent = `${datos_ciudad.precio} €`;
         document.querySelector(".producto-descripcion").textContent = datos_ciudad.descripcion;
         document.querySelector(".producto-imagen").src = datos_ciudad.imagen.url;
@@ -48,7 +52,9 @@ export async function encontrarCiudad(nombre_ciudad) {
     for (const continente of datospaises.continents) {
         for (const pais of continente.countries) {
             for (const ciudad of pais.cities) {
-                if (ciudad.name.toLowerCase() === nombre_ciudad.toLowerCase()) {
+                // Buscamos tanto por nombre original como por nombre en inglés
+                if (ciudad.name.toLowerCase() === nombre_ciudad.toLowerCase() ||
+                    (ciudad.name_en && ciudad.name_en.toLowerCase() === nombre_ciudad.toLowerCase())) {
                     const idioma = localStorage.getItem("idioma") || "es";
                     const isEn = idioma === "en";
                     return {
