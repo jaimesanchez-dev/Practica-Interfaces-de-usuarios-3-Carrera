@@ -56,7 +56,7 @@ export function inicializarAcompañantes() {
     numAcompanantes.addEventListener("change", generarAcompanantes);
 }
 
-export function generarAcompanantes() {
+function generarAcompanantes() {
     // Checkbox
     const cbAcompanantes = document.getElementById("cbAcompanantes");
     
