@@ -1,4 +1,4 @@
-// botones_interactivos.mjs
+// botonesInteractivos.mjs
 
 // Función para actualizar la visualización de estrellas en un contenedor dado:
 export function actualizarEstrellas(contenedor, valor) {

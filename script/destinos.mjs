@@ -38,7 +38,7 @@ export function rellenar_info_destino(datos_ciudad) {
 export async function encontrarCiudad(nombre_ciudad) {
     let datospaises;
     try {
-        const response = await fetch('./ciudades-del-mundo.json');
+        const response = await fetch('../ciudades-del-mundo.json');
         datospaises = await response.json();
     } catch (error) {
         console.error("Error al cargar el JSON de ciudades:", error);

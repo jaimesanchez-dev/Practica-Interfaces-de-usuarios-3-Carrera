@@ -1,4 +1,5 @@
 // Favoritos.js
+
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
 import { cargarFavoritos } from './destinos.mjs';
 

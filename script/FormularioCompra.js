@@ -1,3 +1,5 @@
+// FormularioCompra.js
+
 import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra, cargarTransportes } from "./formulario.mjs";
 document.addEventListener("DOMContentLoaded", () => {
 

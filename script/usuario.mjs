@@ -1,11 +1,5 @@
 // usuario.mjs
 
-
-
-
-
-
-
 export function mostrarPerfilUsuario(usuario) {
     const contenido = document.querySelector('.grupo-botones');
     const datos_usuario = localStorage.getItem('user_' + usuario);
@@ -19,61 +13,49 @@ export function mostrarPerfilUsuario(usuario) {
     `;
 }
 
-export function mostrarReseña(form, titulo, descripcion, estrellas) {
+export function cargarUsuarioPerfil() {
+    const usuarioActual = localStorage.getItem("currentUser");
+    if (!usuarioActual) return;
 
-    // Ocultar formulario y estrellas
-    form.style.display = "none";
-    const contenedorEstrellas = form.closest(".reseña-viaje").querySelector(".estrellas");
-    contenedorEstrellas.style.display = "none";
+    const perfilNombre = document.getElementById("perfil-nombre-usuario");
+    const fotoPerfil = document.querySelector(".usuario-avatar");
 
-    const destino = form.dataset.destino;
-    const currentUser = localStorage.getItem("currentUser");
-
-    const div = document.createElement("div");
-    div.classList.add("reseña-publicada");
-
-    // Pintamos las estrellas en HTML según el valor
-    let estrellasHTML = "";
-    for (let i = 1; i <= 5; i++) {
-        if (i <= estrellas) {
-            estrellasHTML += `<img src="images/estrella-rellena.png" class="estrella">`;
-        } else {
-            estrellasHTML += `<img src="images/estrella-vacia.png" class="estrella">`;
-        }
+    if (perfilNombre) {
+        perfilNombre.textContent = usuarioActual;
     }
 
-    // Creamos la estructura de la reseña
-    div.innerHTML = `
-        <img class="foto-usuario-reseña" src="${JSON.parse(localStorage.getItem("user_" + currentUser)).foto}" alt="${currentUser}">
-        <div>
-            <div class="estrellas">${estrellasHTML}</div>
-            <h3>${titulo}</h3>
-            <p>${descripcion}</p>
-            <button class="btn-borrar">Eliminar</button>
-        </div>
-    `;
+    const datosUsuario = JSON.parse(
+        localStorage.getItem("user_" + usuarioActual)
+    );
 
-    // Evento para borrar la reseña si pulsas el boton de Borrar
-    div.querySelector(".btn-borrar").addEventListener("click", () => {
+    if (fotoPerfil && datosUsuario?.foto) {
+        fotoPerfil.src = datosUsuario.foto;
+    }
+}
 
-        // Borramos la reseña asociada al usuario (la reseña que hemos creado)
-        let reseñasUsuario = JSON.parse(localStorage.getItem("reseñas_" + currentUser)) || [];
-        reseñasUsuario = reseñasUsuario.filter(r => r.destino !== destino);
-        localStorage.setItem("reseñas_" + currentUser, JSON.stringify(reseñasUsuario));
+export function inicializarCerrarSesion() {
+    const btnCerrarSesion = document.querySelector(".btn-cerrar-sesion");
+    if (!btnCerrarSesion) return;
 
-        // Borraramos la reseña si forma parte de las ultimas reseñas
-        let ultimas = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
+    btnCerrarSesion.addEventListener("click", () => {
+        const currentUser = localStorage.getItem("currentUser");
+        let mensaje = "¿Estás seguro de que quieres cerrar sesión?";
 
-        if (ultimas[destino]) {
-            ultimas[destino] = ultimas[destino].filter(r => r.usuario !== currentUser);
-            localStorage.setItem("ultimas_reseñas", JSON.stringify(ultimas));
+        if (currentUser) {
+            const userData = JSON.parse(
+                localStorage.getItem("user_" + currentUser)
+            );
+            if (userData?.nombre) {
+                mensaje = `¿Seguro que quieres cerrar sesión, ${userData.nombre}?`;
+            } else {
+                mensaje = "¿Seguro que quieres cerrar sesión?";
+            }
         }
 
-        // Al darle al boton de borrar, volvemos a mostrar el formulario
-        div.remove();
-        form.style.display = "flex";
-        contenedorEstrellas.style.display = "flex";
+        if (confirm(mensaje)) {
+            localStorage.removeItem("currentUser");
+            window.location.href = "Home.html";
+        }
     });
-
-    form.parentNode.appendChild(div);
 }
+

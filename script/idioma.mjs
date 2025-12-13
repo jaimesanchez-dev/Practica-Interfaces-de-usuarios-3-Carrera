@@ -1,4 +1,5 @@
 // idioma.mjs
+
 import { traducciones } from './traducciones.mjs';
 
 export function aplicarIdioma(idioma) {
