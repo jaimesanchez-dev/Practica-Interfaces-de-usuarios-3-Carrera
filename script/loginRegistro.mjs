@@ -10,14 +10,16 @@ export function inicializarRegistro() {
     if (!registerForm) return;
 
     registerForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+        e.preventDefault(); // evitar submit por defecto
 
+        // Obtener valores del formulario
         const nombre = document.getElementById("nombre").value.trim();
         const apellidos = document.getElementById("apellidos").value.trim();
         const username = document.getElementById("nombre_usuario").value.trim();
         const password = document.getElementById("contrasena").value;
         const fotoInput = document.getElementById("foto");
 
+        // Validaciones
         if (!validarNombre(nombre)) {
             alert("El campo Nombre solo puede contener letras y debe tener al menos 3 caracteres.");
             return;
@@ -38,18 +40,19 @@ export function inicializarRegistro() {
             return;
         }
 
+        // Función para guardar usuario en localStorage
         function guardarUsuario(fotoBase64) {
             const userData = {
                 nombre,
                 apellidos,
                 username,
                 password,
-                foto: fotoBase64 || "./images/avatar-usuario.jpg"
+                foto: fotoBase64
             };
 
             localStorage.setItem("user_" + username, JSON.stringify(userData));
             alert("Registro exitoso!");
-            window.location.href = "InicioSesion.html";
+            window.location.href = "InicioSesion.html"; // redirige al login
         }
         // Si el usuario sube una foto la convertimos a Base64
         if (fotoInput.files && fotoInput.files[0]) {
@@ -88,7 +91,7 @@ export function inicializarLogin() {
 
         if (userData.password === password) {
             alert('Inicio de sesión exitoso!');
-            localStorage.setItem('currentUser', username);
+            localStorage.setItem('currentUser', username); // guarda el usuario loguead
             window.location.href = 'Home.html';
         } else {
             alert('Contraseña incorrecta.');
@@ -104,6 +107,7 @@ export function actualizarHeader() {
     const currentUser = localStorage.getItem("currentUser");
 
     if (currentUser) {
+        // Si el usuario esta logueado, mostrar avatar, nombre y botón de logout
         const userData = JSON.parse(localStorage.getItem("user_" + currentUser));
 
         const userImage = userData.foto || `https://ui-avatars.com/api/?name=${userData.nombre}&background=random`;
@@ -116,6 +120,7 @@ export function actualizarHeader() {
             </div>
         `;
 
+        // Evento cerrar sesión
         document.getElementById("btn-logout").addEventListener("click", () => {
             if (confirm(`¿Seguro que quieres cerrar sesión, ${userData.nombre}?`)) {
                 localStorage.removeItem("currentUser");
@@ -124,6 +129,7 @@ export function actualizarHeader() {
         });
 
     } else {
+        // Si el usuario no está logueado, mostrar botones de login y registro
         headerAuth.innerHTML = `
             <div class="grupo-botones">
                 <button data-i18n="iniciosesion" class="btn-login-new" onclick="window.location.href='InicioSesion.html'">Inicio sesión</button>

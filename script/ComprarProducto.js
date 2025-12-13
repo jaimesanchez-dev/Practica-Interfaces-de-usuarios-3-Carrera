@@ -6,14 +6,17 @@ import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
-
+    // Cargamos el idioma guardado en localStorage
     cargar_idioma();
+
+    // Selector de idioma
     const selector = document.querySelector(".header-idioma");
     if (selector) {
         selector.addEventListener("change", async () => {
             const idioma = selector.value;
             localStorage.setItem("idioma", idioma);
             aplicarIdioma(idioma);
+            // Recargamos los datos del producto para actualizar los textos
             await cargarDatosProducto();
         });
     }
@@ -25,20 +28,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
+    // Función que carga y muestra los datos del producto seleccionado
     async function cargarDatosProducto() {
         const datos_ciudad = await encontrarCiudad(nombre_ciudad);
         if (datos_ciudad) {
             rellenar_info_destino(datos_ciudad);
         }
     }
+    // Cargamos los datos del producto al iniciar la página
     await cargarDatosProducto();
 
-    // Inicializar el botón de favoritos (esto carga el estado inicial del corazón)
+    // Inicializamos el botón de favoritos
     boton_lista_favoritos();
 
     // Cargamos las reseñas del destino
     cargarReseñasCiudad(nombre_ciudad);
 
+    // Comprobamos si hay un usuario logueado
     const user = localStorage.getItem("currentUser");
     
     // Al hacer click en el boton de comprar, redirigimos a la pagina del formulario de compra
@@ -95,8 +101,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // Cargamos la moneda
+    // Cargamos la moneda guardada en localStorage
     cargar_moneda()
+    // Al cambiar la moneda, recargamos los datos del producto para actualizar el precio
     const selectMoneda = document.querySelector(".header-moneda");
     if (selectMoneda) {
         selectMoneda.addEventListener("change", async () => {

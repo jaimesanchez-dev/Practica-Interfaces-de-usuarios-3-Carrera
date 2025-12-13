@@ -6,26 +6,30 @@ import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Referenciamos todos los elementos necesarios
+    // Referenciamos el formulario y el boton de compra
     const form = document.getElementById("formCompra");
     const botonComprar = document.getElementById("btnComprar");
 
-
+    // Evitamos el envío por defecto del formulario (para que no se recarge la página)
     if (form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
         });
     }
 
+    // Al pulsar el botón comprar se ejecuta la función realizarCompra
     if (botonComprar) {
         botonComprar.addEventListener("click", realizarCompra);
     }
 
+    // Mostramos u ocultamos secciones del formulario según las opciones seleccionadas
     mostrarSeccionesFormulario();
+    // Inicializamos la lógica para añadir acompañantes
     inicializarAcompañantes();
+    // Cargamos los transportes disponibles para el destino
     cargarTransportes();
 
-    // Gestión del idioma
+    // Cargamos el idioma seleccionado
     cargar_idioma();
 
     const selector = document.querySelector(".header-idioma");
@@ -37,6 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Cargamos la moneda
+    // Cargamos la moneda seleccionada
     cargar_moneda()
 });

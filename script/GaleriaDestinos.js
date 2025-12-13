@@ -6,6 +6,8 @@ import { cargar_idioma, aplicarIdioma } from "./idioma.mjs";
 import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
+    
+    // Cargamos el idioma guardado
     cargar_idioma();
 
     const selector = document.querySelector(".header-idioma");
@@ -14,11 +16,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         const idioma = selector.value;
         localStorage.setItem("idioma", idioma);
         aplicarIdioma(idioma);
+        // Aplicamos de nuevo los filtros para actualizar los textos
         aplicarFiltros();
         });
     }
 
+    // Inicializamos la galería de destinos
     await iniciarGaleria();
+    // Inicializamos el buscador
     iniciarBuscador();
 
     // Controlamos a que páginas puede acceder el usuario si no ha iniciado sesión
@@ -40,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // Cargamos la moneda
+    // Cargamos la moneda seleccionada
     cargar_moneda()
 
     const selectMoneda = document.querySelector(".header-moneda");

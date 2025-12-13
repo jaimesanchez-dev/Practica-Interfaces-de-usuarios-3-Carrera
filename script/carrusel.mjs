@@ -16,6 +16,7 @@ export function iniciarCarrusel() {
         else if (n >= total-1) index = 0;
         else index = n;
 
+         // Calculamos el desplazamiento teniendo en cuenta el gap entre imágenes
         const offset = -(index * 50 + index * 2); // multiplico por 2 porque el gap entre las imagenes es 2%
         track.style.transform = `translateX(${offset}%)`;
     }
@@ -36,7 +37,7 @@ export function iniciarCarrusel() {
         reiniciarAutoPlay();
     });
 
-    // --- AUTOPLAY cada 2 segundos ---
+    //AUTOPLAY cada 4 segundos
     function iniciarAutoPlay() {
         detenerAutoPlay(); 
         autoPlayInterval = setInterval(siguienteSlide, 4000); //4 segundos

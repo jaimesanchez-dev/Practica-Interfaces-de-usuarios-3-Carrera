@@ -4,14 +4,14 @@ import { validarFormulario } from "./validaciones.mjs";
 import { encontrarCiudad } from "./destinos.mjs";
 import { aplicarIdioma } from "./idioma.mjs";
 
-
+// Esta función controla los checkbox de Acompañantes, Mascotas y Alergias 
 export function mostrarSeccionesFormulario() {
-    // Checkbox
+    // Referencias a los checkboxes del formulario
     const cbAcompanantes = document.getElementById("cbAcompanantes");
     const cbMascotas = document.getElementById("cbMascotas");
     const cbAlergias = document.getElementById("cbAlergias");
 
-    // Contenedores
+    // Contenedores que se mostrarán u ocultará
     const contAcompanantes = document.getElementById("contenedorAcompanantes");
     const contMascotas = document.getElementById("contenedorMascotas");
     const contAlergias = document.getElementById("contenedorAlergias");
@@ -32,10 +32,10 @@ export function mostrarSeccionesFormulario() {
     cbMascotas.addEventListener("change", () => {
         if (cbMascotas.checked) {
             contMascotas.classList.remove("oculto");
-            setTimeout(() => contMascotas.classList.add("mostrar"), 10);
+            contMascotas.classList.add("mostrar");
         } else {
             contMascotas.classList.remove("mostrar");
-            setTimeout(() => contMascotas.classList.add("oculto"), 400);
+            contMascotas.classList.add("oculto");
         }
     });
 
@@ -46,11 +46,12 @@ export function mostrarSeccionesFormulario() {
             setTimeout(() => contAlergias.classList.add("mostrar"), 10);
         } else {
             contAlergias.classList.remove("mostrar");
-            setTimeout(() => contAlergias.classList.add("oculto"), 400);
+            contAlergias.classList.add("oculto");
         }
     });
 }
 
+// Inicializa el listener para generar inputs de acompañantes según la cantidad seleccionada
 export function inicializarAcompañantes() {
     // Acompañantes dinámicos
     const numAcompanantes = document.getElementById("numAcompanantes");
@@ -58,6 +59,7 @@ export function inicializarAcompañantes() {
     numAcompanantes.addEventListener("change", generarAcompanantes);
 }
 
+// Crea dinámicamente inputs de nombre y correo para cada acompañante
 function generarAcompanantes() {
     // Checkbox
     const cbAcompanantes = document.getElementById("cbAcompanantes");
@@ -66,18 +68,19 @@ function generarAcompanantes() {
     const numAcompanantes = document.getElementById("numAcompanantes");
     const listaAcompanantes = document.getElementById("listaAcompanantes");
     
+    // Limpiamos la lista para regenerarla
     listaAcompanantes.innerHTML = "";
 
-    if (!cbAcompanantes.checked) return;
+    if (!cbAcompanantes.checked) return; // si no está seleccionado, no hacemos nada
 
     const cantidad = parseInt(numAcompanantes.value);
 
     for (let i = 1; i <= cantidad; i++) {
-
-        // Grupo individual de acompañante
+        // Crear div contenedor para cada acompañante
         const div = document.createElement("div");
         div.classList.add("acompanante-group");
 
+        // Añadir inputs de nombre y correo
         div.innerHTML = `
             <label><b data-i18n="acompañante">Acompañante ${i}</b></label>
 
@@ -100,7 +103,9 @@ function generarAcompanantes() {
             >
         `;
         
+        // Añadir al contenedor principal
         listaAcompanantes.appendChild(div);
+
         // Aplicamos traducciones para que al recargar no se pierdan
         aplicarIdioma(localStorage.getItem("idioma") || "es");
     }
@@ -108,7 +113,7 @@ function generarAcompanantes() {
 
 export function realizarCompra() {
 
-    // Verificamos la validación antes de comprar
+    // Validar el formulario antes de continuar
     if (!validarFormulario()) {
         return;
     }
@@ -137,7 +142,7 @@ export function realizarCompra() {
     window.location.href = "Home.html";
 }
 
-
+// Carga las opciones de transporte disponibles según la ciudad seleccionada
 export async function cargarTransportes() {
     // Selector de transporte del formulario
     const selectTransporte = document.getElementById("transporte");
