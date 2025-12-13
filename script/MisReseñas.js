@@ -5,8 +5,6 @@ import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    cargar_idioma();
-
     const selector = document.querySelector(".header-idioma");
     const contenedor = document.getElementById("reseñaContenedor");
     const plantilla = document.getElementById("plantillaReseña");
@@ -31,4 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         plantilla,
         currentUser
     });
+
+    cargar_idioma();
 });

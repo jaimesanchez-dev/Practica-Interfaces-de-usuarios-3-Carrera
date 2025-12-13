@@ -98,7 +98,12 @@ export const traducciones = {
         nombre_acompañante: "Nombre del acompañante",
         correo_acompañante: "Correo del acompañante",
         lista_deseados: "Lista de deseados:",
-        sin_favoritos: "No tienes favoritos aún."
+        sin_favoritos: "No tienes favoritos aún.",
+        MisViajes: "Mis Viajes:",
+        escribe_reseña: "Escribe tu reseña:",
+        titulo_reseña:"Título de la reseña",
+        descripcion_reseña:"Descripción de la reseña",
+        publicar_reseña: "Publicar"
     },
     en: {
         inicio: "Home",
@@ -199,6 +204,11 @@ export const traducciones = {
         nombre_acompañante: "Companion's name",
         correo_acompañante: "Companion's email",
         lista_deseados: "Wishlist:",
-        sin_favoritos: "You don't have any favorites yet."
+        sin_favoritos: "You don't have any favorites yet.",
+        MisViajes: "My Trips:",
+        escribe_reseña: "Write your review:",
+        titulo_reseña: "Review Title",
+        descripcion_reseña: "Review Description",
+        publicar_reseña: "Publish"
     }
 };
