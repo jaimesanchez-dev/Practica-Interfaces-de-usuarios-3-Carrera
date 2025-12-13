@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!boton) continue;
 
         boton.addEventListener("click", () => {
-            const nombre_ciudad = boton.querySelector("h3").textContent.split(",")[0].trim();
-            localStorage.setItem("destinoSeleccionado", nombre_ciudad);
+            const h3 = boton.querySelector("h3");
+            const ciudadId = h3.id;
+
+            localStorage.setItem("destinoSeleccionado", ciudadId);
             window.location.href = "ComprarProducto.html";
         });
     }
@@ -76,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         boton.addEventListener("click", () => {
             const tarjeta = boton.closest(".tarjeta-experiencia");
-            const nombre_ciudad = tarjeta.querySelector(".tarjeta-experiencia-abajo")
-                .textContent.split(",")[0].trim();
+            const h5 = tarjeta.querySelector(".tarjeta-experiencia-abajo");
+            const ciudadId = h5.id;
 
-            localStorage.setItem("destinoSeleccionado", nombre_ciudad);
+            localStorage.setItem("destinoSeleccionado", ciudadId);
             window.location.href = "ComprarProducto.html";
         });
     }

@@ -1,8 +1,22 @@
 // consejos.js
 
 import { mostrarConsejos, enviarConsejo } from './consejosAcciones.mjs';
+import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Gestión del idioma
+  cargar_idioma();
+
+  const selector = document.querySelector(".header-idioma");
+  if (selector) {
+      selector.addEventListener("change", () => {
+          const idioma = selector.value;
+          localStorage.setItem("idioma", idioma);
+          aplicarIdioma(idioma);
+      });
+  }
+    
   // Mostrar consejos al cargar
   mostrarConsejos();
 

@@ -54,6 +54,7 @@ export async function encontrarCiudad(nombre_ciudad) {
                     return {
                         pais: pais.name,
                         nombre: isEn && ciudad.name_en ? ciudad.name_en : ciudad.name,
+                        nombre_es: ciudad.name,
                         descripcion: isEn && ciudad.description_en ? ciudad.description_en : ciudad.description,
                         imagen: ciudad.image,
                         transportes: ciudad.transportes,
