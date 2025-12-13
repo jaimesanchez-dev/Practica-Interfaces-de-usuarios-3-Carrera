@@ -111,7 +111,7 @@ export function actualizarHeader() {
             <div class="user-menu">
                 <img src="${userImage}" class="user-avatar">
                 <span class="user-name">${userData.nombre}</span>
-                <button id="btn-logout" class="btn-logout">Cerrar sesión</button>
+                <button id="btn-logout" class="btn-logout" data-i18n="cerrar_sesion">Cerrar sesión</button>
             </div>
         `;
 
