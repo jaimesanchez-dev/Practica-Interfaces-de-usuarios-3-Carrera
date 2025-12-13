@@ -125,8 +125,8 @@ export function actualizarHeader() {
     } else {
         headerAuth.innerHTML = `
             <div class="grupo-botones">
-                <button onclick="window.location.href='InicioSesion.html'">Inicio sesión</button>
-                <button onclick="window.location.href='Registro.html'">Registro</button>
+                <button class="btn-login-new" onclick="window.location.href='InicioSesion.html'">Inicio sesión</button>
+                <button class="btn-registro-new" onclick="window.location.href='Registro.html'">Registro</button>
             </div>
         `;
     }
