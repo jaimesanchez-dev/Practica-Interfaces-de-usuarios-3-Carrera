@@ -3,7 +3,8 @@
     flex-direction: column;
     margin: 50px;
 }
-.flex-main h2{
+
+.flex-main h2 {
     font-size: 28px;
     font-weight: 700;
 }
@@ -27,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
+    flex: 1;
 }
 
 .nombre-destino {
@@ -34,6 +36,7 @@
     font-weight: 700;
     margin-bottom: 10px;
 }
+
 .descripcion-destino {
     font-size: 16px;
     color: #555;
@@ -55,16 +58,19 @@
 }
 
 .input-reseña {
-    flex: 1 1 45%;
+    flex: 1;
+    min-width: 0;
     padding: 10px 12px;
     border-radius: 20px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
 .inputs-reseñas input[type="submit"] {
-    flex: 1 1 100%;
+    flex: 1;
+    min-width: 0;
     padding: 10px 0;
     border-radius: 20px;
     border: none;
@@ -72,13 +78,14 @@
     color: #fff;
     font-weight: 700;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .inputs-reseñas input[type="submit"]:hover {
     background-color: #6931f9;
 }
 
-.estrellas{
+.estrellas {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -92,7 +99,7 @@
     cursor: pointer;
 }
 
-.estrella{
+.estrella {
     width: 18px;
     height: 18px;
 }
@@ -145,4 +152,124 @@
 
 .reseña-publicada .btn-borrar:hover {
     color: #ff4d4f;
+}
+
+/*  RESPONSIVE  */
+@media (max-width: 1024px) {
+    .flex-main {
+        margin: 30px;
+    }
+
+    .imagen-destino {
+        width: 350px;
+        height: 220px;
+    }
+
+    .nombre-destino {
+        font-size: 22px;
+    }
+
+    .descripcion-destino {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 870px) {
+    .flex-main {
+        margin: 20px;
+    }
+
+    .flex-main h2 {
+        font-size: 24px;
+    }
+
+    .tarjeta {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .imagen-destino {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
+    .izquierda-tarjeta {
+        padding-left: 0;
+        padding-top: 15px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .nombre-destino {
+        font-size: 20px;
+    }
+
+    .descripcion-destino {
+        font-size: 14px;
+    }
+
+    .reseña-viaje h2 {
+        font-size: 18px;
+    }
+
+    .inputs-reseñas {
+        flex-direction: column;
+        gap: 8px;
+        padding-right: 5px;
+    }
+
+    .input-reseña {
+        flex: 1 1 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .inputs-reseñas input[type="submit"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .reseña-publicada {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .foto-usuario-reseña {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-main {
+        margin: 15px;
+    }
+
+    .flex-main h2 {
+        font-size: 20px;
+    }
+
+    .tarjeta {
+        margin-top: 25px;
+    }
+
+    .nombre-destino {
+        font-size: 18px;
+    }
+
+    .descripcion-destino {
+        font-size: 13px;
+    }
+
+    .reseña-viaje h2 {
+        font-size: 16px;
+    }
+
+    .input-reseña {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
 }

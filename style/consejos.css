@@ -42,7 +42,8 @@ body {
   font-weight: 500;
 }
 
-.active, .accordion:hover {
+.active,
+.accordion:hover {
   background-color: var(--color-morado-hover);
 }
 
@@ -65,7 +66,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out,
-              background-color var(--transition-speed) ease;
+    background-color var(--transition-speed) ease;
   margin-bottom: 5px;
 }
 
@@ -97,8 +98,8 @@ body {
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s ease,
-              background-color var(--transition-speed) ease,
-              color var(--transition-speed) ease;
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
   font-family: "Quicksand", sans-serif;
   background-color: var(--color-fondo-blanco);
   color: var(--color-texto-principal);
@@ -116,8 +117,8 @@ body {
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s ease,
-              background-color var(--transition-speed) ease,
-              color var(--transition-speed) ease;
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
   font-family: "Quicksand", sans-serif;
   background-color: var(--color-fondo-blanco);
   color: var(--color-texto-principal);
@@ -130,4 +131,11 @@ body {
 ::placeholder {
   color: var(--color-texto-claro);
   opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .formulario-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
