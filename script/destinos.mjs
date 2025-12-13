@@ -93,14 +93,16 @@ export async function cargarFavoritos() {
     if (mensajeVacio) mensajeVacio.style.display = "none";
 
     for (const favItem of favoritos) {
-        const datosCiudad = await encontrarCiudad(favItem.nombre);
+        // Buscamos la ciudad usando el nombre original guardado
+        const datosCiudad = await encontrarCiudad(favItem.nombre); 
 
         if (datosCiudad) {
             const itemDiv = document.createElement("div");
             itemDiv.classList.add("favorito-item");
 
+            // Guardamos el nombre original como data-attribute
             itemDiv.innerHTML = `
-                <button class="boton-corazon-fav" data-nombre="${datosCiudad.nombre}">
+                <button class="boton-corazon-fav" data-nombre-original="${favItem.nombre}">
                     <img src="images/corazon-negro-rojo.png" alt="Quitar de favoritos">
                 </button>
                 <div class="favorito-info">
@@ -114,7 +116,7 @@ export async function cargarFavoritos() {
             const itemDiv = document.createElement("div");
             itemDiv.classList.add("favorito-item");
             itemDiv.innerHTML = `
-                <button class="boton-corazon-fav" data-nombre="${favItem.nombre}">
+                <button class="boton-corazon-fav" data-nombre-original="${favItem.nombre}">
                     <img src="images/corazon-negro-rojo.png" alt="Quitar de favoritos">
                 </button>
                 <div class="favorito-info">
@@ -133,11 +135,12 @@ export function eliminarFavorito() {
     let favoritos = obtenerFavoritosUsuario();
     const buttons = document.querySelectorAll(".boton-corazon-fav");
     buttons.forEach(btn => {
-        btn.addEventListener("click", async () => {
-            const nombreToRemove = btn.dataset.nombre;
-            favoritos = favoritos.filter(f => f.nombre !== nombreToRemove);
-            guardarFavoritosUsuario(favoritos);
-            await cargarFavoritos();
+    btn.addEventListener("click", async () => {
+        // Usar el nombre original guardado en data-attribute
+        const nombreToRemove = btn.dataset.nombreOriginal; 
+        favoritos = favoritos.filter(f => f.nombre !== nombreToRemove);
+        guardarFavoritosUsuario(favoritos);
+        await cargarFavoritos();
         });
     });
 }

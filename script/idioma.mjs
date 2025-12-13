@@ -7,8 +7,12 @@ export function aplicarIdioma(idioma) {
         const clave = el.getAttribute("data-i18n");
         if (traducciones[idioma] && traducciones[idioma][clave]) {
             // si es un input, cambiar el placeholder, porque no tiene texto interno
-            if (el.tagName === "INPUT") {
-                el.setAttribute("placeholder", traducciones[idioma][clave]);
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                if (el.type === "submit" || el.type === "reset" || el.type === "button") {
+                    el.value = traducciones[idioma][clave];
+                } else {
+                    el.placeholder = traducciones[idioma][clave];
+                }
             } else {
                 el.innerText = traducciones[idioma][clave];
             }

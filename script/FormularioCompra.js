@@ -1,6 +1,8 @@
 // FormularioCompra.js
 
 import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra, cargarTransportes } from "./formulario.mjs";
+import { cargar_idioma, aplicarIdioma } from "./idioma.mjs";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // Referenciamos todos los elementos necesarios
@@ -21,8 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarSeccionesFormulario();
     inicializarAcompañantes();
     cargarTransportes();
+
+    // Gestión del idioma
+    cargar_idioma();
+
+    const selector = document.querySelector(".header-idioma");
+    if (selector) {
+        selector.addEventListener("change", () => {
+            const idioma = selector.value;
+            localStorage.setItem("idioma", idioma);
+            aplicarIdioma(idioma);
+        });
+    }
 });
-
-
-
-

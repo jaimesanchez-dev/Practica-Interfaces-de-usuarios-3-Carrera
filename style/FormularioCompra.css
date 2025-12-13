@@ -150,22 +150,3 @@ input {
 .acompanante-group input {
     margin-top: 5px;
 }
-
-/* --- Animación suave para secciones desplegables --- */
-
-.contenedor-animable {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transform: scaleY(0.8);
-    transition:
-        max-height 0.4s ease,
-        opacity 0.4s ease,
-        transform 0.4s ease;
-}
-
-.contenedor-animable.mostrar {
-    max-height: 1000px; /* suficiente para todo el contenido */
-    opacity: 1;
-    transform: scaleY(1);
-}

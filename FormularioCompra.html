@@ -49,21 +49,21 @@
 
     <main class="fc_main">
         <div class="recuadro">
-            <h1>Formulario de compra</h1>
+            <h1 data-i18n="formulario">Formulario de compra</h1>
 
             <form id="formCompra">
 
                 <!-- Nombre y Apellidos -->
                 <div class="datos">
-                    <input type="text" class="registro" name="nombre" placeholder="Nombre" id="inputNombre">
-                    <input type="text" class="registro" name="apellidos" placeholder="Apellidos" id="inputApellidos">
-                    <input type="email" class="registro" placeholder="Correo Electrónico" name="correo">
+                    <input data-i18n="nombre" type="text" class="registro" name="nombre" placeholder="Nombre" id="inputNombre">
+                    <input data-i18n="apellidos" type="text" class="registro" name="apellidos" placeholder="Apellidos" id="inputApellidos">
+                    <input data-i18n="correo" type="email" class="registro" placeholder="Correo Electrónico" name="correo">
                 </div>
 
                 <!-- Tipo de tarjeta -->
-                <p>Tipo de tarjeta</p>
+                <p data-i18n="tarjeta">Tipo de tarjeta</p>
                 <select id="inputTipoTarjeta" name="tarjeta">
-                    <option value="">Seleccione...</option>
+                    <option data-i18n="seleccione" value="">Seleccione...</option>
                     <option value="Visa">Visa</option>
                     <option value="Mastercard">Mastercard</option>
                     <option value="American Express">American Express</option>
@@ -71,12 +71,12 @@
 
                 <!-- Número y titular -->
                 <div class="datos">
-                    <input type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="inputNumeroTarjeta">
-                    <input type="text" class="registro" name="titular_tarjeta" placeholder="Nombre del titular" id="inputTitularTarjeta">
+                    <input data-i18n="n_tarjeta" type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="inputNumeroTarjeta">
+                    <input data-i18n="titular" type="text" class="registro" name="titular_tarjeta" placeholder="Nombre del titular" id="inputTitularTarjeta">
                 </div>
 
                 <!-- Fecha y cvv -->
-                <p>Fecha de caducidad</p>
+                <p data-i18n="caducidad">Fecha de caducidad</p>
                 <div class="flex-h">
                     <input type="date" id="inputFechaCaducidadTarjeta" name="fecha_caducidad">
                     <input type="number" id="inputCVV" name="cvv" placeholder="CVV">
@@ -86,23 +86,23 @@
                 <div class="contenedor_opciones">
                     <div class="checkbox">
                         <input id="cbAcompanantes" type="checkbox">
-                        <div><b>¿Más acompañantes?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
+                        <div><b data-i18n="acompañantes">¿Más acompañantes?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
                     </div>
 
                     <div class="checkbox">
                         <input id="cbMascotas" type="checkbox">
-                        <div><b>¿Mascotas?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
+                        <div><b data-i18n="mascotas">¿Mascotas?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
                     </div>
 
                     <div class="checkbox">
                         <input id="cbAlergias" type="checkbox">
-                        <div><b>¿Intolerancias o alergias?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
+                        <div><b data-i18n="intolerancias">¿Intolerancias o alergias?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
                     </div>
                 </div>
 
                 <!-- Contenedor dinámico acompañantes -->
-                <div id="contenedorAcompanantes" class="contenedor-animable oculto">
-                    <label for="numAcompanantes"><b>Número de acompañantes:</b></label>
+                <div id="contenedorAcompanantes" class="oculto">
+                    <label for="numAcompanantes"><b data-i18n="n_acompañantes">Número de acompañantes:</b></label>
                     <select id="numAcompanantes">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -121,19 +121,19 @@
 
                 <!-- Mascotas -->
                 <div id="contenedorMascotas" class="contenedor-animable oculto">
-                    <p><b>Datos de la mascota</b></p>
-                    <input type="text" class="registro" id="tipoMascota" placeholder="Tipo de mascota">
-                    <input type="text" class="registro" id="tamanoMascota" placeholder="Tamaño de mascota">
+                    <p><b data-i18n="d_mascota">Datos de la mascota</b></p>
+                    <input data-i18n="ti_mascota" type="text" class="registro" id="tipoMascota" placeholder="Tipo de mascota">
+                    <input data-i18n="ta_mascota" type="text" class="registro" id="tamanoMascota" placeholder="Tamaño de mascota">
                 </div>
 
                 <!-- Alergias -->
                 <div id="contenedorAlergias" class="contenedor-animable oculto">
-                    <p><b>Indique alergias o intolerancias</b></p>
-                    <textarea id="txtAlergias" rows="3" placeholder="Escriba aquí..."></textarea>
+                    <p><b data-i18n="i_alergias">Indique alergias o intolerancias</b></p>
+                    <textarea data-i18n="escribir" id="txtAlergias" rows="3" placeholder="Escriba aquí..."></textarea>
                 </div>
 
                 <!-- TRANSPORTE -->
-                <p>Tipo de transporte</p>
+                <p data-i18n="transporte">Tipo de transporte</p>
                 <select id="transporte" name="transporte">
                     <option value="Barco">Barco</option>
                     <option value="Autobus">Autobús</option>
@@ -143,8 +143,8 @@
 
                 <!-- BOTONES -->
                 <div class="botones_finales">
-                    <input type="submit" value="Comprar" class="comprar-borrar" id="btnComprar">
-                    <input type="reset" value="Borrar" class="comprar-borrar">
+                    <input data-i18n="comprar" type="submit" value="Comprar" class="comprar-borrar" id="btnComprar">
+                    <input data-i18n="borrar" type="reset" value="Borrar" class="comprar-borrar">
                 </div>
             </form>
         </div>

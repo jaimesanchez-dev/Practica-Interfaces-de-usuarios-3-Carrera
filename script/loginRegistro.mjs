@@ -1,6 +1,7 @@
 // loginRegistro.mjs
 
 import { validarNombre, validarApellidos, validarPassword } from "./validaciones.mjs";
+import { aplicarIdioma } from "./idioma.mjs";
 
 export function inicializarRegistro() {
     if (!window.location.pathname.includes("Registro.html")) return;
@@ -118,17 +119,19 @@ export function actualizarHeader() {
         document.getElementById("btn-logout").addEventListener("click", () => {
             if (confirm(`¿Seguro que quieres cerrar sesión, ${userData.nombre}?`)) {
                 localStorage.removeItem("currentUser");
-                window.location.reload();
+                window.location.replace("Home.html");
             }
         });
 
     } else {
         headerAuth.innerHTML = `
             <div class="grupo-botones">
-                <button class="btn-login-new" onclick="window.location.href='InicioSesion.html'">Inicio sesión</button>
-                <button class="btn-registro-new" onclick="window.location.href='Registro.html'">Registro</button>
+                <button data-i18n="iniciosesion" class="btn-login-new" onclick="window.location.href='InicioSesion.html'">Inicio sesión</button>
+                <button data-i18n="registro" class="btn-registro-new" onclick="window.location.href='Registro.html'">Registro</button>
             </div>
         `;
     }
+    // Aplicamos traducciones para que al recargar no se pierdan
+    aplicarIdioma(localStorage.getItem("idioma") || "es");
 }
 

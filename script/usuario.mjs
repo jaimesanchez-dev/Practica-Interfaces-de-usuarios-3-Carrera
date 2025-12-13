@@ -54,7 +54,7 @@ export function inicializarCerrarSesion() {
 
         if (confirm(mensaje)) {
             localStorage.removeItem("currentUser");
-            window.location.href = "Home.html";
+            window.location.replace("Home.html");
         }
     });
 }

@@ -2,6 +2,7 @@
 
 import { validarFormulario } from "./validaciones.mjs";
 import { encontrarCiudad } from "./destinos.mjs";
+import { aplicarIdioma } from "./idioma.mjs";
 
 
 export function mostrarSeccionesFormulario() {
@@ -19,11 +20,11 @@ export function mostrarSeccionesFormulario() {
     cbAcompanantes.addEventListener("change", () => {
         if (cbAcompanantes.checked) {
             contAcompanantes.classList.remove("oculto");
-            setTimeout(() => contAcompanantes.classList.add("mostrar"), 10);
+            contAcompanantes.classList.add("mostrar");
             generarAcompanantes();
         } else {
             contAcompanantes.classList.remove("mostrar");
-            setTimeout(() => contAcompanantes.classList.add("oculto"), 400);
+            contAcompanantes.classList.add("oculto");
         }
     });
 
@@ -78,11 +79,12 @@ function generarAcompanantes() {
         div.classList.add("acompanante-group");
 
         div.innerHTML = `
-            <label><b>Acompañante ${i}</b></label>
+            <label><b data-i18n="acompañante">Acompañante ${i}</b></label>
 
             <!-- Nombre de acompañante -->
             <input 
                 type="text" 
+                data-i18n="nombre_acompañante"
                 class="registro" 
                 name="acompanante_nombre_${i}" 
                 placeholder="Nombre del acompañante ${i}"
@@ -90,14 +92,17 @@ function generarAcompanantes() {
 
             <!-- Correo de acompañante -->
             <input 
-                type="email" 
+                type="email"
+                data-i18n="correo_acompañante" 
                 class="registro" 
                 name="acompanante_correo_${i}" 
                 placeholder="Correo del acompañante ${i}"
             >
         `;
-
+        
         listaAcompanantes.appendChild(div);
+        // Aplicamos traducciones para que al recargar no se pierdan
+        aplicarIdioma(localStorage.getItem("idioma") || "es");
     }
 }
 
@@ -160,8 +165,15 @@ export async function cargarTransportes() {
         const option = document.createElement("option");
         option.value = t;
         option.textContent = t;
+        if (t === "barco") {option.setAttribute("data-i18n", "barco");}
+        if (t === "autobus") {option.setAttribute("data-i18n", "autobus");}
+        if (t === "avion") {option.setAttribute("data-i18n", "avion");}
+        if (t === "tren") {option.setAttribute("data-i18n", "tren");}
         selectTransporte.appendChild(option);
     });
+    // Aplicamos traducciones para que al recargar no se pierdan
+    aplicarIdioma(localStorage.getItem("idioma") || "es");
+
 
     // Si solo hay 1 transporte, bloqueamos selector
     if (ciudad.transportes.length === 1) {
