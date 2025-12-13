@@ -3,6 +3,7 @@
 import { boton_lista_favoritos } from './botonesInteractivos.mjs';
 import { rellenar_info_destino, encontrarCiudad, cargarReseñasCiudad } from './destinos.mjs';
 import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -93,4 +94,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             alert("Esta opción no está implementada");
         });
     }
+
+    // Cargamos la moneda
+    cargar_moneda()
+    const selectMoneda = document.querySelector(".header-moneda");
+    if (selectMoneda) {
+        selectMoneda.addEventListener("change", async () => {
+            await cargarDatosProducto();
+        });
+    }
+
 });

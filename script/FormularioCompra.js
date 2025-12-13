@@ -2,6 +2,7 @@
 
 import { mostrarSeccionesFormulario, inicializarAcompañantes, realizarCompra, cargarTransportes } from "./formulario.mjs";
 import { cargar_idioma, aplicarIdioma } from "./idioma.mjs";
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -35,4 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             aplicarIdioma(idioma);
         });
     }
+
+    // Cargamos la moneda
+    cargar_moneda()
 });

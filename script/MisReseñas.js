@@ -2,6 +2,7 @@
 
 import { renderizarMisReseñas } from './reseñas.mjs';
 import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -30,5 +31,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         currentUser
     });
 
+    // Cargamos el idioma
     cargar_idioma();
+
+    // Cargamos la moneda
+    cargar_moneda()
 });

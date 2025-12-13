@@ -2,6 +2,7 @@
 
 import { mostrarConsejos, enviarConsejo } from './consejosAcciones.mjs';
 import { cargar_idioma, aplicarIdioma } from './idioma.mjs';
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -30,4 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') enviarConsejo(inputTitulo, inputDescripcion);
     });
   });
+
+
+    // Cargamos la moneda
+    cargar_moneda()
 });

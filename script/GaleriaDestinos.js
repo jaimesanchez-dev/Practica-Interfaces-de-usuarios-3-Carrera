@@ -3,6 +3,7 @@
 import { iniciarGaleria } from "./galeria.mjs";
 import { iniciarBuscador, aplicarFiltros } from "./buscador.mjs";
 import { cargar_idioma, aplicarIdioma } from "./idioma.mjs";
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", async () => {
     cargar_idioma();
@@ -38,4 +39,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             alert("Debes iniciar sesión para acceder a la página del perfil.");
         }
     });
+
+    // Cargamos la moneda
+    cargar_moneda()
+
+    const selectMoneda = document.querySelector(".header-moneda");
+    if (selectMoneda) {
+        // Si cambia la moneda, volvemos a "dibujar" los precios con la nueva moneda
+        selectMoneda.addEventListener("change", async () => {
+            await iniciarGaleria();
+        });
+    }
 });

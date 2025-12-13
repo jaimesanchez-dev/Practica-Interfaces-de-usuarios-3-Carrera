@@ -20,24 +20,31 @@ function guardarFavoritosUsuario(favoritos) {
 }
 
 export function rellenar_info_destino(datos_ciudad) {
-    if (datos_ciudad) {
-        const nombreElement = document.querySelector(".producto-nombre");
-        nombreElement.textContent = `${datos_ciudad.nombre} , ${datos_ciudad.pais}`;
-        // Guardamos el nombre original (español) para referencias internas como favoritos
-        nombreElement.setAttribute("data-nombre-original", datos_ciudad.nombre_es);
+    if (!datos_ciudad) return;
 
-        document.querySelector(".producto-precio").textContent = `${datos_ciudad.precio} €`;
-        document.querySelector(".producto-descripcion").textContent = datos_ciudad.descripcion;
-        document.querySelector(".producto-imagen").src = datos_ciudad.imagen.url;
-        document.querySelector(".producto-imagen").alt = datos_ciudad.imagen.alt;
+    const moneda = localStorage.getItem("moneda") || "EUR";
+    const conversion = {
+        EUR: 1,
+        USD: 1.08,
+        YEN: 144
+    };
+    const simbolos = {
+        EUR: "€",
+        USD: "$",
+        YEN: "¥"
+    };
 
-        const listaTransportes = datos_ciudad.transportes || [];
+    const precioConvertido =(datos_ciudad.precio * conversion[moneda]).toFixed(0);
+    document.querySelector(".producto-nombre").textContent =`${datos_ciudad.nombre} , ${datos_ciudad.pais}`;
+    document.querySelector(".producto-precio").textContent =`${precioConvertido}${simbolos[moneda]}`;
+    document.querySelector(".producto-descripcion").textContent =datos_ciudad.descripcion;
+    document.querySelector(".producto-imagen").src =datos_ciudad.imagen.url;
+    document.querySelector(".producto-imagen").alt =datos_ciudad.imagen.alt;
 
-        document.querySelectorAll(".caracteristica").forEach(checkbox => {
-            checkbox.checked = listaTransportes.includes(checkbox.value);
-        });
-    }
+    document.querySelectorAll(".caracteristica").forEach(cb => {cb.checked = datos_ciudad.transportes.includes(cb.value);
+    });
 }
+
 
 export async function encontrarCiudad(nombre_ciudad) {
     let datospaises;

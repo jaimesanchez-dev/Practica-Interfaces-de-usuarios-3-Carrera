@@ -18,14 +18,25 @@ export function renderizarDestinos(lista) {
     contenedor.innerHTML = "";
 
     const idioma = localStorage.getItem("idioma") || "es";
+    const moneda = localStorage.getItem("moneda") || "EUR"; // obtenemos la moneda actual
     const isEn = idioma === "en";
 
+    // Tasas de conversión respecto a EUR
+    const conversion = {
+        EUR: 1,
+        USD: 1.08, // ejemplo: 1€ = 1.08$
+        YEN: 144   // ejemplo: 1€ = 144¥
+    };
+
+    // Símbolos para cada moneda
+    const simbolos = {
+        EUR: "€",
+        USD: "$",
+        YEN: "¥"
+    };
+
     if (lista.length === 0) {
-        if (isEn) {
-            contenedor.innerHTML = "<p>No destinations found.</p>";
-        } else {
-            contenedor.innerHTML = "<p>No se encontraron destinos.</p>";
-        }
+        contenedor.innerHTML = isEn ? "<p>No destinations found.</p>" : "<p>No se encontraron destinos.</p>";
         return;
     }
 
@@ -41,7 +52,9 @@ export function renderizarDestinos(lista) {
             clone.querySelector(".nombre-destino").textContent = ciudad.name;
         }
 
-        clone.querySelector(".precio-destino").textContent = ciudad.precio + "€";
+        // Convertimos el precio según la moneda
+        const precioConvertido = (ciudad.precio * conversion[moneda]).toFixed(0);
+        clone.querySelector(".precio-destino").textContent = `${precioConvertido}${simbolos[moneda]}`;
 
         clone.querySelector(".tarjeta-destino").addEventListener("click", () => {
             const nombre = ciudad.name.split(",")[0].trim();

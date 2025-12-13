@@ -3,6 +3,7 @@
 import {cargarUsuarioPerfil, inicializarCerrarSesion} from "./usuario.mjs";
 import { cargar_idioma, aplicarIdioma } from "./idioma.mjs";
 import { inicializarToggles, cargarEstadoToggles} from "./ajustes.mjs";
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
     // Gestión del idioma
@@ -21,4 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inicializarToggles();
     cargarEstadoToggles();
     inicializarCerrarSesion();
+
+    // Cargamos la moneda
+    cargar_moneda()
 });

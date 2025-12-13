@@ -3,6 +3,7 @@
 import { iniciarCarrusel } from './carrusel.mjs';
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
 import { boton_favoritos_home } from './botonesInteractivos.mjs';
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -85,4 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "ComprarProducto.html";
         });
     }
+
+    cargar_moneda()
 });

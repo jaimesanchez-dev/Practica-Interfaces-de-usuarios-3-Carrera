@@ -2,6 +2,7 @@
 
 import { aplicarIdioma, cargar_idioma } from './idioma.mjs';
 import { cargarFavoritos } from './destinos.mjs';
+import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -36,4 +37,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Cargamos los favoritos del usuario actual
     await cargarFavoritos();
+
+
+    // Cargamos la moneda
+    cargar_moneda()
 });
