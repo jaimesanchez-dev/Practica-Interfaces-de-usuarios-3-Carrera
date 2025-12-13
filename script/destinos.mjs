@@ -4,7 +4,7 @@
 function obtenerFavoritosUsuario() {
     const usuario = localStorage.getItem("currentUser");
     if (!usuario) return [];
-    
+
     const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
     return todosFavoritos[usuario] || [];
 }
@@ -13,7 +13,7 @@ function obtenerFavoritosUsuario() {
 function guardarFavoritosUsuario(favoritos) {
     const usuario = localStorage.getItem("currentUser");
     if (!usuario) return;
-    
+
     const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
     todosFavoritos[usuario] = favoritos;
     localStorage.setItem("favoritos_por_usuario", JSON.stringify(todosFavoritos));
@@ -44,7 +44,7 @@ export async function encontrarCiudad(nombre_ciudad) {
         console.error("Error al cargar el JSON de ciudades:", error);
         return null;
     }
-    
+
     for (const continente of datospaises.continents) {
         for (const pais of continente.countries) {
             for (const ciudad of pais.cities) {
@@ -52,7 +52,7 @@ export async function encontrarCiudad(nombre_ciudad) {
                     const idioma = localStorage.getItem("idioma") || "es";
                     const isEn = idioma === "en";
                     return {
-                        pais: pais.name,
+                        pais: isEn && pais.name_en ? pais.name_en : pais.name,
                         nombre: isEn && ciudad.name_en ? ciudad.name_en : ciudad.name,
                         nombre_es: ciudad.name,
                         descripcion: isEn && ciudad.description_en ? ciudad.description_en : ciudad.description,

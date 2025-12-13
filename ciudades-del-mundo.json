@@ -5,6 +5,7 @@
       "countries": [
         {
           "name": "Austria",
+          "name_en": "Austria",
           "cities": [
             {
               "name": "Viena",
@@ -26,6 +27,7 @@
         },
         {
           "name": "Bélgica",
+          "name_en": "Belgium",
           "cities": [
             {
               "name": "Brujas",
@@ -47,6 +49,7 @@
         },
         {
           "name": "Dinamarca",
+          "name_en": "Denmark",
           "cities": [
             {
               "name": "Copenhague",
@@ -68,6 +71,7 @@
         },
         {
           "name": "Eslovenia",
+          "name_en": "Slovenia",
           "cities": [
             {
               "name": "Liubliana",
@@ -88,6 +92,7 @@
         },
         {
           "name": "España",
+          "name_en": "Spain",
           "cities": [
             {
               "name": "Barcelona",
@@ -125,6 +130,7 @@
         },
         {
           "name": "Estonia",
+          "name_en": "Estonia",
           "cities": [
             {
               "name": "Tallin",
@@ -145,6 +151,7 @@
         },
         {
           "name": "Francia",
+          "name_en": "France",
           "cities": [
             {
               "name": "París",
@@ -165,6 +172,7 @@
         },
         {
           "name": "Hungría",
+          "name_en": "Hungary",
           "cities": [
             {
               "name": "Budapest",
@@ -186,6 +194,7 @@
         },
         {
           "name": "Italia",
+          "name_en": "Italy",
           "cities": [
             {
               "name": "Florencia",
@@ -239,6 +248,7 @@
         },
         {
           "name": "Malta",
+          "name_en": "Malta",
           "cities": [
             {
               "name": "La Valeta",
@@ -259,6 +269,7 @@
         },
         {
           "name": "Noruega",
+          "name_en": "Norway",
           "cities": [
             {
               "name": "Bergen",
@@ -279,6 +290,7 @@
         },
         {
           "name": "Países Bajos",
+          "name_en": "Netherlands",
           "cities": [
             {
               "name": "Ámsterdam",
@@ -301,6 +313,7 @@
         },
         {
           "name": "Portugal",
+          "name_en": "Portugal",
           "cities": [
             {
               "name": "Oporto",
@@ -322,6 +335,7 @@
         },
         {
           "name": "Reino Unido",
+          "name_en": "United Kingdom",
           "cities": [
             {
               "name": "Londres",
@@ -359,6 +373,7 @@
         },
         {
           "name": "República Checa",
+          "name_en": "Czech Republic",
           "cities": [
             {
               "name": "Praga",
@@ -381,6 +396,7 @@
         },
         {
           "name": "Suiza",
+          "name_en": "Switzerland",
           "cities": [
             {
               "name": "Lucerna",
@@ -418,6 +434,7 @@
         },
         {
           "name": "Islandia",
+          "name_en": "Iceland",
           "cities": [
             {
               "name": "Reikiavik",
@@ -444,6 +461,7 @@
       "countries": [
         {
           "name": "China",
+          "name_en": "China",
           "cities": [
             {
               "name": "Beijing",
@@ -481,6 +499,7 @@
         },
         {
           "name": "Corea del Sur",
+          "name_en": "South Korea",
           "cities": [
             {
               "name": "Seúl",
@@ -501,6 +520,7 @@
         },
         {
           "name": "India",
+          "name_en": "India",
           "cities": [
             {
               "name": "Jaipur",
@@ -522,6 +542,7 @@
         },
         {
           "name": "Japón",
+          "name_en": "Japan",
           "cities": [
             {
               "name": "Kioto",
@@ -544,6 +565,7 @@
         },
         {
           "name": "Laos",
+          "name_en": "Laos",
           "cities": [
             {
               "name": "Luang Prabang",
@@ -565,6 +587,7 @@
         },
         {
           "name": "Líbano",
+          "name_en": "Lebanon",
           "cities": [
             {
               "name": "Beirut",
@@ -586,6 +609,7 @@
         },
         {
           "name": "Omán",
+          "name_en": "Oman",
           "cities": [
             {
               "name": "Mascate",
@@ -607,6 +631,7 @@
         },
         {
           "name": "Qatar",
+          "name_en": "Qatar",
           "cities": [
             {
               "name": "Doha",
@@ -627,6 +652,7 @@
         },
         {
           "name": "Tailandia",
+          "name_en": "Thailand",
           "cities": [
             {
               "name": "Chiang Mai",
@@ -647,6 +673,7 @@
         },
         {
           "name": "Vietnam",
+          "name_en": "Vietnam",
           "cities": [
             {
               "name": "Hanoi",
@@ -668,6 +695,7 @@
         },
         {
           "name": "Singapur",
+          "name_en": "Singapore",
           "cities": [
             {
               "name": "Singapur",
@@ -693,6 +721,7 @@
       "countries": [
         {
           "name": "Marruecos",
+          "name_en": "Morocco",
           "cities": [
             {
               "name": "Chefchaouen",
@@ -713,6 +742,7 @@
         },
         {
           "name": "Sudáfrica",
+          "name_en": "South Africa",
           "cities": [
             {
               "name": "Ciudad del Cabo",
@@ -739,6 +769,7 @@
       "countries": [
         {
           "name": "Australia",
+          "name_en": "Australia",
           "cities": [
             {
               "name": "Sídney",
@@ -759,6 +790,7 @@
         },
         {
           "name": "Nueva Zelanda",
+          "name_en": "New Zealand",
           "cities": [
             {
               "name": "Queenstown",
@@ -785,6 +817,7 @@
       "countries": [
         {
           "name": "Canadá",
+          "name_en": "Canada",
           "cities": [
             {
               "name": "Ciudad de Quebec",
@@ -806,6 +839,7 @@
         },
         {
           "name": "Cuba",
+          "name_en": "Cuba",
           "cities": [
             {
               "name": "La Habana",
@@ -827,6 +861,7 @@
         },
         {
           "name": "Estados Unidos",
+          "name_en": "United States",
           "cities": [
             {
               "name": "Nueva York",
@@ -864,6 +899,7 @@
         },
         {
           "name": "México",
+          "name_en": "Mexico",
           "cities": [
             {
               "name": "San Miguel de Allende",
@@ -889,6 +925,7 @@
       "countries": [
         {
           "name": "Argentina",
+          "name_en": "Argentina",
           "cities": [
             {
               "name": "Buenos Aires",
@@ -909,6 +946,7 @@
         },
         {
           "name": "Brasil",
+          "name_en": "Brazil",
           "cities": [
             {
               "name": "Río de Janeiro",
@@ -930,6 +968,7 @@
         },
         {
           "name": "Colombia",
+          "name_en": "Colombia",
           "cities": [
             {
               "name": "Cartagena",
@@ -950,6 +989,7 @@
         },
         {
           "name": "Ecuador",
+          "name_en": "Ecuador",
           "cities": [
             {
               "name": "Quito",
@@ -970,6 +1010,7 @@
         },
         {
           "name": "Perú",
+          "name_en": "Peru",
           "cities": [
             {
               "name": "Cuzco",

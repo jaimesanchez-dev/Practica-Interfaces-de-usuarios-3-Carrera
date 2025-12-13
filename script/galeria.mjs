@@ -21,7 +21,7 @@ export function renderizarDestinos(lista) {
     const isEn = idioma === "en";
 
     if (lista.length === 0) {
-        if (isEn){
+        if (isEn) {
             contenedor.innerHTML = "<p>No destinations found.</p>";
         } else {
             contenedor.innerHTML = "<p>No se encontraron destinos.</p>";
@@ -44,9 +44,9 @@ export function renderizarDestinos(lista) {
         clone.querySelector(".precio-destino").textContent = ciudad.precio + "€";
 
         clone.querySelector(".tarjeta-destino").addEventListener("click", () => {
-        const nombre = ciudad.name.split(",")[0].trim();
-        localStorage.setItem("destinoSeleccionado", nombre);
-        window.location.href = "ComprarProducto.html";
+            const nombre = ciudad.name.split(",")[0].trim();
+            localStorage.setItem("destinoSeleccionado", nombre);
+            window.location.href = "ComprarProducto.html";
         });
 
         contenedor.appendChild(clone);
@@ -71,6 +71,7 @@ async function cargarCiudades() {
                         transportes: ciudad.transportes,
                         precio: ciudad.precio,
                         pais: pais.name,
+                        pais_en: pais.name_en,
                         continente: cont.name
                     });
                 });
