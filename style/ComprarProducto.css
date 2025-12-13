@@ -1,6 +1,6 @@
 /* Apartado Main */
 
-.flex-main{
+.flex-main {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -8,20 +8,20 @@
     margin: 0;
 }
 
-.flex-producto{
+.flex-producto {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
     justify-content: center;
     padding: 3%;
-    padding-left:10%;
+    padding-left: 10%;
     padding-right: 10%;
     background-color: var(--color-fondo-comprar);
     transition: background-color var(--transition-speed) ease;
 }
 
-.producto-arriba{
+.producto-arriba {
     display: flex;
     flex-direction: row;
     height: 440px;
@@ -30,12 +30,12 @@
     gap: 6%;
 }
 
-.producto-imagen-contenedor{
+.producto-imagen-contenedor {
     position: relative;
     width: 70%;
 }
 
-.producto-imagen{
+.producto-imagen {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -51,11 +51,11 @@
     left: 20px;
 }
 
-.producto-corazon{
+.producto-corazon {
     width: 50px;
 }
 
-.producto-detalles{
+.producto-detalles {
     display: flex;
     width: 30%;
     height: auto;
@@ -63,13 +63,13 @@
     gap: 20px;
 }
 
-.producto-nombre{
+.producto-nombre {
     font-weight: bold;
     color: var(--color-texto-principal);
     transition: color var(--transition-speed) ease;
 }
 
-.producto-precio{
+.producto-precio {
     font-weight: bold;
     font-size: 30px;
     color: var(--color-texto-principal);
@@ -92,16 +92,16 @@
     background-color: var(--color-boton-oscuro-hover);
 }
 
-.producto-descripcion{
+.producto-descripcion {
     padding: 10px;
     background-color: var(--color-fondo-blanco);
     border-radius: 10px;
     color: var(--color-texto-principal);
     transition: background-color var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+        color var(--transition-speed) ease;
 }
 
-.producto-abajo{
+.producto-abajo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -109,7 +109,7 @@
     width: 100%;
 }
 
-.flex-reseñas{
+.flex-reseñas {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -121,14 +121,14 @@
     transition: background-color var(--transition-speed) ease;
 }
 
-.reseña-contenedor{
+.reseña-contenedor {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 5%;
 }
 
-.reseña-item{
+.reseña-item {
     display: flex;
     flex: 1;
     height: min-content;
@@ -138,10 +138,10 @@
     border-radius: 10px;
     padding: 20px;
     transition: background-color var(--transition-speed) ease,
-                border-color var(--transition-speed) ease;
+        border-color var(--transition-speed) ease;
 }
 
-.estrellas{
+.estrellas {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -155,18 +155,18 @@
     cursor: pointer;
 }
 
-.estrella{
+.estrella {
     width: 18px;
     height: 18px;
 }
 
-.reseña-titulo{
+.reseña-titulo {
     font-weight: bold;
     color: var(--color-texto-principal);
     transition: color var(--transition-speed) ease;
 }
 
-.reseña-usuario{
+.reseña-usuario {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -175,9 +175,200 @@
     transition: color var(--transition-speed) ease;
 }
 
-.usuario-imagen{
+.usuario-imagen {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.titulo-reseñas {
+    color: var(--color-texto-principal);
+    transition: color var(--transition-speed) ease;
+}
+
+.reseña-texto {
+    color: var(--color-texto-principal);
+    transition: color var(--transition-speed) ease;
+}
+
+.caracteristica {
+    color: var(--color-texto-principal);
+    transition: color var(--transition-speed) ease;
+}
+
+.producto-abajo label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-texto-principal);
+}
+
+/*
+   RESPONSIVE - TABLET (800px)
+*/
+@media screen and (max-width: 800px) {
+    .flex-producto {
+        padding: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 25px;
+    }
+
+    .producto-arriba {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .producto-imagen-contenedor {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .producto-imagen {
+        height: 280px;
+        border-radius: 10px;
+    }
+
+    .btn-corazon {
+        top: 15px;
+        left: 15px;
+    }
+
+    .producto-corazon {
+        width: 40px;
+    }
+
+    .producto-detalles {
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .producto-nombre {
+        font-size: 22px;
+    }
+
+    .producto-precio {
+        font-size: 28px;
+    }
+
+    .producto-comprar-boton {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .producto-descripcion {
+        text-align: left;
+        font-size: 14px;
+    }
+
+    /* Opciones de transporte - grid 2x2 */
+    .producto-abajo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .producto-abajo label {
+        font-size: 18px;
+    }
+
+    /* Reseñas - 2 columnas */
+    .flex-reseñas {
+        padding: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 15px;
+    }
+
+    .titulo-reseñas {
+        font-size: 20px;
+    }
+
+    .reseña-contenedor {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .reseña-item {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 250px;
+        padding: 15px;
+    }
+
+    .reseña-titulo {
+        font-size: 16px;
+    }
+
+    .reseña-texto {
+        font-size: 14px;
+    }
+}
+
+/*
+   RESPONSIVE - MÓVIL (500px)
+*/
+@media screen and (max-width: 500px) {
+    .flex-producto {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .producto-imagen-contenedor {
+        width: 100%;
+    }
+
+    .producto-imagen {
+        height: 220px;
+    }
+
+    .producto-corazon {
+        width: 35px;
+    }
+
+    .producto-nombre {
+        font-size: 20px;
+    }
+
+    .producto-precio {
+        font-size: 24px;
+    }
+
+    .producto-abajo {
+        gap: 15px;
+    }
+
+    .producto-abajo label {
+        font-size: 16px;
+    }
+
+    /* Reseñas - 1 columna */
+    .flex-reseñas {
+        padding: 15px;
+    }
+
+    .titulo-reseñas {
+        font-size: 18px;
+    }
+
+    .reseña-contenedor {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .reseña-item {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
 }
