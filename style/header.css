@@ -249,3 +249,213 @@ body.modo-daltonico .boton-ini:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* =====================================================
+   RESPONSIVE - PANTALLA MEDIANA (1100px)
+   ===================================================== */
+@media screen and (max-width: 1100px) {
+    .header {
+        gap: 1%;
+        padding: 0.5% 15px;
+    }
+
+    .header-imagen {
+        height: 60px;
+        width: 85px;
+        margin-right: 5px;
+    }
+
+    .header h2 {
+        font-size: 14px;
+    }
+
+    .header h2 a {
+        padding: 6px 8px;
+    }
+
+    .boton-reg,
+    .boton-ini,
+    .grupo-botones .btn-login-new,
+    .grupo-botones .btn-registro-new {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+
+    .header-idioma,
+    .header-moneda {
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+
+    .user-menu {
+        padding: 4px 12px;
+        gap: 10px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user-name {
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    .btn-logout {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET (768px)
+   ===================================================== */
+@media screen and (max-width: 868px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .header-imagen {
+        height: 55px;
+        width: 80px;
+        margin-right: 5px;
+    }
+
+    .header h2 {
+        font-size: 13px;
+    }
+
+    .header h2 a {
+        padding: 6px 8px;
+    }
+
+    .grupo-botones {
+        order: 10;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .grupo-selectores {
+        order: 11;
+    }
+
+    .boton-reg,
+    .boton-ini,
+    .grupo-botones .btn-login-new,
+    .grupo-botones .btn-registro-new {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+
+    .header-idioma,
+    .header-moneda {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .user-menu {
+        padding: 4px 12px;
+        gap: 10px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user-name {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .btn-logout {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE - MÓVIL (600px)
+   ===================================================== */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .header-imagen {
+        height: 45px;
+        width: 65px;
+        margin-right: 3px;
+    }
+
+    .header h2 {
+        font-size: 11px;
+    }
+
+    .header h2 a {
+        padding: 5px 6px;
+    }
+
+    .grupo-botones {
+        order: 10;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .grupo-selectores {
+        order: 11;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .boton-reg,
+    .boton-ini,
+    .grupo-botones .btn-login-new,
+    .grupo-botones .btn-registro-new {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .header-idioma,
+    .header-moneda {
+        padding: 3px 6px;
+        font-size: 11px;
+        border-width: 2px;
+    }
+
+    .user-menu {
+        padding: 3px 10px;
+        gap: 8px;
+    }
+
+    .user-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .user-name {
+        font-size: 12px;
+        margin-right: 3px;
+    }
+
+    .btn-logout {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .foto-usuario {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+}
