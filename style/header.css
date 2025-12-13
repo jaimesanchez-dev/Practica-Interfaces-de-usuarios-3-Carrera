@@ -250,9 +250,9 @@ body.modo-daltonico .boton-ini:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* =====================================================
+/*
    RESPONSIVE - PANTALLA MEDIANA (1100px)
-   ===================================================== */
+*/
 @media screen and (max-width: 1100px) {
     .header {
         gap: 1%;
@@ -308,9 +308,9 @@ body.modo-daltonico .boton-ini:hover {
     }
 }
 
-/* =====================================================
+/*
    RESPONSIVE - TABLET (768px)
-   ===================================================== */
+*/
 @media screen and (max-width: 868px) {
     .header {
         flex-wrap: wrap;
@@ -379,9 +379,9 @@ body.modo-daltonico .boton-ini:hover {
     }
 }
 
-/* =====================================================
+/*
    RESPONSIVE - MÓVIL (600px)
-   ===================================================== */
+*/
 @media screen and (max-width: 600px) {
     .header {
         flex-wrap: wrap;

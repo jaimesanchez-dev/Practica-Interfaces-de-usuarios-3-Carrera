@@ -372,9 +372,9 @@
     transition: color var(--transition-speed) ease;
 }
 
-/* =====================================================
+/*
    RESPONSIVE - PANTALLA MEDIANA (1100px)
-   ===================================================== */
+*/
 @media screen and (max-width: 1300px) {
 
     /* Tarjetas de experiencia - 2 columnas más amplias */
@@ -391,9 +391,9 @@
     }
 }
 
-/* =====================================================
+/*
    RESPONSIVE - TABLET (768px)
-   ===================================================== */
+*/
 @media screen and (max-width: 768px) {
 
     /* Banner */
@@ -486,9 +486,9 @@
     }
 }
 
-/* =====================================================
+/*
    RESPONSIVE - MÓVIL (600px)
-   ===================================================== */
+*/
 @media screen and (max-width: 668px) {
 
     /* Banner */
