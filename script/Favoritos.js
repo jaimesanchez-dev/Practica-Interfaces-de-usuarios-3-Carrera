@@ -6,8 +6,10 @@ import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
+    // Cargamos el idioma guardado
     cargar_idioma();
 
+    // Selector de idioma
     const selector = document.querySelector(".header-idioma");
     if (selector) {
         selector.addEventListener("change", async () => {

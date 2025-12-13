@@ -32,6 +32,8 @@ function initAccordions() {
         accActualizado[i].addEventListener("click", function() {
         this.classList.toggle("active");
         const panel = this.nextElementSibling;
+
+        // Abrir o cerrar el panel
         if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
         } else {
@@ -45,6 +47,7 @@ function initAccordions() {
 function cargarConsejos() {
     let consejosGuardados = localStorage.getItem('consejos');
 
+    // Si no hay consejos guardados, se cargan los por defecto
     if (!consejosGuardados || consejosGuardados === '[]') {
         localStorage.setItem('consejos', JSON.stringify(consejosPorDefecto));
         consejosGuardados = JSON.stringify(consejosPorDefecto);
@@ -89,7 +92,7 @@ function guardarConsejos() {
     const todosLosAccordions = main.querySelectorAll('.accordion');
     const consejos = [];
 
-    // Obtener TODOS los consejos actuales
+    // Obtener todos los consejos actuales
     todosLosAccordions.forEach(accordion => {
         const panel = accordion.nextElementSibling;
         consejos.push({
@@ -137,6 +140,7 @@ function agregarConsejo(titulo, descripcion) {
     
     // Guardar en localStorage
     guardarConsejos();
+    
     // Reinicializar los event listeners de los acordeones
     initAccordions();
 }

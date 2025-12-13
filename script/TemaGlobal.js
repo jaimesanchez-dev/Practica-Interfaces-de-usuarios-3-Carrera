@@ -1,6 +1,7 @@
-// temaGlobal.js - Script para aplicar los temas guardados en todas las páginas
+// temaGlobal.js
+// Aplica los temas guardados en todas las páginas
 
-// Función que se ejecuta inmediatamente al cargar
+// Función que se ejecuta inmediatamente al cargar la página
 (function() {
     // Cargar estado de daltonismo
     const modoDaltonico = localStorage.getItem('modo-daltonico');

@@ -7,9 +7,9 @@ import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Inicializar botones de favoritos PRIMERO
+    // Inicializar botones de favoritos
     boton_favoritos_home();
-
+    // Iniciamos el carrusel principal
     iniciarCarrusel();
 
     // Controlamos a que páginas puede acceder el usuario si no ha iniciado sesión
@@ -67,12 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const h3 = boton.querySelector("h3");
             const ciudadId = h3.id;
 
+            // Guardamos el destino seleccionado y redirigimos a la página de compra
             localStorage.setItem("destinoSeleccionado", ciudadId);
             window.location.href = "ComprarProducto.html";
         });
     }
 
-    // Botones de compra (c1-c6)
+    // Botones de compra de las experiencias (c1-c6)
     for (let i = 1; i <= 6; i++) {
         const boton = document.querySelector(`.c${i}`);
         if (!boton) continue;
@@ -86,6 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "ComprarProducto.html";
         });
     }
-
+    // Cargamos la moneda seleccionada
     cargar_moneda()
 });

@@ -3,6 +3,7 @@
 import { encontrarCiudad } from './destinos.mjs';
 import { actualizarEstrellas } from './botonesInteractivos.mjs';
 
+// Oculta el formulario original y genera un div con la reseña publicada
 function mostrarReseña(form, titulo, descripcion, estrellas) {
 
     // Ocultar formulario y estrellas
@@ -10,8 +11,8 @@ function mostrarReseña(form, titulo, descripcion, estrellas) {
     const contenedorEstrellas = form.closest(".reseña-viaje").querySelector(".estrellas");
     contenedorEstrellas.style.display = "none";
 
-    const destino = form.dataset.destino;
-    const currentUser = localStorage.getItem("currentUser");
+    const destino = form.dataset.destino; // destino al que pertenece la reseña
+    const currentUser = localStorage.getItem("currentUser"); // usuario logueado
 
     const div = document.createElement("div");
     div.classList.add("reseña-publicada");
@@ -63,17 +64,15 @@ function mostrarReseña(form, titulo, descripcion, estrellas) {
 }
 
 
-
-export async function renderizarMisReseñas({
-    contenedor,
-    plantilla,
-    currentUser
-}) {
+// Renderiza todas las reseñas del usuario para los destinos comprados
+export async function renderizarMisReseñas({ contenedor, plantilla, currentUser }) {
     contenedor.innerHTML = "";
 
+    // Obtenemos destinos comprados
     const destinosComprados =
         JSON.parse(localStorage.getItem("compras_" + currentUser)) || [];
 
+    // Mensaje si no ha comprado nada
     if (destinosComprados.length === 0) {
         const idioma = localStorage.getItem("idioma") || "es";
         contenedor.innerHTML =
@@ -82,31 +81,29 @@ export async function renderizarMisReseñas({
                 : "<p>No has comprado ningún destino todavía.</p>";
         return;
     }
-
-    let reseñasUsuario =
-        JSON.parse(localStorage.getItem("reseñas_" + currentUser)) || [];
+    // Obtenemos reseñas del usuario
+    let reseñasUsuario = JSON.parse(localStorage.getItem("reseñas_" + currentUser)) || [];
 
     for (const destino of destinosComprados) {
         const datosCiudad = await encontrarCiudad(destino);
         if (!datosCiudad) continue;
 
+        // Clonamos plantilla HTML para cada destino
         const clone = plantilla.content.cloneNode(true);
 
         clone.querySelector(".imagen-destino").src = datosCiudad.imagen.url;
         clone.querySelector(".imagen-destino").alt = datosCiudad.imagen.alt;
-        clone.querySelector(".nombre-destino").textContent =
-            `${datosCiudad.nombre} , ${datosCiudad.pais}`;
-        clone.querySelector(".descripcion-destino").textContent =
-            datosCiudad.descripcion;
+        clone.querySelector(".nombre-destino").textContent = `${datosCiudad.nombre} , ${datosCiudad.pais}`;
+        clone.querySelector(".descripcion-destino").textContent = datosCiudad.descripcion;
 
         const form = clone.querySelector(".inputs-reseñas");
         const estrellasContenedor = clone.querySelector(".estrellas");
         let estrellasValor = 0;
 
-        form.dataset.destino = destino;
-
-        const reseñaExistente =
-            reseñasUsuario.find(r => r.destino === destino);
+        form.dataset.destino = destino; // asociamos el formulario al destino
+        
+        // Si ya existe una reseña para este destino
+        const reseñaExistente = reseñasUsuario.find(r => r.destino === destino);
 
         if (reseñaExistente) {
             estrellasValor = reseñaExistente.estrellas;
@@ -127,8 +124,8 @@ export async function renderizarMisReseñas({
             .querySelectorAll(".btn-estrella")
             .forEach(boton => {
                 boton.addEventListener("click", () => {
-                    estrellasValor = parseInt(boton.dataset.pos);
-                    actualizarEstrellas(estrellasContenedor, estrellasValor);
+                    estrellasValor = parseInt(boton.dataset.pos); // actualizamos valor
+                    actualizarEstrellas(estrellasContenedor, estrellasValor); // actualizamos visual
                 });
             });
 
@@ -144,28 +141,17 @@ export async function renderizarMisReseñas({
                 return alert("Rellena todos los campos.");
             }
 
-            reseñasUsuario =
-                reseñasUsuario.filter(r => r.destino !== destino);
+            // Guardamos la reseña del usuario
+            reseñasUsuario = reseñasUsuario.filter(r => r.destino !== destino);
 
-            reseñasUsuario.push({
-                destino,
-                titulo,
-                descripcion,
-                estrellas: estrellasValor
-            });
+            reseñasUsuario.push({destino, titulo, descripcion, estrellas: estrellasValor});
 
-            localStorage.setItem(
-                "reseñas_" + currentUser,
-                JSON.stringify(reseñasUsuario)
-            );
+            localStorage.setItem( "reseñas_" + currentUser, JSON.stringify(reseñasUsuario));
 
-            let ultimas =
-                JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
-
+            // Guardamos las últimas reseñas por destino (máx. 3)
+            let ultimas = JSON.parse(localStorage.getItem("ultimas_reseñas")) || {};
             if (!ultimas[destino]) ultimas[destino] = [];
-
-            ultimas[destino] =
-                ultimas[destino].filter(r => r.usuario !== currentUser);
+            ultimas[destino] = ultimas[destino].filter(r => r.usuario !== currentUser);
 
             ultimas[destino].push({
                 usuario: currentUser,
@@ -179,11 +165,9 @@ export async function renderizarMisReseñas({
 
             ultimas[destino] = ultimas[destino].slice(-3);
 
-            localStorage.setItem(
-                "ultimas_reseñas",
-                JSON.stringify(ultimas)
-            );
+            localStorage.setItem( "ultimas_reseñas", JSON.stringify(ultimas) );
 
+            // Mostramos la reseña publicada
             mostrarReseña(form, titulo, descripcion, estrellasValor);
             form.style.display = "none";
             estrellasContenedor.style.display = "none";

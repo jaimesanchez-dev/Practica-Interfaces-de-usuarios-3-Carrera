@@ -1,9 +1,10 @@
 // botonesInteractivos.mjs
 
-// Función para actualizar la visualización de estrellas en un contenedor dado:
+// Función para actualizar la visualización de estrellas en un contenedor dado
 export function actualizarEstrellas(contenedor, valor) {
     const botones = contenedor.querySelectorAll(".btn-estrella");
 
+    // Recorremos todas las estrellas y las rellenamos según el valor seleccionado
     botones.forEach(b => {
         const img = b.querySelector("img");
         if (b.dataset.pos <= valor) {
@@ -23,6 +24,7 @@ function obtenerFavoritosUsuario() {
     const todosFavoritos = JSON.parse(localStorage.getItem("favoritos_por_usuario")) || {};
     return todosFavoritos[usuario] || [];
 }
+
 // Función auxiliar para guardar favoritos del usuario actual
 function guardarFavoritosUsuario(favoritos) {
     const usuario = localStorage.getItem("currentUser");
@@ -32,6 +34,7 @@ function guardarFavoritosUsuario(favoritos) {
     todosFavoritos[usuario] = favoritos;
     localStorage.setItem("favoritos_por_usuario", JSON.stringify(todosFavoritos));
 }
+
 // Función para el botón de lista de favoritos en la página de producto
 export function boton_lista_favoritos() {
     const boton = document.querySelector(".btn-corazon");
@@ -42,20 +45,24 @@ export function boton_lista_favoritos() {
     // Cargar estado inicial del favorito para este usuario
     const nombreCompletoElement = document.querySelector(".producto-nombre");
     const nombreCompleto = nombreCompletoElement.innerText;
+    
     // Preferimos el nombre original si existe (guardado en el atributo data), si no, lo parseamos
     const nombre = nombreCompletoElement.getAttribute("data-nombre-original") || nombreCompleto.split(",")[0].trim();
     const favoritosUsuario = obtenerFavoritosUsuario();
     const esFavorito = favoritosUsuario.some(f => f.nombre === nombre);
 
+    // Mostramos el icono correspondiente según si es favorito o no
     if (esFavorito) {
         img.src = "images/corazon-negro-rojo.png";
     } else {
         img.src = "images/corazon-negro.png";
     }
 
+    // Evento click para añadir o quitar de favoritos
     boton.addEventListener("click", () => {
         const nombreCompletoElement = document.querySelector(".producto-nombre");
         const nombreCompleto = nombreCompletoElement.innerText;
+        
         // Preferimos el nombre original si existe
         const nombre = nombreCompletoElement.getAttribute("data-nombre-original") || nombreCompleto.split(",")[0].trim();
 
@@ -65,9 +72,11 @@ export function boton_lista_favoritos() {
         const yaEsFavorito = favoritosUsuario.some(f => f.nombre === nombre);
 
         if (yaEsFavorito) {
+            // Quitamos de favoritos
             favoritosUsuario = favoritosUsuario.filter(f => f.nombre !== nombre);
             img.src = "images/corazon-negro.png";
         } else {
+            // Añadimos a favoritos
             favoritosUsuario.push({ nombre });
             img.src = "images/corazon-negro-rojo.png";
         }
@@ -93,6 +102,7 @@ export function boton_favoritos_home() {
     // Cargar estado inicial para el usuario actual
     const favoritosUsuario = obtenerFavoritosUsuario();
 
+    // Recorremos todas las tarjetas para marcar las favoritas
     heartContainers.forEach(container => {
         const tarjeta = container.closest(".tarjeta-experiencia");
         if (tarjeta) {

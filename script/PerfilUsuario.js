@@ -6,7 +6,7 @@ import { inicializarToggles, cargarEstadoToggles} from "./ajustes.mjs";
 import { cargar_moneda } from './moneda.mjs';
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Gestión del idioma
+    // Carga el idioma seleccionado
     cargar_idioma();
 
     const selector = document.querySelector(".header-idioma");
@@ -17,10 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
             aplicarIdioma(idioma);
         });
     }
-
+    // Cargamos los datos del usuario en el perfil
     cargarUsuarioPerfil();
+    // Inicializamos los toggles de ajustes
     inicializarToggles();
+    // Cargamos el estado guardado de los toggles
     cargarEstadoToggles();
+    // Inicializamos el cierre de sesión
     inicializarCerrarSesion();
 
     // Cargamos la moneda
