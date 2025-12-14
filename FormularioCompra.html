@@ -34,13 +34,15 @@
         </div>
 
         <div class="grupo-selectores">
-            <select class="header-moneda" name="moneda">
+            <label for="moneda" class="sr-only">Selecciona moneda</label>
+            <select class="header-moneda" name="moneda" id="moneda">
                 <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
 
-            <select class="header-idioma" name="idioma">
+            <label for="idioma" class="sr-only">Selecciona idioma</label>
+            <select class="header-idioma" name="idioma" id="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
             </select>
@@ -55,12 +57,18 @@
 
                 <!-- Nombre y Apellidos -->
                 <div class="datos">
+                    <label for="inputNombre" class="sr-only">Nombre</label>
                     <input data-i18n="nombre" type="text" class="registro" name="nombre" placeholder="Nombre" id="inputNombre">
+
+                    <label for="inputApellidos" class="sr-only">Apellidos</label>
                     <input data-i18n="apellidos" type="text" class="registro" name="apellidos" placeholder="Apellidos" id="inputApellidos">
-                    <input data-i18n="correo" type="email" class="registro" placeholder="Correo Electrónico" name="correo">
+
+                    <label for="inputCorreo" class="sr-only">Correo electrónico</label>
+                    <input data-i18n="correo" type="email" class="registro" placeholder="Correo Electrónico" name="correo" id="inputCorreo">
                 </div>
 
                 <!-- Tipo de tarjeta -->
+                <label for="inputTipoTarjeta" class="sr-only">Tipo de tarjeta</label>
                 <p data-i18n="tarjeta">Tipo de tarjeta</p>
                 <select id="inputTipoTarjeta" name="tarjeta">
                     <option data-i18n="seleccione" value="">Seleccione...</option>
@@ -71,34 +79,44 @@
 
                 <!-- Número y titular -->
                 <div class="datos">
+                    <label for="inputNumeroTarjeta" class="sr-only">Número de tarjeta</label>
                     <input data-i18n="n_tarjeta" type="text" class="registro" name="numero_tarjeta" placeholder="Número de tarjeta" id="inputNumeroTarjeta">
+
+                    <label for="inputTitularTarjeta" class="sr-only">Nombre del titular</label>
                     <input data-i18n="titular" type="text" class="registro" name="titular_tarjeta" placeholder="Nombre del titular" id="inputTitularTarjeta">
                 </div>
 
-                <!-- Fecha y cvv -->
+                <!-- Fecha y CVV -->
+                <label for="inputFechaCaducidadTarjeta" class="sr-only">Fecha de caducidad</label>
                 <p data-i18n="caducidad">Fecha de caducidad</p>
                 <div class="flex-h">
                     <input type="date" id="inputFechaCaducidadTarjeta" name="fecha_caducidad">
+
+                    <label for="inputCVV" class="sr-only">CVV</label>
                     <input type="number" id="inputCVV" name="cvv" placeholder="CVV">
                 </div>
 
                 <!-- Checkboxes -->
                 <div class="contenedor_opciones">
                     <div class="checkbox">
+                        <label for="cbAcompanantes" class="sr-only">Acompañantes</label>
                         <input id="cbAcompanantes" type="checkbox">
-                        <div><b data-i18n="acompañantes">¿Más acompañantes?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
+                        <div><b>¿Más acompañantes?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
 
                     <div class="checkbox">
+                        <label for="cbMascotas" class="sr-only">Mascotas</label>
                         <input id="cbMascotas" type="checkbox">
-                        <div><b data-i18n="mascotas">¿Mascotas?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
+                        <div><b>¿Mascotas?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
 
                     <div class="checkbox">
+                        <label for="cbAlergias" class="sr-only">Intolerancias o alergias</label>
                         <input id="cbAlergias" type="checkbox">
-                        <div><b data-i18n="intolerancias">¿Intolerancias o alergias?</b><br><h4 data-i18n="casilla">Marca la casilla en caso afirmativo</h4></div>
+                        <div><b>¿Intolerancias o alergias?</b><br><h4>Marca la casilla en caso afirmativo</h4></div>
                     </div>
                 </div>
+
 
                 <!-- Contenedor dinámico acompañantes -->
                 <div id="contenedorAcompanantes" class="oculto">
@@ -122,17 +140,24 @@
                 <!-- Mascotas -->
                 <div id="contenedorMascotas" class="contenedor-animable oculto">
                     <p><b data-i18n="d_mascota">Datos de la mascota</b></p>
+
+                    <label for="tipoMascota" class="sr-only">Tipo de mascota</label>
                     <input data-i18n="ti_mascota" type="text" class="registro" id="tipoMascota" placeholder="Tipo de mascota">
+
+                    <label for="tamanoMascota" class="sr-only">Tamaño de mascota</label>
                     <input data-i18n="ta_mascota" type="text" class="registro" id="tamanoMascota" placeholder="Tamaño de mascota">
                 </div>
 
                 <!-- Alergias -->
                 <div id="contenedorAlergias" class="contenedor-animable oculto">
                     <p><b data-i18n="i_alergias">Indique alergias o intolerancias</b></p>
+
+                    <label for="txtAlergias" class="sr-only">Alergias o intolerancias</label>
                     <textarea data-i18n="escribir" id="txtAlergias" rows="3" placeholder="Escriba aquí..."></textarea>
                 </div>
 
-                <!-- TRANSPORTE -->
+                <!-- Transporte -->
+                <label for="transporte" class="sr-only">Tipo de transporte</label>
                 <p data-i18n="transporte">Tipo de transporte</p>
                 <select id="transporte" name="transporte">
                     <option value="Barco">Barco</option>
@@ -141,7 +166,7 @@
                     <option value="Tren">Tren</option>
                 </select>
 
-                <!-- BOTONES -->
+                <!-- Botones -->
                 <div class="botones_finales">
                     <input data-i18n="comprar" type="submit" value="Comprar" class="comprar-borrar" id="btnComprar">
                     <input data-i18n="borrar" type="reset" value="Borrar" class="comprar-borrar">
@@ -150,15 +175,11 @@
         </div>
     </main>
 
-
     <footer class="footer">
         <div class="footer-redes">
-            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes"
-                    src="./images/instagram-logo.png" alt="logo instagram"></a>
-            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png"
-                    alt="logo tiktok"></a>
-            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png"
-                    alt="logo youtube"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="logo-redes" src="./images/instagram-logo.png" alt="logo instagram"></a>
+            <a href="https://www.tiktok.com/es/" target="_blank"><img class="logo-redes" src="./images/tiktok-logo.png" alt="logo tiktok"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img class="logo-redes" src="./images/youtube-logo.png" alt="logo youtube"></a>
         </div>
 
         <h3><a href="" data-i18n="politica"> Politica de Privacidad </a></h3>

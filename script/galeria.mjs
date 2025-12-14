@@ -43,7 +43,7 @@ export function renderizarDestinos(lista) {
         const clone = plantilla.content.cloneNode(true);
 
         clone.querySelector(".imagen-destino").src = ciudad.image.url;
-        clone.querySelector(".imagen-destino").alt = ciudad.image.alt;
+        clone.querySelector(".imagen-destino").alt = `Ciudad: ${ciudad.image.alt}`;
 
         // Nombre del destino según el idioma
         if (isEn && ciudad.name_en) {

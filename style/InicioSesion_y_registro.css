@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/San Francisco, United States.jpg');
+    background-image: url('../images/San_Francisco_United_States.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -80,4 +80,16 @@
     text-decoration: underline;
     margin-top: 10px;
     transition: color var(--transition-speed) ease;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
 }

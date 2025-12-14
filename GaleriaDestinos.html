@@ -16,15 +16,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<template id="plantillaDestino">
-    <div class="tarjeta-destino">
-        <img class="imagen-destino" src="" alt="">
-        <h3 class="nombre-destino"></h3>
-        <h4 class="precio-destino"></h4>
-    </div>
-</template>
-
 <body>
+
+    <template id="plantillaDestino">
+        <div class="tarjeta-destino">
+            <img class="imagen-destino" src="" alt="">
+            <h3 class="nombre-destino"></h3>
+            <h4 class="precio-destino"></h4>
+        </div>
+    </template>
 
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
@@ -42,13 +42,15 @@
         </div>
 
         <div class="grupo-selectores">
-            <select class="header-moneda" name="moneda">
+            <label for="moneda" class="sr-only">Selecciona moneda</label>
+            <select class="header-moneda" name="moneda" id="moneda">
                 <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
 
-            <select class="header-idioma" name="idioma">
+            <label for="idioma" class="sr-only">Selecciona idioma</label>
+            <select class="header-idioma" name="idioma" id="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
             </select>
@@ -67,11 +69,13 @@
             </div>
 
             <div class="buscador_destinos">
+                <label for="buscadorInput" class="sr-only">Buscar destino o país</label>
                 <input type="text" id="buscadorInput" data-i18n="buscar" placeholder="Buscar destino...">
                 <span class="lupa-icon">🔍</span>
             </div>
 
             <div class="filtro_continentes">
+                <label for="filtroContinente" class="sr-only">Selecciona continente</label>
                 <select id="filtroContinente">
                     <option data-i18n="continentes" value="todos">Todos los continentes</option>
                     <option data-i18n="europa" value="Europa">Europa</option>

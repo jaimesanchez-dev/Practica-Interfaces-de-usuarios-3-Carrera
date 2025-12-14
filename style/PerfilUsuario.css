@@ -177,7 +177,7 @@
 }
 
 .opcion-flecha {
-    color: var(--color-texto-claro);
+    color: var(--color-texto-principal);
     font-size: 18px;
     transition: color var(--transition-speed) ease;
 }
@@ -203,4 +203,16 @@
     color: var(--color-texto-principal);
     font-weight: 600;
     transition: color var(--transition-speed) ease;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
 }

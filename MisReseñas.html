@@ -16,37 +16,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<template id="plantillaReseña">
-    <div class="tarjeta">
-        <div class="derecha-tarjeta">   
-            <img class="imagen-destino" src="" alt="">
-        </div>
-
-        <div class="izquierda-tarjeta">
-            <div class="info-viaje">
-                <h2 class="nombre-destino"></h2>
-                <h4 class="descripcion-destino"></h4>
-            </div>
-            <div class="reseña-viaje">
-                <h2 data-i18n="escribe_reseña">Escribe tu reseña:</h2>
-                <div class="estrellas">
-                    <button class="btn-estrella" data-pos="1"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
-                    <button class="btn-estrella" data-pos="2"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
-                    <button class="btn-estrella" data-pos="3"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
-                    <button class="btn-estrella" data-pos="4"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
-                    <button class="btn-estrella" data-pos="5"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
-                </div>
-                <form class="inputs-reseñas">
-                    <input data-i18n="titulo_reseña" type="text" class="input-reseña" name="titulo_resena" placeholder="Título de la reseña">
-                    <input data-i18n="descripcion_reseña" type="text" class="input-reseña" name="descr_resena" placeholder="Descripción de la reseña">
-                    <input data-i18n="publicar_reseña" type="submit" value="Publicar">
-                </form> 
-            </div>
-        </div>
-    </div>
-</template>
-
 <body>
+    <template id="plantillaReseña">
+        <div class="tarjeta">
+            <div class="derecha-tarjeta">   
+                <img class="imagen-destino" src="" alt="">
+            </div>
+
+            <div class="izquierda-tarjeta">
+                <div class="info-viaje">
+                    <h2 class="nombre-destino"></h2>
+                    <h3 class="descripcion-destino"></h3>
+                </div>
+                <div class="reseña-viaje">
+                    <h2 data-i18n="escribe_reseña">Escribe tu reseña:</h2>
+                    <div class="estrellas">
+                        <button class="btn-estrella" data-pos="1"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
+                        <button class="btn-estrella" data-pos="2"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
+                        <button class="btn-estrella" data-pos="3"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
+                        <button class="btn-estrella" data-pos="4"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
+                        <button class="btn-estrella" data-pos="5"><img class="estrella" src="images/estrella-vacia.png" alt="estrella"></button>
+                    </div>
+                    <form class="inputs-reseñas">
+                        <input data-i18n="titulo_reseña" type="text" class="input-reseña" name="titulo_resena" placeholder="Título de la reseña" aria-label="Título de la reseña">
+                        
+                        <input data-i18n="descripcion_reseña" type="text" class="input-reseña" name="descr_resena" placeholder="Descripción de la reseña" aria-label="Descripción de la reseña">
+                        
+                        <input data-i18n="publicar_reseña" type="submit" value="Publicar" aria-label="Publicar reseña">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <header class="header">
         <img class="header-imagen" src="images/logo.png" alt="logo-web">
@@ -64,13 +65,15 @@
         </div>
 
         <div class="grupo-selectores">
-            <select class="header-moneda" name="moneda">
+            <label for="moneda" class="sr-only">Selecciona moneda</label>
+            <select class="header-moneda" name="moneda" id="moneda">
                 <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
                 <option value="YEN">YEN</option>
             </select>
 
-            <select class="header-idioma" name="idioma">
+            <label for="idioma" class="sr-only">Selecciona idioma</label>
+            <select class="header-idioma" name="idioma" id="idioma">
                 <option value="es" data-i18n="español">Español</option>
                 <option value="en" data-i18n="ingles">Inglés</option>
             </select>

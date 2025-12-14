@@ -114,7 +114,7 @@ export function actualizarHeader() {
 
         headerAuth.innerHTML = `
             <div class="user-menu">
-                <img src="${userImage}" class="user-avatar">
+                <img src="${userImage}" class="user-avatar" alt="foto_usuario">
                 <span class="user-name">${userData.nombre}</span>
                 <button id="btn-logout" class="btn-logout" data-i18n="cerrar_sesion">Cerrar sesión</button>
             </div>

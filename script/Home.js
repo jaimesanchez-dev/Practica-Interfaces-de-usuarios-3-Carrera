@@ -58,20 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botones del carrusel (b1-b8)
-    for (let i = 1; i <= 8; i++) {
-        const boton = document.getElementById(`b${i}`);
-        if (!boton) continue;
+// Botones del carrusel (b1-b8)
+for (let i = 1; i <= 8; i++) {
+    const boton = document.getElementById(`b${i}`);
+    if (!boton) continue;
 
-        boton.addEventListener("click", () => {
-            const h3 = boton.querySelector("h3");
-            const ciudadId = h3.id;
+    boton.addEventListener("click", () => {
+        const span = boton.querySelector("span");
+        if (!span) return;
+        const ciudadId = span.id;
 
-            // Guardamos el destino seleccionado y redirigimos a la página de compra
-            localStorage.setItem("destinoSeleccionado", ciudadId);
-            window.location.href = "ComprarProducto.html";
-        });
-    }
+        // Guardamos el destino seleccionado y redirigimos a la página de compra
+        localStorage.setItem("destinoSeleccionado", ciudadId);
+        window.location.href = "ComprarProducto.html";
+    });
+}
 
     // Botones de compra de las experiencias (c1-c6)
     for (let i = 1; i <= 6; i++) {
