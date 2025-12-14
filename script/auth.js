@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    
     // Inicializamos el registro de usuarios
     inicializarRegistro();
 
@@ -21,4 +22,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Actualizamos el header según si hay un usuario logueado o no
     actualizarHeader();
+
 });
