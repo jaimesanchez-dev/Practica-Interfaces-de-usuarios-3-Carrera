@@ -120,11 +120,20 @@ export async function cargarFavoritos() {
                     <img src="images/corazon-negro-rojo.png" alt="Quitar de favoritos">
                 </button>
                 <div class="favorito-info">
-                    <h2>${datosCiudad.nombre}</h2>
+                    <h2 class="nombre-favorito">${datosCiudad.nombre}</h2>
                     <p>${datosCiudad.descripcion}</p>
                 </div>
             `;
             listaContainer.appendChild(itemDiv);
+
+            // Al hacer click en el nombre del destino
+            const nombreH2 = itemDiv.querySelector(".nombre-favorito");
+            nombreH2.addEventListener("click", () => {
+                // Guardamos el destino en localStorage
+                localStorage.setItem("destinoSeleccionado", datosCiudad.nombre_es);
+                // Redirigimos a la página de compra
+                window.location.href = "ComprarProducto.html";
+        });
         } else {
             // Si no encontramos info de la ciudad, solo mostramos el nombre
             console.warn(`No se encontraron detalles para el favorito: ${favItem.nombre}`);
@@ -135,11 +144,17 @@ export async function cargarFavoritos() {
                     <img src="images/corazon-negro-rojo.png" alt="Quitar de favoritos">
                 </button>
                 <div class="favorito-info">
-                    <h2>${favItem.nombre}</h2>
+                    <h2 class="nombre-favorito">${favItem.nombre}</h2>
                     <p>Descripción no disponible.</p>
                 </div>
             `;
             listaContainer.appendChild(itemDiv);
+
+            const nombreH2 = itemDiv.querySelector(".nombre-favorito");
+            nombreH2.addEventListener("click", () => {
+                localStorage.setItem("destinoSeleccionado", favItem.nombre);
+                window.location.href = "ComprarProducto.html";
+            });
         }
     }
 
