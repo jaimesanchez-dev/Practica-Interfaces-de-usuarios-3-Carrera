@@ -12,14 +12,26 @@ export function iniciarCarrusel() {
 
     // Función para mostrar una diapositiva específica
     function showSlide(n) {
-        if (n < 0) index = total - 2;     // última posición válida (para que no se vea la ultima foto con hueco blanco a la derecha)
-        else if (n >= total-1) index = 0;
-        else index = n;
+        // Primero nos aseguramos de que el índice sea válido:
+        if (n < 0) index = total - 1;   // Si pasamos antes de la primera, vamos al último
+        else if (n >= total) index = 0; // Si pasamos del último, volvemos al primero
+        else index = n;                  // Si está dentro del rango, usamos ese índice
 
-         // Calculamos el desplazamiento teniendo en cuenta el gap entre imágenes
-        const offset = -(index * 50 + index * 2); // multiplico por 2 porque el gap entre las imagenes es 2%
-        track.style.transform = `translateX(${offset}%)`;
+        const item = packs[0]; // Tomamos el primer item para medir su ancho dinámicamente
+
+        // Obtenemos el gap real que tiene el track en píxeles
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.gap);
+
+        // Calculamos cuánto tenemos que desplazar el track
+        // Ancho del item + gap entre items
+        const offset = -(index * (item.offsetWidth + gap));
+
+        // Movemos el track usando translateX
+        // Usamos px, así se adapta perfectamente al responsive y al gap real
+        track.style.transform = `translateX(${offset}px)`;
     }
+
     // Funciones de navegación manual
     function siguienteSlide() {
         showSlide(index + 1);
