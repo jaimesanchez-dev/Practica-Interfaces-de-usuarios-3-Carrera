@@ -13,8 +13,8 @@ export function iniciarCarrusel() {
     // Función para mostrar una diapositiva específica
     function showSlide(n) {
         // Primero nos aseguramos de que el índice sea válido:
-        if (n < 0) index = total - 1;   // Si pasamos antes de la primera, vamos al último
-        else if (n >= total) index = 0; // Si pasamos del último, volvemos al primero
+        if (n < 0) index = total - 2;   // Si pasamos antes de la primera, vamos al último
+        else if (n >= total-1) index = 0; // Si pasamos del último, volvemos al primero
         else index = n;                  // Si está dentro del rango, usamos ese índice
 
         const item = packs[0]; // Tomamos el primer item para medir su ancho dinámicamente
